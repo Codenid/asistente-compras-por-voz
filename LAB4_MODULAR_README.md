@@ -27,12 +27,12 @@ La presentación refleja una ejecución anterior: **3 de 20 escenarios completad
 6. `06_integracion_voz_y_compra.ipynb`
 7. `07_pruebas_y_resultados.ipynb`
 
-Los notebooks deben ejecutarse en Google Colab, desde la raíz del proyecto. El runtime debe tener GPU habilitada para que quepan los modelos de la solución. El paquete no llama a APIs externas de inferencia. `requirements.txt` conserva NumPy 1.26 y PyArrow 20 para evitar el conflicto observado al importar versiones recientes de PyArrow con NumPy 1.x; PyTorch lo provee el runtime.
+Los notebooks deben ejecutarse en Google Colab, desde la raíz del proyecto. El runtime debe tener GPU habilitada para que quepan los modelos de la solución. El paquete no llama a APIs externas de inferencia. `requirements-lab4-modular.txt` conserva NumPy 1.26 y PyArrow 20 para evitar el conflicto observado al importar versiones recientes de PyArrow con NumPy 1.x; PyTorch lo provee el runtime.
 
 ## Datos y voz
 
 - Coloca los Parquet de la versión reducida ESCI en `input/` o `data/raw/`.
-- Coloca una grabación de referencia y su transcripción exacta por persona: `data/voice_samples/<voice_id>.wav` y `data/voice_samples/<voice_id>.txt`.
+- Coloca una grabación de referencia por persona en `data/voice_samples/<voice_id>.wav`. Su transcripción en `<voice_id>.txt` es opcional: los perfiles se generan también cuando falta o está vacía.
 - El notebook 02 produce `data/voice_profiles/<voice_id>.pt`.
 - Los audios de escenario se guardan en `data/scenario_audio/<voice_id>/` como `E01_t1.wav` … `E06_tN.wav`. El notebook final muestra los nombres requeridos.
 
