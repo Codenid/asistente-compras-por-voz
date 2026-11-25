@@ -3,6 +3,7 @@
 # oficiales de tu versión de CUDA antes de instalar este archivo.
 
 jupyterlab
+ipywidgets
 ipykernel
 # NumPy 2.x puede romper imports internos usados por SciPy/TTS.
 numpy==1.26.4
