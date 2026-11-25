@@ -57,7 +57,20 @@ def cargar_sistema(cargar_llm=True):
     llm = None
     if cargar_llm:
         t0 = time.perf_counter()
-        llm = LLMLocal(C.MODELO_LLM, cuatro_bits=True, dispositivo=dispositivo)
+        try:
+            llm = LLMLocal(C.MODELO_LLM, cuatro_bits=True, dispositivo=dispositivo)
+        except ValueError as exc:
+            falta_vram = dispositivo == "cuda" and (
+                "Some modules are dispatched on the CPU or the disk" in str(exc)
+                or "enough GPU RAM" in str(exc)
+            )
+            if not falta_vram:
+                raise
+            print("VRAM insuficiente para Qwen en 4 bits; se cargará el modelo en CPU.")
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            llm = LLMLocal(C.MODELO_LLM, cuatro_bits=False, dispositivo="cpu")
+            dispositivo = "cpu"
         cargas["llm"] = time.perf_counter() - t0
 
     sistema = Sistema(catalogo, recuperador, tienda, llm, C.K_RESULTADOS,
