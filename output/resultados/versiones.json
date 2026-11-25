@@ -1,0 +1,15 @@
+{
+  "python": "3.11.9",
+  "sistema": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU (11.9 GB)",
+  "torch": "2.7.1+cu128",
+  "transformers": "4.44.2",
+  "sentence_transformers": "3.0.1",
+  "accelerate": "1.16.0",
+  "bitsandbytes": "no disponible (ModuleNotFoundError)",
+  "TTS": "0.22.0",
+  "rank_bm25": "no disponible (AttributeError)",
+  "jiwer": "no disponible (AttributeError)",
+  "pandas": "1.5.3",
+  "numpy": "1.26.4"
+}

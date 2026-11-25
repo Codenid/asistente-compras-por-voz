@@ -1,0 +1,5 @@
+{
+ "alpha": 0.7,
+ "beta_sistema": 0.8,
+ "beta_bm25+reranker": 1.0
+}

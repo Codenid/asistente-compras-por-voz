@@ -1,0 +1,1251 @@
+query_id,query,ndcg,top3,metodo
+237,", champú sin sal salerm",0.808996270624377,E | S | E,bm25
+369,.bolitas sin gluten,1.0,E | E | E,bm25
+1178,10 enchufes regleta sin cable,1.0,E | S | S,bm25
+1373,100 bandera españa sin escudo colga palo,0.7066373435997493,I | E | E,bm25
+2210,15m tiras led sin transformador,1.0,E | E | E,bm25
+2248,16 piezas cuberteria dorada sin cuchara pequeña,0.43330851573163165,S | I | S,bm25
+2539,2 enchufes y 1 interruptor pared sin empotrar,0.3523811458108736,S | E | S,bm25
+2677,2 tapa microondas sin bpa antisalpicaduras,0.9375119002569006,E | E | E,bm25
+2678,2 tazones ramen sin cucharas,0.4374711876503985,S | E | S,bm25
+2829,200 cartas pokemon sin repetir,0.7983949946363421,E | S | E,bm25
+2833,200 metros de goma de 16mm sin gotero,0.29084153852429734,S | S | S,bm25
+4179,40 unidades de cera sin silicona colores,0.9876840731143508,E | I | S,bm25
+4417,4patas sin ruedas 40x30,0.0,I | I | I,bm25
+6119,abrigos para niños de 10 años,0.9009587051658641,E | E | S,bm25
+6201,accesorios camara deportiva victure,0.575073986183329,I | E | I,bm25
+6445,activador para hidroimpresion,0.2814102022443258,C | C | C,bm25
+6544,adaptador radio 2 din,0.3826613114299177,C | C | C,bm25
+7150,age repair isdin 50,0.9213789604819825,E | E | E,bm25
+7952,alfombras sin pelo,0.3588637147427146,S | E | S,bm25
+7971,algodon de azucar fresa,0.8417670011818839,E | S | S,bm25
+8329,alta voz sony portátil con bluetooth,0.8019174103317279,S | E | E,bm25
+8457,amafitbit gts 2,0.7255844467659999,E | E | E,bm25
+8466,amasadora barata,0.94037119889105,E | E | E,bm25
+9162,anillos hombre sello de oro solitario,0.7382966221327762,S | E | E,bm25
+9164,anillos mujer acero inoxidable ajustable,0.9033990245345328,E | E | E,bm25
+9449,antibeschlag set,0.2968083792499768,S | I | I,bm25
+10111,arboles para belen,1.0,E | E | E,bm25
+11673,b450 aorus,0.9905732954738813,E | E | E,bm25
+12923,banco baño,0.6734017806992043,S | E | E,bm25
+12992,bandoleras mujer,0.9427412906209435,E | E | E,bm25
+13102,barandilla cama adulto,0.8315274832290868,E | E | S,bm25
+13546,bateria para macbook pro 15,1.0,E | E | E,bm25
+13548,bateria placa solar 12v,0.6967268346501307,E | E | E,bm25
+13826,batidora aigostar,0.9969609925149443,E | E | E,bm25
+14824,bellies,0.9223857137111114,E | E | E,bm25
+15217,bestway steel pro 305,0.8831124895119933,E | E | E,bm25
+15362,biberon vaso,0.8714843703674766,E | E | E,bm25
+15840,bikinis intimissimi,0.2084009591613927,S | S | S,bm25
+15895,bimbo sin gluten,0.8490777805399906,E | E | E,bm25
+18053,boiros rotulador de doble punta 36 colores,0.7903246522986339,E | E | E,bm25
+18084,bolis pilot borrables azul,0.5711750795609117,C | C | C,bm25
+18394,"bookcases, cabinets & shelves",0.37373894123671353,C | S | E,bm25
+18604,bosanova botas militares,0.931202555655249,E | E | E,bm25
+18732,botas altas mustang,0.9255297969304421,E | E | S,bm25
+18754,botas de seguridad,0.8047754742674209,E | E | S,bm25
+18987,bowl pra gatos,0.6129994747877806,S | S | S,bm25
+19501,braseros calor negro,0.40713255731846015,S | S | S,bm25
+21290,cafetera nesspreso cápsulas,0.3811740781033737,C | S | S,bm25
+21511,caldera de pellets,0.5226178171277572,C | E | C,bm25
+22118,campana decorativa isla,1.0,E | E | E,bm25
+22309,candy colors tinte,0.5042051187302248,E | S | S,bm25
+23147,cargadores apple,0.9240247746168361,E | S | E,bm25
+23472,casa de vacaciones playmobil 123,1.0,E | S | S,bm25
+23646,casitas para niñas de 3 años,0.29312569515563053,S | S | S,bm25
+23695,castillo de princesas para niñas,0.9312630902825905,E | E | E,bm25
+24429,cercos de madera,0.8156491772332682,E | E | S,bm25
+24490,cestas de mimbre setas,0.7231644339533577,E | E | E,bm25
+24784,chandal nike mujer invierno,0.826318809058233,E | E | E,bm25
+26284,cigarrillos electrónicos mujer,0.3796452688806833,E | C | C,bm25
+26312,cine para adultos x,0.41516811887696037,I | I | I,bm25
+26889,clip grande oficina,0.8441320299865965,E | E | E,bm25
+27133,cnc metal,0.5688800018806836,C | E | E,bm25
+27260,cochede juguete para niños,0.7358767578444513,E | E | C,bm25
+27578,colchón topper 100x180,0.5926027457205975,S | S | S,bm25
+27634,coleccion cuentos disney pack princesas,0.6053517017878994,I | E | I,bm25
+27683,colgar cuadros sin clavos,0.2555240837761354,S | S | C,bm25
+28247,composor 8,1.0,E | E | S,bm25
+28495,confitura sin azucar,0.37216344744446583,S | E | S,bm25
+28623,contraventanas pvc,0.5996646014999231,C | E | E,bm25
+28675,converse plataforma blancas,0.5704845642740946,S | E | S,bm25
+28908,copa vino botella,0.6272966724261075,I | E | C,bm25
+29292,cortador galletas redondo,0.6956481902826948,E | S | E,bm25
+29306,corte fibra de carbono,0.7046706178101252,S | E | S,bm25
+29765,cplay2air wireless adapter for factory carplay,0.5628223578696916,S | E | S,bm25
+30246,crocs outlet mujer,1.0,E | E | E,bm25
+30404,cruzcampo lata,0.6152615557498599,E | S | S,bm25
+30492,cuadr pequeños decoracion s,0.6566677307572979,E | S | E,bm25
+30496,cuadro abstracto xxl,0.9059830591867027,E | E | E,bm25
+31221,cámara otg,0.5257291893963867,I | I | E,bm25
+31401,dakar imanes nevera,0.7339552666559608,E | E | E,bm25
+31685,daura sin gluten,0.9901656075077405,E | E | E,bm25
+32007,decoracion botes cristal mermelada,0.43721823794019726,S | S | S,bm25
+32208,delantales vaqueros de camarero,0.3875946648084288,S | S | S,bm25
+32308,demasiado inteligente para ser feliz,0.4073865286595344,E | I | S,bm25
+32442,deportivas con plataformas de color rojo,0.5294073860667198,S | S | S,bm25
+32458,deposito de lavacabezas,0.8591136312782253,E | E | E,bm25
+32779,devil may cry 5 ps4,0.8278967969574336,E | S | I,bm25
+33521,disco duro externo 1 tb,0.8743436690016257,E | E | E,bm25
+33578,disfraces niña muñeca,0.8377051048115693,E | S | S,bm25
+33665,disfraz plus size,0.8125540474311856,E | E | E,bm25
+33861,dispensador agua cristal con grifo,0.9305687780632229,E | E | E,bm25
+34902,doraemon cumpleaños decoracion,0.875023800513801,E | S | E,bm25
+37331,elgato capturadora,0.8882957365093349,E | E | E,bm25
+37617,enchufe sensor de movimiento,0.9146904720674044,E | E | E,bm25
+38127,espinilleras nike,1.0,E | E | E,bm25
+38284,estores para puertas sin taladrar,1.0,E | E | E,bm25
+38286,estrella mercedes w211,0.7887813999436163,E | E | E,bm25
+38310,estuches harry potter,0.6446625740340547,E | E | S,bm25
+38345,etapas de potencia para coche,0.6731637270473511,C | E | C,bm25
+38863,extractor de humos sin salida,0.6945987057693243,I | E | E,bm25
+38984,eyerline negro loreal,0.5596447611247032,E | E | S,bm25
+39330,fajas sin tirantes,0.6699674634590493,E | S | E,bm25
+39411,falda de plumas,0.8831124895119933,E | E | E,bm25
+40116,fibre de vidrio,0.8570893298229089,E | E | E,bm25
+40237,fijar mueble a la pared sin taladrar,0.5295799600887326,I | E | C,bm25
+41770,focusrite scarlett studio,0.9238885561275578,E | E | E,bm25
+41894,fone de ouvido,0.8019174103317279,S | E | E,bm25
+42198,formentera lady,0.6808669388677838,I | E | S,bm25
+42275,fossil q hybrid,0.10147298066553877,C | C | C,bm25
+42440,freddie king boy girl boy,0.7100226348397881,E | E | I,bm25
+42864,fructis coco mascarilla,0.6393260270286072,E | S | E,bm25
+42985,fuente gatos sin filtros,0.3625631073557357,C | S | C,bm25
+43353,funda trabajas,0.6309297535714575,I | E | I,bm25
+43415,fundas nórdico 90,0.7060734963550095,E | S | S,bm25
+43438,fundas sillas jardín,0.8831124895119933,E | E | E,bm25
+44610,gato,1.0,E | E | E,bm25
+46102,glucometro sin pinchazo,0.3996540534115019,S | S | S,bm25
+46917,gourmia freidora sin aceite,0.3375363764054478,E | S | S,bm25
+47024,gran diver invicta,0.6175665875649963,S | E | S,bm25
+47325,green lantern morrison,0.8019174103317279,S | E | E,bm25
+47454,greta gremlin,0.8529278650606567,E | I | I,bm25
+47729,gs65 msi,0.8595518966801226,E | E | E,bm25
+48240,haftgrund,0.5733929196269576,I | E | C,bm25
+48790,han dynasty,0.5415715870695665,I | E | S,bm25
+50318,herramientas para motos,0.6518154727616596,E | S | S,bm25
+51476,hot wheels coches,0.8335292363957784,E | E | E,bm25
+51926,hueso para cachorros,0.94037119889105,E | E | E,bm25
+53352,inmotion v5f,0.35217010248677133,C | C | C,bm25
+55003,iso energy,0.7050151243660381,E | E | E,bm25
+56123,john cage the seasons,0.38052191155040627,C | I | C,bm25
+56193,johnsons aceite de bebé,1.0,E | E | E,bm25
+56720,justfog minikit,0.6635569217085118,E | E | C,bm25
+59304,l736h,0.45384724264506915,S | E | E,bm25
+59725,lampara exterior sin cables,0.9427412906209435,E | E | E,bm25
+60215,las promesas de dios,0.7948555644900177,E | E | E,bm25
+60221,laser co2 corte,0.37378393485843864,C | C | C,bm25
+60418,lavadora sin electricidad,0.8002027541478411,E | E | E,bm25
+60835,leche de oveja ecologica,0.9432564476601766,E | I | I,bm25
+60889,led de suelo,0.6957536377515978,E | E | S,bm25
+61498,lenovo legion y520,0.698781052932288,E | E | C,bm25
+61531,lente canon 35mm,0.6808847376264348,E | E | S,bm25
+61802,lg barra de sonido dolby atmos,0.9427412906209435,E | E | E,bm25
+61898,lg tv 65 pulgadas 4k,0.9168647917599629,E | E | E,bm25
+61998,libro electrónico,0.5868924718493931,E | E | I,bm25
+63133,llave dinamometrica 1/4,0.8721828485401358,E | E | E,bm25
+64232,luna 3,0.6217639628074371,I | E | I,bm25
+64364,luz solar interior,0.9233711941225413,E | E | E,bm25
+64648,macetero cerámica grande,0.6628005047111695,S | E | E,bm25
+65257,maleta 40x20x25 cm ryanair,0.6002437689152659,S | E | S,bm25
+65258,maleta 55x40x20,0.6841229310573929,E | E | E,bm25
+65260,maleta estudiante,1.0,E | E | E,bm25
+65278,maletas gabol,0.47014435333319543,S | I | I,bm25
+65300,mallas de invierno mujer,0.8125540474311856,E | E | E,bm25
+65303,mallas kalenji mujer,0.36323876475596706,E | S | S,bm25
+65306,mallas mujer sexy,0.758217589549276,E | E | E,bm25
+65426,mando usb inalambrico,0.8563581838216875,E | E | E,bm25
+65664,maquina soldar hilo sin gas,0.9375119002569006,E | E | E,bm25
+65675,mar sin limites,0.6063418483038789,E | I | I,bm25
+65761,marea cd el azoge,0.8795092737442379,E | S | E,bm25
+65762,mares del sur,0.8963914643725629,E | E | E,bm25
+66385,matizador sin sulfatos,0.8061553186507118,E | E | E,bm25
+66691,me encanta mi papa,0.8352167493548369,E | C | E,bm25
+67059,mello music,0.20459116900760493,I | S | S,bm25
+68803,microcemento monto,0.7238644961098963,E | E | E,bm25
+69433,mini itx placa base,0.8019174103317279,S | E | E,bm25
+70297,moma bikes electrica e-mtb 29,0.8103020898263309,E | E | S,bm25
+70479,monos+ajustados manga mujer,1.0,E | E | E,bm25
+71179,mp3 con auriculares inalambricos,0.33651215662789086,S | S | S,bm25
+71432,muebles escoberos exterior,0.6251674838325469,I | E | E,bm25
+71442,muerte y vida de las grandes ciudades,0.88278718044855,E | E | I,bm25
+71768,muñeco de madera wing chun,0.570745196157747,E | C | E,bm25
+72145,nanas para dormir bebes,0.5076284977328491,E | C | E,bm25
+72723,neem face wash,0.7465265175417616,E | E | E,bm25
+73270,next to me chicco,0.21434818159567035,C | C | E,bm25
+73605,nike negro niño,0.45701855145250564,I | E | S,bm25
+74963,oakley graduadas,0.8037852269208181,E | E | E,bm25
+76919,ovomaltine original,0.4744720893296883,C | E | S,bm25
+77165,padel hombre zapatillas,0.7054240635988572,E | S | S,bm25
+77436,pancarta mickey mouse,0.6192985899879468,E | S | C,bm25
+77763,paperwhite sin publicidad,0.4444444349546664,S | S | E,bm25
+77868,parka mujer sin mangas,0.9146904720674044,E | E | E,bm25
+78076,patines de ambar de soy luna originales,1.0,E | S | S,bm25
+78666,peluca muñeco chucky,0.5051287836003756,S | S | S,bm25
+78676,peluche koala para bebe,0.9294415579191924,E | E | E,bm25
+78885,pepe the frog peluche,0.9919263643293557,E | E | E,bm25
+80582,pitos de carnaval cadiz,0.6573197839444519,S | S | E,bm25
+80838,planchas sin cable,0.7446587009526715,S | E | E,bm25
+81969,polo sin cuello hombre,0.3875946648084288,S | S | S,bm25
+82041,pomada del silencio,0.41750416350046915,S | S | S,bm25
+82053,pomos y tiradores zara home,0.2363737678157232,S | S | S,bm25
+82225,pop funko batman,1.0,E | E | E,bm25
+82226,pop it zanahoria,0.6682077514465843,E | S | E,bm25
+83106,premiata mujer 37,0.8384706054227644,E | E | S,bm25
+83490,pro 600 oral b,0.9187170365403359,E | E | E,bm25
+83841,proyector corto alcance led,0.6986735682900308,E | E | S,bm25
+84079,puerto hdmi a tablet,0.3641869420334942,S | I | S,bm25
+84519,puros habanos para fumar cohiba,0.0840881003883825,C | S | C,bm25
+84797,péndulo hebreo de haya,0.7854744100974985,E | E | E,bm25
+84873,quantico,0.8698344511285676,E | E | E,bm25
+85502,ram 32gb portatil,0.8326954074719035,E | E | I,bm25
+87295,retorno ping pong,0.7647923266783689,E | E | E,bm25
+88166,rodillo bcool,0.43090626947899197,S | E | S,bm25
+88345,rolos dominicanos,0.25648414951197973,I | I | I,bm25
+88527,ropa para motos custom,0.9305687780632229,E | E | E,bm25
+89565,saco cuna invierno,0.8743436690016257,E | E | E,bm25
+90421,sandalias tacon cordones mujer,0.7334340648942299,S | E | S,bm25
+90672,satseupser libro,0.5721973341989589,E | I | S,bm25
+91592,selectividad lengua,0.8857194440863226,E | S | S,bm25
+91898,set degradado,1.0,E | E | C,bm25
+93433,sillas giratorias sin ruedas,0.00887741290163665,I | I | C,bm25
+94252,skyzzie,0.7179472167048312,C | E | E,bm25
+96110,sony e gran angular,0.7955540426626769,E | E | E,bm25
+96195,sophie saint rose,0.6391446502314945,E | S | S,bm25
+96243,soporte pedales thrustmaster,0.4977283103399353,E | I | E,bm25
+96467,spalding tf50,0.8984506695539408,E | E | E,bm25
+98925,sudaderas hombres sin capucha,0.05868720866710774,S | I | I,bm25
+98957,suelos para cocinas sin obras,0.9337457765456111,E | E | E,bm25
+99033,sujetador azul marino,0.8441320299865965,E | E | E,bm25
+99329,super mario odyssey nintendo switch,0.7867713408262541,E | C | C,bm25
+99535,surtido galletas sin azucar,0.4904675997545438,S | E | S,bm25
+100286,taburete con reposabrazos giratorio,0.9294415579191924,E | E | E,bm25
+100408,tail butt plug,0.3669039880744828,S | E | E,bm25
+100721,tapiflex 150x200 sin patas,0.09338610956624331,S | I | S,bm25
+101167,teclados mecanicos cherry mini,0.6885606184274603,S | S | E,bm25
+101285,tela de punto por metros,0.7446587009526715,S | E | E,bm25
+101321,telefono movil sin internet,0.9339724701105759,E | E | E,bm25
+101358,televisiones qled 4k y soporte,0.7950558961113384,E | E | E,bm25
+101383,teléfono sin internet,0.94037119889105,E | E | E,bm25
+101972,the feather thief,0.5914417551143697,S | E | E,bm25
+102282,the ordinary ojos,0.7460523218872478,E | E | C,bm25
+103185,timberland mujer botas,1.0,E | E | E,bm25
+103275,tinte barba rubio claro,0.397405719979854,S | E | E,bm25
+103555,tocado dorado para el pelo,0.8698127568102422,E | E | E,bm25
+104303,torre de ordenador 32gb i7,0.6856904443359583,S | E | E,bm25
+104670,tplink camara wifi,0.13252109214445024,S | S | S,bm25
+105616,tubo de aire para tapón de deposito colores,0.8398683486220583,E | S | S,bm25
+105660,tulipas,0.6505998846696008,I | E | I,bm25
+107132,urna cenizas pequeñas,0.9427412906209435,E | E | E,bm25
+107918,vaper sin nicotina para niños,0.9223857137111114,E | E | E,bm25
+108605,view2,0.1284599255387967,C | C | C,bm25
+109016,viviactive 3,0.36064903747490173,E | C | I,bm25
+113768,woomax cocina de madera,0.9826278518627807,E | E | E,bm25
+114382,xiaomi cinta de correr plegable,0.6169006683324284,E | S | S,bm25
+114390,xiaomi mi 9,0.7407162283368751,E | S | S,bm25
+115366,zapata bicicleta spinning,0.6004311286161026,I | E | I,bm25
+115413,zapatillas dunlop hombre vestir,0.6037538946947734,E | S | C,bm25
+115437,zapatillas montaña de mujer,0.9427412906209435,E | E | E,bm25
+115452,zapatillas nike lunar gato,0.5785146760125367,S | I | E,bm25
+115457,zapatillas para niñas color blanco skecher,0.5813011983587048,E | S | S,bm25
+115520,zapatos tacón pikolinos de mujer,1.0,E | E | E,bm25
+237,", champú sin sal salerm",0.5987288898660662,E | E | E,denso
+369,.bolitas sin gluten,0.9363792118010483,E | E | E,denso
+1178,10 enchufes regleta sin cable,0.33547749337285077,S | S | S,denso
+1373,100 bandera españa sin escudo colga palo,0.8093820837212354,E | E | E,denso
+2210,15m tiras led sin transformador,0.6071475572448153,S | E | E,denso
+2248,16 piezas cuberteria dorada sin cuchara pequeña,0.23834904700600346,I | S | S,denso
+2539,2 enchufes y 1 interruptor pared sin empotrar,0.3281745281389247,S | S | E,denso
+2677,2 tapa microondas sin bpa antisalpicaduras,1.0,E | E | E,denso
+2678,2 tazones ramen sin cucharas,0.285974253591216,S | S | E,denso
+2829,200 cartas pokemon sin repetir,0.6847185493108372,E | S | E,denso
+2833,200 metros de goma de 16mm sin gotero,0.6231027918378718,S | S | E,denso
+4179,40 unidades de cera sin silicona colores,0.687550167778977,S | E | I,denso
+4417,4patas sin ruedas 40x30,0.06551901667709634,I | I | I,denso
+6119,abrigos para niños de 10 años,0.7274077979437151,E | C | E,denso
+6201,accesorios camara deportiva victure,0.5309999066793253,I | I | I,denso
+6445,activador para hidroimpresion,0.7914387062414081,E | E | C,denso
+6544,adaptador radio 2 din,0.5137315651016505,C | E | C,denso
+7150,age repair isdin 50,0.99249764619556,E | E | E,denso
+7952,alfombras sin pelo,0.3577113907772224,E | S | S,denso
+7971,algodon de azucar fresa,0.702997038823628,S | S | E,denso
+8329,alta voz sony portátil con bluetooth,0.7099549757902408,E | S | S,denso
+8457,amafitbit gts 2,0.5698618247792816,S | E | E,denso
+8466,amasadora barata,0.9009587051658641,E | E | S,denso
+9162,anillos hombre sello de oro solitario,0.5774000213125802,E | S | E,denso
+9164,anillos mujer acero inoxidable ajustable,0.7837152892253042,E | S | E,denso
+9449,antibeschlag set,0.7564314803982588,E | I | E,denso
+10111,arboles para belen,0.92663607790064,E | E | E,denso
+11673,b450 aorus,1.0,E | E | E,denso
+12923,banco baño,0.756020376124318,E | E | S,denso
+12992,bandoleras mujer,0.8743436690016257,E | E | E,denso
+13102,barandilla cama adulto,0.7975760548549125,E | E | E,denso
+13546,bateria para macbook pro 15,1.0,E | E | E,denso
+13548,bateria placa solar 12v,0.849755430832745,E | E | E,denso
+13826,batidora aigostar,0.9963705864041309,E | E | E,denso
+14824,bellies,1.0,E | E | E,denso
+15217,bestway steel pro 305,0.9427412906209435,E | E | E,denso
+15362,biberon vaso,0.9427412906209435,E | E | E,denso
+15840,bikinis intimissimi,0.2084009591613927,S | S | S,denso
+15895,bimbo sin gluten,0.6855890302622586,E | E | S,denso
+18053,boiros rotulador de doble punta 36 colores,0.7931839509327833,E | E | E,denso
+18084,bolis pilot borrables azul,0.7225741481115001,E | S | E,denso
+18394,"bookcases, cabinets & shelves",0.7085530369095794,E | S | E,denso
+18604,bosanova botas militares,0.8438731289033489,E | E | E,denso
+18732,botas altas mustang,0.9531076687060671,E | E | S,denso
+18754,botas de seguridad,0.8234018085795445,E | E | E,denso
+18987,bowl pra gatos,0.47098011423942754,S | S | S,denso
+19501,braseros calor negro,0.5557139531254075,E | S | S,denso
+21290,cafetera nesspreso cápsulas,0.7809468423166295,E | E | S,denso
+21511,caldera de pellets,0.7478486081737166,E | E | C,denso
+22118,campana decorativa isla,1.0,E | E | E,denso
+22309,candy colors tinte,0.37012096440241943,S | S | E,denso
+23147,cargadores apple,0.4154136671097325,S | S | S,denso
+23472,casa de vacaciones playmobil 123,1.0,E | S | S,denso
+23646,casitas para niñas de 3 años,0.4004748157431661,S | S | S,denso
+23695,castillo de princesas para niñas,0.9157083135347952,E | E | E,denso
+24429,cercos de madera,0.934408318780155,E | E | E,denso
+24490,cestas de mimbre setas,0.7840711946778572,E | E | S,denso
+24784,chandal nike mujer invierno,0.9297217337210826,E | E | E,denso
+26284,cigarrillos electrónicos mujer,0.6442768986307533,E | C | C,denso
+26312,cine para adultos x,0.6573487555272464,E | E | E,denso
+26889,clip grande oficina,0.9233711941225413,E | E | E,denso
+27133,cnc metal,0.2562562654986349,C | C | S,denso
+27260,cochede juguete para niños,0.7259616399355329,E | C | E,denso
+27578,colchón topper 100x180,0.9742448945266654,E | E | E,denso
+27634,coleccion cuentos disney pack princesas,0.864931717137609,E | I | I,denso
+27683,colgar cuadros sin clavos,0.607892678165735,E | E | S,denso
+28247,composor 8,1.0,E | E | S,denso
+28495,confitura sin azucar,0.6368485856081678,S | E | S,denso
+28623,contraventanas pvc,0.599831759625001,C | E | E,denso
+28675,converse plataforma blancas,0.8162559122184472,E | E | E,denso
+28908,copa vino botella,0.9872632101416968,E | I | C,denso
+29292,cortador galletas redondo,1.0,E | E | E,denso
+29306,corte fibra de carbono,0.9463007837078082,E | I | S,denso
+29765,cplay2air wireless adapter for factory carplay,0.42585775869586096,S | S | E,denso
+30246,crocs outlet mujer,1.0,E | E | E,denso
+30404,cruzcampo lata,1.0,E | E | E,denso
+30492,cuadr pequeños decoracion s,0.7278365525555345,E | S | E,denso
+30496,cuadro abstracto xxl,0.8586701902698917,E | E | S,denso
+31221,cámara otg,0.6666447092584742,E | I | E,denso
+31401,dakar imanes nevera,0.7818048722226502,E | E | E,denso
+31685,daura sin gluten,0.9922026095492044,E | E | E,denso
+32007,decoracion botes cristal mermelada,0.3740549702410355,S | S | S,denso
+32208,delantales vaqueros de camarero,0.7074423888003984,E | E | S,denso
+32308,demasiado inteligente para ser feliz,0.5120910881100046,E | I | S,denso
+32442,deportivas con plataformas de color rojo,0.8936401196546153,E | E | S,denso
+32458,deposito de lavacabezas,0.77990823370192,I | E | E,denso
+32779,devil may cry 5 ps4,0.9814976508680344,E | E | E,denso
+33521,disco duro externo 1 tb,0.8767137607315195,E | E | E,denso
+33578,disfraces niña muñeca,0.6918861297875039,S | E | S,denso
+33665,disfraz plus size,0.6137729795902541,S | E | E,denso
+33861,dispensador agua cristal con grifo,0.9337457765456111,E | E | E,denso
+34902,doraemon cumpleaños decoracion,0.781211896043708,E | E | S,denso
+37331,elgato capturadora,0.8971447001498445,E | E | E,denso
+37617,enchufe sensor de movimiento,0.9375119002569006,E | E | E,denso
+38127,espinilleras nike,0.9216017310213247,E | E | E,denso
+38284,estores para puertas sin taladrar,1.0,E | E | E,denso
+38286,estrella mercedes w211,0.6549296101401236,E | E | S,denso
+38310,estuches harry potter,0.9339724701105759,E | E | E,denso
+38345,etapas de potencia para coche,0.8067628892172455,E | E | C,denso
+38863,extractor de humos sin salida,0.7951100262370215,E | I | E,denso
+38984,eyerline negro loreal,0.5656270264661235,E | E | S,denso
+39330,fajas sin tirantes,0.6975382593169849,E | E | C,denso
+39411,falda de plumas,1.0,E | E | E,denso
+40116,fibre de vidrio,0.7765921077221933,E | I | E,denso
+40237,fijar mueble a la pared sin taladrar,0.6210665635409609,C | E | E,denso
+41770,focusrite scarlett studio,0.8506229845979687,S | E | E,denso
+41894,fone de ouvido,0.725288604454269,S | E | E,denso
+42198,formentera lady,0.6808669388677838,I | E | S,denso
+42275,fossil q hybrid,0.2345449930534826,S | C | C,denso
+42440,freddie king boy girl boy,0.6149518506608848,E | I | E,denso
+42864,fructis coco mascarilla,0.5724515007838561,E | S | S,denso
+42985,fuente gatos sin filtros,0.29610740694912346,C | E | C,denso
+43353,funda trabajas,0.0,I | I | I,denso
+43415,fundas nórdico 90,0.8439968513576027,E | S | S,denso
+43438,fundas sillas jardín,0.8573436642331171,E | E | E,denso
+44610,gato,1.0,E | E | E,denso
+46102,glucometro sin pinchazo,0.5488389236375284,E | S | E,denso
+46917,gourmia freidora sin aceite,0.4790542475378794,E | E | S,denso
+47024,gran diver invicta,1.0,E | E | E,denso
+47325,green lantern morrison,1.0,E | E | E,denso
+47454,greta gremlin,0.7653606369886217,E | E | I,denso
+47729,gs65 msi,0.8595518966801226,E | E | E,denso
+48240,haftgrund,0.8339755407787554,E | C | C,denso
+48790,han dynasty,0.8550616709584542,E | E | E,denso
+50318,herramientas para motos,0.7303195195593934,E | E | S,denso
+51476,hot wheels coches,0.7821091513649008,C | E | E,denso
+51926,hueso para cachorros,1.0,E | E | E,denso
+53352,inmotion v5f,0.7185395552487155,E | E | C,denso
+55003,iso energy,0.669287331946874,E | E | E,denso
+56123,john cage the seasons,0.5164909653753658,C | C | C,denso
+56193,johnsons aceite de bebé,1.0,E | E | E,denso
+56720,justfog minikit,1.0,E | E | E,denso
+59304,l736h,0.4893796893522902,S | S | E,denso
+59725,lampara exterior sin cables,0.8049124470648487,E | E | E,denso
+60215,las promesas de dios,0.94037119889105,E | E | E,denso
+60221,laser co2 corte,0.4473221606758648,C | C | E,denso
+60418,lavadora sin electricidad,0.6623442097531963,E | E | E,denso
+60835,leche de oveja ecologica,0.864931717137609,E | I | I,denso
+60889,led de suelo,0.8608830943794417,E | E | E,denso
+61498,lenovo legion y520,0.7887627864381358,E | E | E,denso
+61531,lente canon 35mm,0.7784328650809954,E | E | E,denso
+61802,lg barra de sonido dolby atmos,0.8153949994048508,E | S | E,denso
+61898,lg tv 65 pulgadas 4k,0.8544742247915199,E | E | E,denso
+61998,libro electrónico,1.0,E | E | E,denso
+63133,llave dinamometrica 1/4,0.8714843703674766,E | E | E,denso
+64232,luna 3,0.8824779657953815,E | I | S,denso
+64364,luz solar interior,0.9375119002569006,E | E | E,denso
+64648,macetero cerámica grande,0.7191558305003976,E | S | E,denso
+65257,maleta 40x20x25 cm ryanair,0.8203312487996711,E | S | E,denso
+65258,maleta 55x40x20,0.6563069587993354,E | S | E,denso
+65260,maleta estudiante,1.0,E | E | E,denso
+65278,maletas gabol,0.6728188383922167,S | E | I,denso
+65300,mallas de invierno mujer,0.8743436690016257,E | E | E,denso
+65303,mallas kalenji mujer,0.3359272575230549,S | S | E,denso
+65306,mallas mujer sexy,0.5778218401170206,E | E | S,denso
+65426,mando usb inalambrico,1.0,E | E | E,denso
+65664,maquina soldar hilo sin gas,0.9294415579191924,E | E | E,denso
+65675,mar sin limites,0.3758340879898248,I | E | I,denso
+65761,marea cd el azoge,0.6309377273482607,E | I | E,denso
+65762,mares del sur,0.7196647536254448,E | S | E,denso
+66385,matizador sin sulfatos,0.8637423930135911,E | E | E,denso
+66691,me encanta mi papa,0.8720999236334116,E | S | S,denso
+67059,mello music,0.13269812834612635,S | I | S,denso
+68803,microcemento monto,0.7878896414747626,E | E | E,denso
+69433,mini itx placa base,0.9146904720674044,E | E | E,denso
+70297,moma bikes electrica e-mtb 29,0.8103020898263309,E | E | S,denso
+70479,monos+ajustados manga mujer,0.9233711941225413,E | E | E,denso
+71179,mp3 con auriculares inalambricos,0.8270224452332812,E | E | S,denso
+71432,muebles escoberos exterior,0.934408318780155,E | E | E,denso
+71442,muerte y vida de las grandes ciudades,0.7740299581875907,E | E | I,denso
+71768,muñeco de madera wing chun,0.6786791078497658,E | E | E,denso
+72145,nanas para dormir bebes,0.5986021735858449,E | E | C,denso
+72723,neem face wash,0.7545968598794698,E | E | E,denso
+73270,next to me chicco,0.6263880206834241,C | E | E,denso
+73605,nike negro niño,0.2902789941752441,I | S | E,denso
+74963,oakley graduadas,0.49881623905215383,E | S | S,denso
+76919,ovomaltine original,0.7347302828072048,E | E | E,denso
+77165,padel hombre zapatillas,0.7106534539629001,E | E | S,denso
+77436,pancarta mickey mouse,0.7286386653086657,E | C | E,denso
+77763,paperwhite sin publicidad,0.7931839509327833,E | E | E,denso
+77868,parka mujer sin mangas,0.81422566098842,E | E | E,denso
+78076,patines de ambar de soy luna originales,0.7547445147218053,S | E | S,denso
+78666,peluca muñeco chucky,0.8879859870595259,E | S | I,denso
+78676,peluche koala para bebe,0.9375119002569006,E | E | E,denso
+78885,pepe the frog peluche,1.0,E | E | E,denso
+80582,pitos de carnaval cadiz,0.4552001852896105,S | S | S,denso
+80838,planchas sin cable,0.9427412906209435,E | E | E,denso
+81969,polo sin cuello hombre,0.36991452852774503,S | E | S,denso
+82041,pomada del silencio,0.2162481682951959,S | S | S,denso
+82053,pomos y tiradores zara home,0.3840792436149349,S | S | S,denso
+82225,pop funko batman,0.9427412906209435,E | E | E,denso
+82226,pop it zanahoria,0.5515560721265108,E | S | S,denso
+83106,premiata mujer 37,0.9427412906209435,E | E | E,denso
+83490,pro 600 oral b,0.8704661585665603,E | E | E,denso
+83841,proyector corto alcance led,0.7159447653378957,E | E | E,denso
+84079,puerto hdmi a tablet,0.5559792018215958,S | S | S,denso
+84519,puros habanos para fumar cohiba,0.03863636043458011,C | C | C,denso
+84797,péndulo hebreo de haya,0.9291581301894754,E | E | E,denso
+84873,quantico,0.9378745397416697,E | E | E,denso
+85502,ram 32gb portatil,0.5488814834446187,E | I | S,denso
+87295,retorno ping pong,0.7593330856480787,E | E | C,denso
+88166,rodillo bcool,0.1915341580412044,S | S | S,denso
+88345,rolos dominicanos,0.43468597041817447,I | I | I,denso
+88527,ropa para motos custom,0.88995411685096,E | E | I,denso
+89565,saco cuna invierno,0.808996270624377,E | S | E,denso
+90421,sandalias tacon cordones mujer,0.7129151150988925,S | E | S,denso
+90672,satseupser libro,0.34914570384339644,I | E | I,denso
+91592,selectividad lengua,0.8713706964600569,E | S | S,denso
+91898,set degradado,0.7918274736587096,E | C | I,denso
+93433,sillas giratorias sin ruedas,0.13976297905693563,I | I | S,denso
+94252,skyzzie,0.861360318431545,E | E | E,denso
+96110,sony e gran angular,0.5101953042529126,S | E | S,denso
+96195,sophie saint rose,0.6573809505697459,S | E | E,denso
+96243,soporte pedales thrustmaster,0.5113789434842141,E | E | I,denso
+96467,spalding tf50,0.8984506695539408,E | E | E,denso
+98925,sudaderas hombres sin capucha,0.17806499570585635,S | I | S,denso
+98957,suelos para cocinas sin obras,0.8707611962286489,E | E | E,denso
+99033,sujetador azul marino,1.0,E | E | E,denso
+99329,super mario odyssey nintendo switch,0.8927678650799982,E | E | C,denso
+99535,surtido galletas sin azucar,0.7119363419046736,E | E | S,denso
+100286,taburete con reposabrazos giratorio,0.9146904720674044,E | E | E,denso
+100408,tail butt plug,0.5065082182633327,S | E | E,denso
+100721,tapiflex 150x200 sin patas,0.4327726800827451,S | E | I,denso
+101167,teclados mecanicos cherry mini,0.8560583819647466,E | S | S,denso
+101285,tela de punto por metros,0.8522023723243048,E | E | E,denso
+101321,telefono movil sin internet,0.735889880442304,S | E | E,denso
+101358,televisiones qled 4k y soporte,0.7464219490943749,E | E | E,denso
+101383,teléfono sin internet,0.7446587009526715,S | E | E,denso
+101972,the feather thief,0.7204499508608688,E | E | E,denso
+102282,the ordinary ojos,0.9537393495351789,E | E | E,denso
+103185,timberland mujer botas,0.9363792118010483,E | E | E,denso
+103275,tinte barba rubio claro,0.42059148527078166,E | S | S,denso
+103555,tocado dorado para el pelo,0.8738911120579489,E | E | E,denso
+104303,torre de ordenador 32gb i7,0.6755729338379562,E | S | S,denso
+104670,tplink camara wifi,0.8687493944117979,E | E | S,denso
+105616,tubo de aire para tapón de deposito colores,0.7726839203843148,S | E | E,denso
+105660,tulipas,0.33424620450682646,I | I | E,denso
+107132,urna cenizas pequeñas,1.0,E | E | E,denso
+107918,vaper sin nicotina para niños,0.8280699953654882,E | E | C,denso
+108605,view2,0.13304867546928906,C | C | C,denso
+109016,viviactive 3,0.760622647550999,E | C | E,denso
+113768,woomax cocina de madera,0.9830320357775397,E | E | E,denso
+114382,xiaomi cinta de correr plegable,0.6836925898746494,S | E | S,denso
+114390,xiaomi mi 9,0.8597874016648276,E | E | E,denso
+115366,zapata bicicleta spinning,0.5060546566565668,I | I | E,denso
+115413,zapatillas dunlop hombre vestir,0.742199195446824,E | S | C,denso
+115437,zapatillas montaña de mujer,0.94037119889105,E | E | E,denso
+115452,zapatillas nike lunar gato,0.505200382973943,I | S | S,denso
+115457,zapatillas para niñas color blanco skecher,0.6810935267301478,E | S | S,denso
+115520,zapatos tacón pikolinos de mujer,0.9294415579191924,E | E | E,denso
+237,", champú sin sal salerm",0.7180436647884332,E | E | S,hibrido
+369,.bolitas sin gluten,1.0,E | E | E,hibrido
+1178,10 enchufes regleta sin cable,0.5355187006614393,S | S | S,hibrido
+1373,100 bandera españa sin escudo colga palo,0.7991959362234196,E | E | E,hibrido
+2210,15m tiras led sin transformador,0.7422886092227777,S | E | E,hibrido
+2248,16 piezas cuberteria dorada sin cuchara pequeña,0.24865263410225905,S | S | I,hibrido
+2539,2 enchufes y 1 interruptor pared sin empotrar,0.343920366092112,S | E | S,hibrido
+2677,2 tapa microondas sin bpa antisalpicaduras,0.9427412906209435,E | E | E,hibrido
+2678,2 tazones ramen sin cucharas,0.26284796278784134,S | S | S,hibrido
+2829,200 cartas pokemon sin repetir,0.7082833622330064,E | E | S,hibrido
+2833,200 metros de goma de 16mm sin gotero,0.513414852220668,S | S | S,hibrido
+4179,40 unidades de cera sin silicona colores,0.9876840731143508,E | I | S,hibrido
+4417,4patas sin ruedas 40x30,0.03052529683258352,I | I | I,hibrido
+6119,abrigos para niños de 10 años,0.784089102425526,E | E | E,hibrido
+6201,accesorios camara deportiva victure,0.5462574254588146,I | I | E,hibrido
+6445,activador para hidroimpresion,0.6817259876345215,E | C | C,hibrido
+6544,adaptador radio 2 din,0.42221858966741904,C | C | E,hibrido
+7150,age repair isdin 50,0.9213789604819825,E | E | E,hibrido
+7952,alfombras sin pelo,0.43880135705131845,S | E | S,hibrido
+7971,algodon de azucar fresa,0.7357007373913563,S | E | S,hibrido
+8329,alta voz sony portátil con bluetooth,0.775982505679665,E | S | S,hibrido
+8457,amafitbit gts 2,0.7863208438546886,E | E | E,hibrido
+8466,amasadora barata,0.9009587051658641,E | E | S,hibrido
+9162,anillos hombre sello de oro solitario,0.5737248530672843,S | E | E,hibrido
+9164,anillos mujer acero inoxidable ajustable,0.8878497405366036,E | E | S,hibrido
+9449,antibeschlag set,0.6273790188439372,I | E | E,hibrido
+10111,arboles para belen,0.9305687780632229,E | E | E,hibrido
+11673,b450 aorus,1.0,E | E | E,hibrido
+12923,banco baño,0.756020376124318,E | E | S,hibrido
+12992,bandoleras mujer,0.9427412906209435,E | E | E,hibrido
+13102,barandilla cama adulto,0.8009204599748471,E | E | E,hibrido
+13546,bateria para macbook pro 15,1.0,E | E | E,hibrido
+13548,bateria placa solar 12v,0.7880571227738568,E | E | E,hibrido
+13826,batidora aigostar,0.9877744843579283,E | E | E,hibrido
+14824,bellies,1.0,E | E | E,hibrido
+15217,bestway steel pro 305,1.0,E | E | E,hibrido
+15362,biberon vaso,0.8831124895119933,E | E | E,hibrido
+15840,bikinis intimissimi,0.13252109214445024,S | S | S,hibrido
+15895,bimbo sin gluten,0.7946657095805699,E | E | S,hibrido
+18053,boiros rotulador de doble punta 36 colores,0.7867852221523095,E | E | E,hibrido
+18084,bolis pilot borrables azul,0.7272108966513059,E | S | E,hibrido
+18394,"bookcases, cabinets & shelves",0.5516047934184023,S | E | C,hibrido
+18604,bosanova botas militares,0.9196090876692877,E | E | E,hibrido
+18732,botas altas mustang,0.9388162879232044,E | E | S,hibrido
+18754,botas de seguridad,0.7677029393805257,E | E | E,hibrido
+18987,bowl pra gatos,0.5497490351367548,S | S | S,hibrido
+19501,braseros calor negro,0.43843307639049267,S | S | E,hibrido
+21290,cafetera nesspreso cápsulas,0.5208258274543551,S | E | E,hibrido
+21511,caldera de pellets,0.734229514639633,E | E | C,hibrido
+22118,campana decorativa isla,1.0,E | E | E,hibrido
+22309,candy colors tinte,0.4950665973826579,E | S | S,hibrido
+23147,cargadores apple,0.5473554741236473,S | S | S,hibrido
+23472,casa de vacaciones playmobil 123,1.0,E | S | S,hibrido
+23646,casitas para niñas de 3 años,0.38785656089213777,S | S | S,hibrido
+23695,castillo de princesas para niñas,0.9061595192741448,E | E | E,hibrido
+24429,cercos de madera,1.0,E | E | E,hibrido
+24490,cestas de mimbre setas,0.8441320299865965,E | E | E,hibrido
+24784,chandal nike mujer invierno,0.8519019513171121,E | E | E,hibrido
+26284,cigarrillos electrónicos mujer,0.42786007049360175,C | C | E,hibrido
+26312,cine para adultos x,0.6923916901337934,E | E | E,hibrido
+26889,clip grande oficina,0.8384706054227644,E | E | S,hibrido
+27133,cnc metal,0.5033242791064303,E | C | E,hibrido
+27260,cochede juguete para niños,0.688732993389204,E | C | E,hibrido
+27578,colchón topper 100x180,0.9484138275442938,E | E | S,hibrido
+27634,coleccion cuentos disney pack princesas,0.8909687562435664,E | I | I,hibrido
+27683,colgar cuadros sin clavos,0.4538446589616937,S | E | S,hibrido
+28247,composor 8,1.0,E | E | S,hibrido
+28495,confitura sin azucar,0.5548243099934791,S | S | E,hibrido
+28623,contraventanas pvc,0.599831759625001,C | E | E,hibrido
+28675,converse plataforma blancas,0.7105603804092417,E | E | S,hibrido
+28908,copa vino botella,0.9867005616067901,E | I | C,hibrido
+29292,cortador galletas redondo,0.9427412906209435,E | E | E,hibrido
+29306,corte fibra de carbono,0.9580453409814085,E | S | I,hibrido
+29765,cplay2air wireless adapter for factory carplay,0.4438516145014809,S | S | E,hibrido
+30246,crocs outlet mujer,1.0,E | E | E,hibrido
+30404,cruzcampo lata,0.995686905982259,E | E | E,hibrido
+30492,cuadr pequeños decoracion s,0.5827203671426168,S | E | E,hibrido
+30496,cuadro abstracto xxl,0.8690888569963028,E | E | E,hibrido
+31221,cámara otg,0.5699854519514457,I | E | E,hibrido
+31401,dakar imanes nevera,0.7909506325094736,E | E | E,hibrido
+31685,daura sin gluten,0.9901656075077405,E | E | E,hibrido
+32007,decoracion botes cristal mermelada,0.39412952533069157,S | S | E,hibrido
+32208,delantales vaqueros de camarero,0.6304852179391167,E | E | S,hibrido
+32308,demasiado inteligente para ser feliz,0.4107627228763939,E | I | I,hibrido
+32442,deportivas con plataformas de color rojo,0.8889327548417576,E | E | S,hibrido
+32458,deposito de lavacabezas,0.9052116356304495,E | E | E,hibrido
+32779,devil may cry 5 ps4,0.9818466365841766,E | E | E,hibrido
+33521,disco duro externo 1 tb,0.8767137607315195,E | E | E,hibrido
+33578,disfraces niña muñeca,0.8363508324956547,E | S | S,hibrido
+33665,disfraz plus size,0.7359252415537267,E | E | E,hibrido
+33861,dispensador agua cristal con grifo,0.9337457765456111,E | E | E,hibrido
+34902,doraemon cumpleaños decoracion,0.8177650911347445,E | S | E,hibrido
+37331,elgato capturadora,0.8894641503578704,E | E | E,hibrido
+37617,enchufe sensor de movimiento,0.9233711941225413,E | E | E,hibrido
+38127,espinilleras nike,1.0,E | E | E,hibrido
+38284,estores para puertas sin taladrar,1.0,E | E | E,hibrido
+38286,estrella mercedes w211,0.7337211057852473,E | E | S,hibrido
+38310,estuches harry potter,0.9294415579191924,E | E | E,hibrido
+38345,etapas de potencia para coche,0.6882686706390454,C | E | E,hibrido
+38863,extractor de humos sin salida,0.6520910822420557,I | E | E,hibrido
+38984,eyerline negro loreal,0.6790632052630364,E | E | S,hibrido
+39330,fajas sin tirantes,0.706449575087301,E | S | C,hibrido
+39411,falda de plumas,0.9427412906209435,E | E | E,hibrido
+40116,fibre de vidrio,0.8301304525328183,E | E | E,hibrido
+40237,fijar mueble a la pared sin taladrar,0.6178895650585727,C | E | E,hibrido
+41770,focusrite scarlett studio,0.9281695935238607,E | S | E,hibrido
+41894,fone de ouvido,0.725288604454269,S | E | E,hibrido
+42198,formentera lady,0.6808669388677838,I | E | S,hibrido
+42275,fossil q hybrid,0.13423765785286562,C | C | S,hibrido
+42440,freddie king boy girl boy,0.6437684113853991,E | E | I,hibrido
+42864,fructis coco mascarilla,0.610396743983454,S | E | E,hibrido
+42985,fuente gatos sin filtros,0.33096007781803377,C | C | E,hibrido
+43353,funda trabajas,0.2890648263178879,I | I | I,hibrido
+43415,fundas nórdico 90,0.7343268644431667,E | S | S,hibrido
+43438,fundas sillas jardín,0.8698127568102422,E | E | E,hibrido
+44610,gato,1.0,E | E | E,hibrido
+46102,glucometro sin pinchazo,0.39534095939376096,S | S | S,hibrido
+46917,gourmia freidora sin aceite,0.4243076618164421,E | S | S,hibrido
+47024,gran diver invicta,1.0,E | E | E,hibrido
+47325,green lantern morrison,1.0,E | E | E,hibrido
+47454,greta gremlin,0.9325210919548239,E | E | I,hibrido
+47729,gs65 msi,0.8595518966801226,E | E | E,hibrido
+48240,haftgrund,0.8339755407787554,E | C | C,hibrido
+48790,han dynasty,0.8486629421779802,E | E | E,hibrido
+50318,herramientas para motos,0.7393850645026642,E | E | E,hibrido
+51476,hot wheels coches,0.7191245710479386,C | E | E,hibrido
+51926,hueso para cachorros,1.0,E | E | E,hibrido
+53352,inmotion v5f,0.6570763484562551,E | C | E,hibrido
+55003,iso energy,0.7156164003540729,E | E | E,hibrido
+56123,john cage the seasons,0.5272673985332612,C | C | C,hibrido
+56193,johnsons aceite de bebé,1.0,E | E | E,hibrido
+56720,justfog minikit,0.9223857137111114,E | E | E,hibrido
+59304,l736h,0.5470727044227365,S | E | S,hibrido
+59725,lampara exterior sin cables,0.8714843703674766,E | E | E,hibrido
+60215,las promesas de dios,1.0,E | E | E,hibrido
+60221,laser co2 corte,0.4434287875149079,C | C | E,hibrido
+60418,lavadora sin electricidad,0.7370524616977573,E | E | E,hibrido
+60835,leche de oveja ecologica,0.864931717137609,E | I | I,hibrido
+60889,led de suelo,0.8522023723243048,E | E | E,hibrido
+61498,lenovo legion y520,0.7854404366591795,E | E | E,hibrido
+61531,lente canon 35mm,0.7643727331956321,E | E | S,hibrido
+61802,lg barra de sonido dolby atmos,0.9375119002569006,E | E | E,hibrido
+61898,lg tv 65 pulgadas 4k,0.9292410644337844,E | E | E,hibrido
+61998,libro electrónico,0.8200685179888284,E | E | E,hibrido
+63133,llave dinamometrica 1/4,0.8743436690016257,E | E | E,hibrido
+64232,luna 3,0.9026243749114675,E | I | S,hibrido
+64364,luz solar interior,0.9339724701105759,E | E | E,hibrido
+64648,macetero cerámica grande,0.7419772586898937,E | S | E,hibrido
+65257,maleta 40x20x25 cm ryanair,0.6937485869608617,S | E | S,hibrido
+65258,maleta 55x40x20,0.6833832793903546,E | E | E,hibrido
+65260,maleta estudiante,1.0,E | E | E,hibrido
+65278,maletas gabol,0.5119515630844583,S | I | S,hibrido
+65300,mallas de invierno mujer,0.8714843703674766,E | E | E,hibrido
+65303,mallas kalenji mujer,0.4436988762425618,E | S | S,hibrido
+65306,mallas mujer sexy,0.6471408256860823,E | E | I,hibrido
+65426,mando usb inalambrico,1.0,E | E | E,hibrido
+65664,maquina soldar hilo sin gas,0.94037119889105,E | E | E,hibrido
+65675,mar sin limites,0.5892639024345336,E | I | I,hibrido
+65761,marea cd el azoge,0.6130748048390653,E | S | I,hibrido
+65762,mares del sur,0.8677549842376446,E | E | E,hibrido
+66385,matizador sin sulfatos,0.9294415579191924,E | E | E,hibrido
+66691,me encanta mi papa,0.9430196563239949,E | E | C,hibrido
+67059,mello music,0.13269812834612635,S | I | S,hibrido
+68803,microcemento monto,0.8052278378442254,E | E | E,hibrido
+69433,mini itx placa base,0.875023800513801,E | S | E,hibrido
+70297,moma bikes electrica e-mtb 29,0.8103020898263309,E | E | S,hibrido
+70479,monos+ajustados manga mujer,0.9339724701105759,E | E | E,hibrido
+71179,mp3 con auriculares inalambricos,0.7149983192725466,E | E | S,hibrido
+71432,muebles escoberos exterior,0.9337457765456111,E | E | E,hibrido
+71442,muerte y vida de las grandes ciudades,0.7726449597753193,E | E | I,hibrido
+71768,muñeco de madera wing chun,0.6635741642580714,E | E | C,hibrido
+72145,nanas para dormir bebes,0.5947088004248879,E | E | C,hibrido
+72723,neem face wash,0.7545968598794698,E | E | E,hibrido
+73270,next to me chicco,0.5903498511644695,C | E | E,hibrido
+73605,nike negro niño,0.29129222777272573,S | I | E,hibrido
+74963,oakley graduadas,0.5659650255917203,E | S | S,hibrido
+76919,ovomaltine original,0.6705322524697769,E | E | S,hibrido
+77165,padel hombre zapatillas,0.7183148570677893,E | E | E,hibrido
+77436,pancarta mickey mouse,0.7689376748304007,E | E | C,hibrido
+77763,paperwhite sin publicidad,0.7781045000971726,E | E | E,hibrido
+77868,parka mujer sin mangas,0.9375119002569006,E | E | E,hibrido
+78076,patines de ambar de soy luna originales,1.0,E | S | S,hibrido
+78666,peluca muñeco chucky,0.8887810994921345,E | S | I,hibrido
+78676,peluche koala para bebe,0.9339724701105759,E | E | E,hibrido
+78885,pepe the frog peluche,1.0,E | E | E,hibrido
+80582,pitos de carnaval cadiz,0.4552001852896105,S | S | S,hibrido
+80838,planchas sin cable,0.9009587051658641,E | E | S,hibrido
+81969,polo sin cuello hombre,0.37631325730821896,S | E | S,hibrido
+82041,pomada del silencio,0.2162481682951959,S | S | S,hibrido
+82053,pomos y tiradores zara home,0.37732061170029235,S | S | S,hibrido
+82225,pop funko batman,1.0,E | E | E,hibrido
+82226,pop it zanahoria,0.5824661893141994,E | S | S,hibrido
+83106,premiata mujer 37,0.8802531908778441,E | E | E,hibrido
+83490,pro 600 oral b,0.9337165982175861,E | E | E,hibrido
+83841,proyector corto alcance led,0.7537714572075973,E | E | S,hibrido
+84079,puerto hdmi a tablet,0.527988072927737,S | S | S,hibrido
+84519,puros habanos para fumar cohiba,0.03863636043458011,C | C | C,hibrido
+84797,péndulo hebreo de haya,0.9291581301894754,E | E | E,hibrido
+84873,quantico,0.8535590059937976,E | E | E,hibrido
+85502,ram 32gb portatil,0.6157344160059153,E | I | E,hibrido
+87295,retorno ping pong,0.8280699953654882,E | E | C,hibrido
+88166,rodillo bcool,0.1915341580412044,S | S | S,hibrido
+88345,rolos dominicanos,0.43468597041817447,I | I | I,hibrido
+88527,ropa para motos custom,0.9216017310213247,E | E | E,hibrido
+89565,saco cuna invierno,0.8486629421779802,E | E | E,hibrido
+90421,sandalias tacon cordones mujer,0.7334340648942299,S | E | S,hibrido
+90672,satseupser libro,0.5486150295707609,E | I | I,hibrido
+91592,selectividad lengua,0.8857194440863226,E | S | S,hibrido
+91898,set degradado,0.8516026447521928,E | C | I,hibrido
+93433,sillas giratorias sin ruedas,0.08413492159542453,I | C | I,hibrido
+94252,skyzzie,0.710194487320701,C | E | E,hibrido
+96110,sony e gran angular,0.5878655592016435,S | E | E,hibrido
+96195,sophie saint rose,0.6573809505697459,S | E | E,hibrido
+96243,soporte pedales thrustmaster,0.5270531890348376,E | E | I,hibrido
+96467,spalding tf50,0.8984506695539408,E | E | E,hibrido
+98925,sudaderas hombres sin capucha,0.17061654832969836,I | S | S,hibrido
+98957,suelos para cocinas sin obras,0.9305687780632229,E | E | E,hibrido
+99033,sujetador azul marino,1.0,E | E | E,hibrido
+99329,super mario odyssey nintendo switch,0.8952737286289444,E | E | C,hibrido
+99535,surtido galletas sin azucar,0.5406473721927767,E | S | S,hibrido
+100286,taburete con reposabrazos giratorio,0.8574317626883479,E | E | E,hibrido
+100408,tail butt plug,0.43442517231444405,S | E | E,hibrido
+100721,tapiflex 150x200 sin patas,0.38607742501716574,S | S | E,hibrido
+101167,teclados mecanicos cherry mini,0.8660522373096611,E | S | S,hibrido
+101285,tela de punto por metros,0.7955540426626769,E | E | E,hibrido
+101321,telefono movil sin internet,0.808996270624377,E | S | E,hibrido
+101358,televisiones qled 4k y soporte,0.7752829102736443,E | E | E,hibrido
+101383,teléfono sin internet,0.8019174103317279,S | E | E,hibrido
+101972,the feather thief,0.7197553530667054,E | E | S,hibrido
+102282,the ordinary ojos,0.868015680262026,E | E | E,hibrido
+103185,timberland mujer botas,1.0,E | E | E,hibrido
+103275,tinte barba rubio claro,0.3547488219997208,E | S | S,hibrido
+103555,tocado dorado para el pelo,0.8831124895119933,E | E | E,hibrido
+104303,torre de ordenador 32gb i7,0.8333312576752231,E | E | E,hibrido
+104670,tplink camara wifi,0.6090828211489254,E | S | E,hibrido
+105616,tubo de aire para tapón de deposito colores,0.8433233072118665,E | S | S,hibrido
+105660,tulipas,0.298254219601818,I | I | I,hibrido
+107132,urna cenizas pequeñas,1.0,E | E | E,hibrido
+107918,vaper sin nicotina para niños,0.7769470498553479,E | E | E,hibrido
+108605,view2,0.13304867546928906,C | C | C,hibrido
+109016,viviactive 3,0.8546430438472536,E | E | C,hibrido
+113768,woomax cocina de madera,0.9825414800655806,E | E | E,hibrido
+114382,xiaomi cinta de correr plegable,0.6127058909511383,S | E | S,hibrido
+114390,xiaomi mi 9,0.8552109176077188,E | E | S,hibrido
+115366,zapata bicicleta spinning,0.607101722778885,E | I | I,hibrido
+115413,zapatillas dunlop hombre vestir,0.6787485779437038,E | S | E,hibrido
+115437,zapatillas montaña de mujer,0.94037119889105,E | E | E,hibrido
+115452,zapatillas nike lunar gato,0.40581939196035605,I | S | S,hibrido
+115457,zapatillas para niñas color blanco skecher,0.7326219659819423,E | S | S,hibrido
+115520,zapatos tacón pikolinos de mujer,0.94037119889105,E | E | E,hibrido
+237,", champú sin sal salerm",0.8177650911347445,E | S | E,bm25+reranker
+369,.bolitas sin gluten,1.0,E | E | E,bm25+reranker
+1178,10 enchufes regleta sin cable,0.732517713911962,S | E | S,bm25+reranker
+1373,100 bandera españa sin escudo colga palo,0.9177308065532956,E | E | E,bm25+reranker
+2210,15m tiras led sin transformador,0.7353148618362981,E | E | E,bm25+reranker
+2248,16 piezas cuberteria dorada sin cuchara pequeña,0.513414852220668,S | S | S,bm25+reranker
+2539,2 enchufes y 1 interruptor pared sin empotrar,0.44886469536881707,E | S | S,bm25+reranker
+2677,2 tapa microondas sin bpa antisalpicaduras,0.9375119002569006,E | E | E,bm25+reranker
+2678,2 tazones ramen sin cucharas,0.4023860018137992,S | S | E,bm25+reranker
+2829,200 cartas pokemon sin repetir,0.787891162074931,E | E | E,bm25+reranker
+2833,200 metros de goma de 16mm sin gotero,0.5489797471708651,S | S | S,bm25+reranker
+4179,40 unidades de cera sin silicona colores,1.0,E | S | I,bm25+reranker
+4417,4patas sin ruedas 40x30,0.7087070874469343,S | E | S,bm25+reranker
+6119,abrigos para niños de 10 años,0.8698127568102422,E | E | E,bm25+reranker
+6201,accesorios camara deportiva victure,0.6067216003536937,I | E | E,bm25+reranker
+6445,activador para hidroimpresion,0.8348316710979752,E | E | E,bm25+reranker
+6544,adaptador radio 2 din,0.5437951467682703,E | C | E,bm25+reranker
+7150,age repair isdin 50,1.0,E | E | E,bm25+reranker
+7952,alfombras sin pelo,0.7436672189076122,E | E | E,bm25+reranker
+7971,algodon de azucar fresa,0.9857086192171373,E | E | E,bm25+reranker
+8329,alta voz sony portátil con bluetooth,0.9427412906209435,E | E | E,bm25+reranker
+8457,amafitbit gts 2,0.7956222509295733,E | E | E,bm25+reranker
+8466,amasadora barata,1.0,E | E | E,bm25+reranker
+9162,anillos hombre sello de oro solitario,0.7346717048322796,E | E | E,bm25+reranker
+9164,anillos mujer acero inoxidable ajustable,0.9868327995780668,E | E | E,bm25+reranker
+9449,antibeschlag set,0.5210401658710228,S | E | E,bm25+reranker
+10111,arboles para belen,0.9363792118010483,E | E | E,bm25+reranker
+11673,b450 aorus,0.9905732954738813,E | E | E,bm25+reranker
+12923,banco baño,0.7753023741674897,E | E | S,bm25+reranker
+12992,bandoleras mujer,0.8831124895119933,E | E | E,bm25+reranker
+13102,barandilla cama adulto,0.8560776358198323,E | E | E,bm25+reranker
+13546,bateria para macbook pro 15,1.0,E | E | E,bm25+reranker
+13548,bateria placa solar 12v,0.8173238339725936,E | E | I,bm25+reranker
+13826,batidora aigostar,0.9968263725553589,E | E | E,bm25+reranker
+14824,bellies,1.0,E | E | E,bm25+reranker
+15217,bestway steel pro 305,1.0,E | E | E,bm25+reranker
+15362,biberon vaso,0.9427412906209435,E | E | E,bm25+reranker
+15840,bikinis intimissimi,0.2084009591613927,S | S | S,bm25+reranker
+15895,bimbo sin gluten,0.8889327548417576,E | E | S,bm25+reranker
+18053,boiros rotulador de doble punta 36 colores,0.9375119002569006,E | E | E,bm25+reranker
+18084,bolis pilot borrables azul,0.5689232671524146,S | E | S,bm25+reranker
+18394,"bookcases, cabinets & shelves",0.7603598385600132,E | E | S,bm25+reranker
+18604,bosanova botas militares,1.0,E | E | E,bm25+reranker
+18732,botas altas mustang,0.9757147638722228,E | E | E,bm25+reranker
+18754,botas de seguridad,0.7837152892253042,E | S | E,bm25+reranker
+18987,bowl pra gatos,0.6642833148929443,S | E | S,bm25+reranker
+19501,braseros calor negro,0.49220067296149483,E | S | S,bm25+reranker
+21290,cafetera nesspreso cápsulas,0.7480661895426346,E | S | E,bm25+reranker
+21511,caldera de pellets,0.8643851368046714,E | E | E,bm25+reranker
+22118,campana decorativa isla,1.0,E | E | E,bm25+reranker
+22309,candy colors tinte,0.4790542475378794,E | E | S,bm25+reranker
+23147,cargadores apple,0.4154136671097325,S | S | S,bm25+reranker
+23472,casa de vacaciones playmobil 123,1.0,E | S | S,bm25+reranker
+23646,casitas para niñas de 3 años,0.3214540772809434,S | S | S,bm25+reranker
+23695,castillo de princesas para niñas,0.9157083135347952,E | E | E,bm25+reranker
+24429,cercos de madera,0.9337457765456111,E | E | E,bm25+reranker
+24490,cestas de mimbre setas,0.9146904720674044,E | E | E,bm25+reranker
+24784,chandal nike mujer invierno,0.9221802175960296,E | E | E,bm25+reranker
+26284,cigarrillos electrónicos mujer,0.6484120037565955,C | E | C,bm25+reranker
+26312,cine para adultos x,0.41025040723656797,I | E | E,bm25+reranker
+26889,clip grande oficina,0.8802531908778441,E | E | E,bm25+reranker
+27133,cnc metal,0.3998208532696113,E | C | E,bm25+reranker
+27260,cochede juguete para niños,0.5682257825576897,C | C | C,bm25+reranker
+27578,colchón topper 100x180,0.9871693392543823,E | E | E,bm25+reranker
+27634,coleccion cuentos disney pack princesas,0.5457111551497693,I | E | I,bm25+reranker
+27683,colgar cuadros sin clavos,0.7959454000229506,E | E | E,bm25+reranker
+28247,composor 8,1.0,E | E | S,bm25+reranker
+28495,confitura sin azucar,0.26506882472356014,S | S | E,bm25+reranker
+28623,contraventanas pvc,0.5994625116731898,C | E | E,bm25+reranker
+28675,converse plataforma blancas,0.6751098679911071,E | S | E,bm25+reranker
+28908,copa vino botella,0.9872632101416968,E | I | C,bm25+reranker
+29292,cortador galletas redondo,1.0,E | E | E,bm25+reranker
+29306,corte fibra de carbono,0.9398381727244642,E | S | S,bm25+reranker
+29765,cplay2air wireless adapter for factory carplay,0.4918356589461804,S | S | S,bm25+reranker
+30246,crocs outlet mujer,1.0,E | E | E,bm25+reranker
+30404,cruzcampo lata,1.0,E | E | E,bm25+reranker
+30492,cuadr pequeños decoracion s,0.797714863124167,E | E | E,bm25+reranker
+30496,cuadro abstracto xxl,0.8333104826769053,E | S | E,bm25+reranker
+31221,cámara otg,0.7767471075223498,E | E | E,bm25+reranker
+31401,dakar imanes nevera,1.0,E | E | E,bm25+reranker
+31685,daura sin gluten,0.9866813110746858,E | E | E,bm25+reranker
+32007,decoracion botes cristal mermelada,0.5194756461060627,E | S | S,bm25+reranker
+32208,delantales vaqueros de camarero,0.659808495509919,E | E | E,bm25+reranker
+32308,demasiado inteligente para ser feliz,0.6976344898682678,E | S | E,bm25+reranker
+32442,deportivas con plataformas de color rojo,0.7993730743934276,E | E | S,bm25+reranker
+32458,deposito de lavacabezas,0.8611375561264456,E | I | E,bm25+reranker
+32779,devil may cry 5 ps4,0.9814976508680344,E | E | E,bm25+reranker
+33521,disco duro externo 1 tb,1.0,E | E | E,bm25+reranker
+33578,disfraces niña muñeca,0.8870931620113257,E | S | E,bm25+reranker
+33665,disfraz plus size,0.6653314383614961,S | E | E,bm25+reranker
+33861,dispensador agua cristal con grifo,1.0,E | E | E,bm25+reranker
+34902,doraemon cumpleaños decoracion,0.8177650911347445,E | S | E,bm25+reranker
+37331,elgato capturadora,0.8971447001498445,E | E | E,bm25+reranker
+37617,enchufe sensor de movimiento,1.0,E | E | E,bm25+reranker
+38127,espinilleras nike,0.9273697171216337,E | E | E,bm25+reranker
+38284,estores para puertas sin taladrar,1.0,E | E | E,bm25+reranker
+38286,estrella mercedes w211,0.5633212893949804,E | E | I,bm25+reranker
+38310,estuches harry potter,0.9375119002569006,E | E | E,bm25+reranker
+38345,etapas de potencia para coche,0.6446353319300818,C | C | E,bm25+reranker
+38863,extractor de humos sin salida,0.88995411685096,E | E | I,bm25+reranker
+38984,eyerline negro loreal,0.7500659476880861,E | E | E,bm25+reranker
+39330,fajas sin tirantes,0.6653484528124348,E | S | E,bm25+reranker
+39411,falda de plumas,1.0,E | E | E,bm25+reranker
+40116,fibre de vidrio,0.8492684756353742,E | E | E,bm25+reranker
+40237,fijar mueble a la pared sin taladrar,0.8115558478722846,E | E | I,bm25+reranker
+41770,focusrite scarlett studio,0.8336299497077136,E | C | E,bm25+reranker
+41894,fone de ouvido,0.7313589682509201,S | E | E,bm25+reranker
+42198,formentera lady,0.6808669388677838,I | E | S,bm25+reranker
+42275,fossil q hybrid,0.012185843029618244,C | C | C,bm25+reranker
+42440,freddie king boy girl boy,0.6464018466408364,E | E | I,bm25+reranker
+42864,fructis coco mascarilla,0.558402574063265,E | S | S,bm25+reranker
+42985,fuente gatos sin filtros,0.456890807292501,I | E | E,bm25+reranker
+43353,funda trabajas,0.5,I | I | E,bm25+reranker
+43415,fundas nórdico 90,0.6631459243357598,S | S | E,bm25+reranker
+43438,fundas sillas jardín,0.9427412906209435,E | E | E,bm25+reranker
+44610,gato,1.0,E | E | E,bm25+reranker
+46102,glucometro sin pinchazo,0.4982584699214554,S | S | E,bm25+reranker
+46917,gourmia freidora sin aceite,0.18399479304487049,S | S | S,bm25+reranker
+47024,gran diver invicta,1.0,E | E | E,bm25+reranker
+47325,green lantern morrison,1.0,E | E | E,bm25+reranker
+47454,greta gremlin,0.9674679834891693,E | E | I,bm25+reranker
+47729,gs65 msi,0.8595518966801226,E | E | E,bm25+reranker
+48240,haftgrund,0.5308748147120111,I | C | E,bm25+reranker
+48790,han dynasty,0.8285828297529906,E | E | E,bm25+reranker
+50318,herramientas para motos,0.747336921015326,E | E | E,bm25+reranker
+51476,hot wheels coches,0.8617780359017885,E | E | E,bm25+reranker
+51926,hueso para cachorros,1.0,E | E | E,bm25+reranker
+53352,inmotion v5f,0.7402651780738886,E | E | E,bm25+reranker
+55003,iso energy,0.8125540474311856,E | E | E,bm25+reranker
+56123,john cage the seasons,0.763088925639703,C | E | E,bm25+reranker
+56193,johnsons aceite de bebé,1.0,E | E | E,bm25+reranker
+56720,justfog minikit,0.7937892708477715,E | C | E,bm25+reranker
+59304,l736h,0.4994010910164066,S | S | E,bm25+reranker
+59725,lampara exterior sin cables,0.8206243897688938,E | E | E,bm25+reranker
+60215,las promesas de dios,0.9339724701105759,E | E | E,bm25+reranker
+60221,laser co2 corte,0.7898958976868146,E | C | E,bm25+reranker
+60418,lavadora sin electricidad,1.0,E | E | E,bm25+reranker
+60835,leche de oveja ecologica,0.915970889902688,E | I | I,bm25+reranker
+60889,led de suelo,0.9233711941225413,E | E | E,bm25+reranker
+61498,lenovo legion y520,0.8910051214064877,E | E | E,bm25+reranker
+61531,lente canon 35mm,0.678648185514186,E | S | E,bm25+reranker
+61802,lg barra de sonido dolby atmos,1.0,E | E | E,bm25+reranker
+61898,lg tv 65 pulgadas 4k,0.9292410644337844,E | E | E,bm25+reranker
+61998,libro electrónico,1.0,E | E | E,bm25+reranker
+63133,llave dinamometrica 1/4,1.0,E | E | E,bm25+reranker
+64232,luna 3,0.9246304937591581,E | S | S,bm25+reranker
+64364,luz solar interior,0.808996270624377,E | S | E,bm25+reranker
+64648,macetero cerámica grande,0.7753023741674897,E | E | S,bm25+reranker
+65257,maleta 40x20x25 cm ryanair,0.7727693254230845,S | E | S,bm25+reranker
+65258,maleta 55x40x20,0.7621133243405442,E | E | E,bm25+reranker
+65260,maleta estudiante,1.0,E | E | E,bm25+reranker
+65278,maletas gabol,0.6785874211096968,S | E | S,bm25+reranker
+65300,mallas de invierno mujer,0.7465265175417616,E | E | E,bm25+reranker
+65303,mallas kalenji mujer,0.4566174247529472,E | S | S,bm25+reranker
+65306,mallas mujer sexy,0.7890755358203867,E | E | I,bm25+reranker
+65426,mando usb inalambrico,0.862526180565181,E | C | E,bm25+reranker
+65664,maquina soldar hilo sin gas,0.9009587051658641,E | E | S,bm25+reranker
+65675,mar sin limites,0.5837162232370384,E | I | I,bm25+reranker
+65761,marea cd el azoge,0.818827557237741,E | E | I,bm25+reranker
+65762,mares del sur,0.5504509712926003,E | E | I,bm25+reranker
+66385,matizador sin sulfatos,1.0,E | E | E,bm25+reranker
+66691,me encanta mi papa,0.5366871126216581,I | C | E,bm25+reranker
+67059,mello music,0.1832800248858096,I | S | I,bm25+reranker
+68803,microcemento monto,0.8261612285164249,E | E | E,bm25+reranker
+69433,mini itx placa base,1.0,E | E | E,bm25+reranker
+70297,moma bikes electrica e-mtb 29,0.8103020898263309,E | E | S,bm25+reranker
+70479,monos+ajustados manga mujer,0.9146904720674044,E | E | E,bm25+reranker
+71179,mp3 con auriculares inalambricos,0.7549848750991971,E | S | S,bm25+reranker
+71432,muebles escoberos exterior,0.9363792118010483,E | E | E,bm25+reranker
+71442,muerte y vida de las grandes ciudades,0.7667857119496213,E | E | I,bm25+reranker
+71768,muñeco de madera wing chun,0.657111708924607,E | E | C,bm25+reranker
+72145,nanas para dormir bebes,0.5671948334212793,C | E | E,bm25+reranker
+72723,neem face wash,0.8096947487970363,E | E | E,bm25+reranker
+73270,next to me chicco,0.48825248625968387,C | E | C,bm25+reranker
+73605,nike negro niño,0.6340674384130816,E | I | E,bm25+reranker
+74963,oakley graduadas,0.34292844168567715,E | S | S,bm25+reranker
+76919,ovomaltine original,0.5817348867311871,S | E | E,bm25+reranker
+77165,padel hombre zapatillas,0.6566677307572979,E | S | E,bm25+reranker
+77436,pancarta mickey mouse,0.7266556528757873,E | E | C,bm25+reranker
+77763,paperwhite sin publicidad,0.7439955838914349,E | E | E,bm25+reranker
+77868,parka mujer sin mangas,1.0,E | E | E,bm25+reranker
+78076,patines de ambar de soy luna originales,0.7547445147218053,S | E | S,bm25+reranker
+78666,peluca muñeco chucky,0.9251314248250436,E | S | S,bm25+reranker
+78676,peluche koala para bebe,0.8637423930135911,E | E | E,bm25+reranker
+78885,pepe the frog peluche,0.9919263643293557,E | E | E,bm25+reranker
+80582,pitos de carnaval cadiz,0.5065037258417465,S | E | I,bm25+reranker
+80838,planchas sin cable,0.94037119889105,E | E | E,bm25+reranker
+81969,polo sin cuello hombre,0.4979976348142118,E | S | S,bm25+reranker
+82041,pomada del silencio,0.16489343499998438,S | I | S,bm25+reranker
+82053,pomos y tiradores zara home,0.2363737678157232,S | S | S,bm25+reranker
+82225,pop funko batman,0.9009587051658641,E | E | S,bm25+reranker
+82226,pop it zanahoria,0.684038417798662,E | E | E,bm25+reranker
+83106,premiata mujer 37,0.7983949946363421,E | S | E,bm25+reranker
+83490,pro 600 oral b,0.8704661585665603,E | E | E,bm25+reranker
+83841,proyector corto alcance led,0.8000849548540606,E | E | E,bm25+reranker
+84079,puerto hdmi a tablet,0.6546998930707204,S | E | S,bm25+reranker
+84519,puros habanos para fumar cohiba,0.0769023120857721,C | C | S,bm25+reranker
+84797,péndulo hebreo de haya,0.9634619860802206,E | E | E,bm25+reranker
+84873,quantico,0.8226229976020034,E | E | E,bm25+reranker
+85502,ram 32gb portatil,1.0,E | E | E,bm25+reranker
+87295,retorno ping pong,0.6208920469502673,E | E | E,bm25+reranker
+88166,rodillo bcool,0.45251401834971633,S | S | S,bm25+reranker
+88345,rolos dominicanos,0.3473219048629142,I | I | I,bm25+reranker
+88527,ropa para motos custom,1.0,E | E | E,bm25+reranker
+89565,saco cuna invierno,0.9294415579191924,E | E | E,bm25+reranker
+90421,sandalias tacon cordones mujer,0.7658923597070733,S | E | E,bm25+reranker
+90672,satseupser libro,0.5448444464787494,E | I | I,bm25+reranker
+91592,selectividad lengua,0.90623839388166,E | S | S,bm25+reranker
+91898,set degradado,0.5727543334691114,I | C | E,bm25+reranker
+93433,sillas giratorias sin ruedas,0.06751140055212472,I | I | C,bm25+reranker
+94252,skyzzie,0.9420966751379887,E | E | E,bm25+reranker
+96110,sony e gran angular,0.6368485856081678,S | E | S,bm25+reranker
+96195,sophie saint rose,0.5188440526333167,S | S | E,bm25+reranker
+96243,soporte pedales thrustmaster,0.5399295913679701,E | S | E,bm25+reranker
+96467,spalding tf50,0.9064951819544043,E | E | E,bm25+reranker
+98925,sudaderas hombres sin capucha,0.24664495063097927,S | I | I,bm25+reranker
+98957,suelos para cocinas sin obras,0.88995411685096,E | E | I,bm25+reranker
+99033,sujetador azul marino,1.0,E | E | E,bm25+reranker
+99329,super mario odyssey nintendo switch,0.8882983083006523,E | S | E,bm25+reranker
+99535,surtido galletas sin azucar,0.8496783769297368,E | S | S,bm25+reranker
+100286,taburete con reposabrazos giratorio,0.7781045000971726,E | E | E,bm25+reranker
+100408,tail butt plug,0.8544742247915199,E | E | E,bm25+reranker
+100721,tapiflex 150x200 sin patas,0.6042997635005876,E | S | S,bm25+reranker
+101167,teclados mecanicos cherry mini,0.8828322430177994,E | S | E,bm25+reranker
+101285,tela de punto por metros,0.94037119889105,E | E | E,bm25+reranker
+101321,telefono movil sin internet,0.6331716924269669,E | I | E,bm25+reranker
+101358,televisiones qled 4k y soporte,0.5454404741896334,C | E | C,bm25+reranker
+101383,teléfono sin internet,0.6627380162786103,E | S | E,bm25+reranker
+101972,the feather thief,0.7224536175762997,E | E | E,bm25+reranker
+102282,the ordinary ojos,0.8907779384035648,E | E | E,bm25+reranker
+103185,timberland mujer botas,1.0,E | E | E,bm25+reranker
+103275,tinte barba rubio claro,0.5937902948571914,E | E | I,bm25+reranker
+103555,tocado dorado para el pelo,0.8778830991479504,E | E | E,bm25+reranker
+104303,torre de ordenador 32gb i7,0.9403108584093678,E | E | S,bm25+reranker
+104670,tplink camara wifi,0.9064951819544043,E | E | E,bm25+reranker
+105616,tubo de aire para tapón de deposito colores,0.9320171656895685,E | E | E,bm25+reranker
+105660,tulipas,0.6333183426878355,I | E | I,bm25+reranker
+107132,urna cenizas pequeñas,1.0,E | E | E,bm25+reranker
+107918,vaper sin nicotina para niños,0.8374226095567352,E | E | E,bm25+reranker
+108605,view2,0.6449967942677589,C | E | C,bm25+reranker
+109016,viviactive 3,0.9300882064329077,E | E | E,bm25+reranker
+113768,woomax cocina de madera,0.9826278518627807,E | E | E,bm25+reranker
+114382,xiaomi cinta de correr plegable,1.0,E | E | E,bm25+reranker
+114390,xiaomi mi 9,0.9577629103360518,E | E | E,bm25+reranker
+115366,zapata bicicleta spinning,1.0,E | E | E,bm25+reranker
+115413,zapatillas dunlop hombre vestir,0.42069754248663016,S | C | E,bm25+reranker
+115437,zapatillas montaña de mujer,1.0,E | E | E,bm25+reranker
+115452,zapatillas nike lunar gato,0.6648023911530518,S | I | E,bm25+reranker
+115457,zapatillas para niñas color blanco skecher,0.6119477736955263,E | S | S,bm25+reranker
+115520,zapatos tacón pikolinos de mujer,0.8767137607315195,E | E | E,bm25+reranker
+237,", champú sin sal salerm",0.8177650911347445,E | S | E,sistema
+369,.bolitas sin gluten,1.0,E | E | E,sistema
+1178,10 enchufes regleta sin cable,0.645511945876582,S | S | E,sistema
+1373,100 bandera españa sin escudo colga palo,0.9177308065532956,E | E | E,sistema
+2210,15m tiras led sin transformador,0.6798005094796782,S | E | E,sistema
+2248,16 piezas cuberteria dorada sin cuchara pequeña,0.513414852220668,S | S | S,sistema
+2539,2 enchufes y 1 interruptor pared sin empotrar,0.4591219807170671,E | S | S,sistema
+2677,2 tapa microondas sin bpa antisalpicaduras,0.94037119889105,E | E | E,sistema
+2678,2 tazones ramen sin cucharas,0.4159418717531043,S | S | S,sistema
+2829,200 cartas pokemon sin repetir,0.6585076097811803,E | E | E,sistema
+2833,200 metros de goma de 16mm sin gotero,0.528615042867247,S | S | S,sistema
+4179,40 unidades de cera sin silicona colores,1.0,E | S | I,sistema
+4417,4patas sin ruedas 40x30,0.551680505362224,S | S | S,sistema
+6119,abrigos para niños de 10 años,0.80682817649328,E | E | E,sistema
+6201,accesorios camara deportiva victure,0.5914640815742044,I | E | I,sistema
+6445,activador para hidroimpresion,0.8348316710979752,E | E | E,sistema
+6544,adaptador radio 2 din,0.4101959845983757,C | C | E,sistema
+7150,age repair isdin 50,1.0,E | E | E,sistema
+7952,alfombras sin pelo,0.7151843661542838,E | E | S,sistema
+7971,algodon de azucar fresa,0.7531539942710155,S | E | S,sistema
+8329,alta voz sony portátil con bluetooth,0.725288604454269,S | E | E,sistema
+8457,amafitbit gts 2,0.7956222509295733,E | E | E,sistema
+8466,amasadora barata,0.9427412906209435,E | E | E,sistema
+9162,anillos hombre sello de oro solitario,0.7118502766427834,E | E | E,sistema
+9164,anillos mujer acero inoxidable ajustable,0.9219954090314813,E | E | E,sistema
+9449,antibeschlag set,0.5716745475520045,S | I | E,sistema
+10111,arboles para belen,0.9363792118010483,E | E | E,sistema
+11673,b450 aorus,1.0,E | E | E,sistema
+12923,banco baño,0.7753023741674897,E | E | S,sistema
+12992,bandoleras mujer,1.0,E | E | E,sistema
+13102,barandilla cama adulto,0.8560776358198323,E | E | E,sistema
+13546,bateria para macbook pro 15,1.0,E | E | E,sistema
+13548,bateria placa solar 12v,0.8277612502954694,E | E | E,sistema
+13826,batidora aigostar,0.9966508228012132,E | E | E,sistema
+14824,bellies,1.0,E | E | E,sistema
+15217,bestway steel pro 305,1.0,E | E | E,sistema
+15362,biberon vaso,0.9427412906209435,E | E | E,sistema
+15840,bikinis intimissimi,0.13252109214445024,S | S | S,sistema
+15895,bimbo sin gluten,0.7946657095805699,E | E | S,sistema
+18053,boiros rotulador de doble punta 36 colores,0.8721828485401358,E | E | E,sistema
+18084,bolis pilot borrables azul,0.8321759534165704,E | S | E,sistema
+18394,"bookcases, cabinets & shelves",0.753682438383697,E | E | S,sistema
+18604,bosanova botas militares,1.0,E | E | E,sistema
+18732,botas altas mustang,0.9531076687060671,E | E | S,sistema
+18754,botas de seguridad,0.7837152892253042,E | S | E,sistema
+18987,bowl pra gatos,0.5668288626478934,S | S | E,sistema
+19501,braseros calor negro,0.5570380635080804,E | S | S,sistema
+21290,cafetera nesspreso cápsulas,0.6363178759073945,S | E | E,sistema
+21511,caldera de pellets,0.8594011333941494,E | E | E,sistema
+22118,campana decorativa isla,1.0,E | E | E,sistema
+22309,candy colors tinte,0.543891638084465,E | E | S,sistema
+23147,cargadores apple,0.4154136671097325,S | S | S,sistema
+23472,casa de vacaciones playmobil 123,1.0,E | S | S,sistema
+23646,casitas para niñas de 3 años,0.38897102806967465,S | S | S,sistema
+23695,castillo de princesas para niñas,0.9157083135347952,E | E | E,sistema
+24429,cercos de madera,1.0,E | E | E,sistema
+24490,cestas de mimbre setas,0.8413299040569139,E | E | S,sistema
+24784,chandal nike mujer invierno,0.919603287231908,E | E | E,sistema
+26284,cigarrillos electrónicos mujer,0.5580688928865042,C | E | C,sistema
+26312,cine para adultos x,0.42209578752524735,I | E | E,sistema
+26889,clip grande oficina,0.8441320299865965,E | E | E,sistema
+27133,cnc metal,0.3998208532696113,E | C | E,sistema
+27260,cochede juguete para niños,0.6578720851425802,C | E | E,sistema
+27578,colchón topper 100x180,0.9871693392543823,E | E | E,sistema
+27634,coleccion cuentos disney pack princesas,0.5707132888088907,I | E | I,sistema
+27683,colgar cuadros sin clavos,0.6393215863663867,E | S | I,sistema
+28247,composor 8,1.0,E | E | S,sistema
+28495,confitura sin azucar,0.38934654603710006,S | S | E,sistema
+28623,contraventanas pvc,0.5994625116731898,C | E | E,sistema
+28675,converse plataforma blancas,0.5923272201967456,S | E | E,sistema
+28908,copa vino botella,0.9872632101416968,E | I | C,sistema
+29292,cortador galletas redondo,0.9427412906209435,E | E | E,sistema
+29306,corte fibra de carbono,0.9431561215098992,E | S | S,sistema
+29765,cplay2air wireless adapter for factory carplay,0.4918356589461804,S | S | S,sistema
+30246,crocs outlet mujer,1.0,E | E | E,sistema
+30404,cruzcampo lata,1.0,E | E | E,sistema
+30492,cuadr pequeños decoracion s,0.7720341363005213,E | E | E,sistema
+30496,cuadro abstracto xxl,0.8437098829439005,E | E | S,sistema
+31221,cámara otg,0.7767471075223498,E | E | E,sistema
+31401,dakar imanes nevera,1.0,E | E | E,sistema
+31685,daura sin gluten,0.9901656075077405,E | E | E,sistema
+32007,decoracion botes cristal mermelada,0.5271205242707598,E | S | S,sistema
+32208,delantales vaqueros de camarero,0.6585241012659913,E | E | E,sistema
+32308,demasiado inteligente para ser feliz,0.4180187949962605,E | S | I,sistema
+32442,deportivas con plataformas de color rojo,0.8889327548417576,E | E | S,sistema
+32458,deposito de lavacabezas,0.88995411685096,E | E | I,sistema
+32779,devil may cry 5 ps4,0.9814976508680344,E | E | E,sistema
+33521,disco duro externo 1 tb,1.0,E | E | E,sistema
+33578,disfraces niña muñeca,0.8607921378922796,E | S | S,sistema
+33665,disfraz plus size,0.7465081708812773,E | S | E,sistema
+33861,dispensador agua cristal con grifo,1.0,E | E | E,sistema
+34902,doraemon cumpleaños decoracion,0.8177650911347445,E | S | E,sistema
+37331,elgato capturadora,0.8895567134481502,E | E | E,sistema
+37617,enchufe sensor de movimiento,1.0,E | E | E,sistema
+38127,espinilleras nike,1.0,E | E | E,sistema
+38284,estores para puertas sin taladrar,1.0,E | E | E,sistema
+38286,estrella mercedes w211,0.5625834298523991,E | E | I,sistema
+38310,estuches harry potter,0.9233711941225413,E | E | E,sistema
+38345,etapas de potencia para coche,0.6446353319300818,C | C | E,sistema
+38863,extractor de humos sin salida,0.8326954074719035,E | E | I,sistema
+38984,eyerline negro loreal,0.7439955838914349,E | E | E,sistema
+39330,fajas sin tirantes,0.5922420626303618,S | E | E,sistema
+39411,falda de plumas,1.0,E | E | E,sistema
+40116,fibre de vidrio,0.8492684756353742,E | E | E,sistema
+40237,fijar mueble a la pared sin taladrar,0.7389759084627113,E | E | I,sistema
+41770,focusrite scarlett studio,0.8613595567263032,E | S | E,sistema
+41894,fone de ouvido,0.7313589682509201,S | E | E,sistema
+42198,formentera lady,0.6808669388677838,I | E | S,sistema
+42275,fossil q hybrid,0.012185843029618244,C | C | C,sistema
+42440,freddie king boy girl boy,0.6437684113853991,E | E | I,sistema
+42864,fructis coco mascarilla,0.5653326192861915,E | S | S,sistema
+42985,fuente gatos sin filtros,0.45830774226569504,C | E | E,sistema
+43353,funda trabajas,0.5,I | I | E,sistema
+43415,fundas nórdico 90,0.8694703824096327,E | S | S,sistema
+43438,fundas sillas jardín,0.9427412906209435,E | E | E,sistema
+44610,gato,1.0,E | E | E,sistema
+46102,glucometro sin pinchazo,0.5029933401949194,S | S | E,sistema
+46917,gourmia freidora sin aceite,0.2555238813608803,S | S | S,sistema
+47024,gran diver invicta,1.0,E | E | E,sistema
+47325,green lantern morrison,1.0,E | E | E,sistema
+47454,greta gremlin,0.9325210919548239,E | E | I,sistema
+47729,gs65 msi,0.8595518966801226,E | E | E,sistema
+48240,haftgrund,0.5308748147120111,I | C | E,sistema
+48790,han dynasty,0.8158155875242431,E | E | S,sistema
+50318,herramientas para motos,0.7446531273219502,E | E | E,sistema
+51476,hot wheels coches,0.7995416002482189,E | C | E,sistema
+51926,hueso para cachorros,1.0,E | E | E,sistema
+53352,inmotion v5f,0.7314162144333789,E | E | E,sistema
+55003,iso energy,0.8170849596225693,E | E | E,sistema
+56123,john cage the seasons,0.7256713907796115,C | E | E,sistema
+56193,johnsons aceite de bebé,1.0,E | E | E,sistema
+56720,justfog minikit,0.862526180565181,E | C | E,sistema
+59304,l736h,0.4994010910164066,S | S | E,sistema
+59725,lampara exterior sin cables,0.8206243897688938,E | E | E,sistema
+60215,las promesas de dios,0.94037119889105,E | E | E,sistema
+60221,laser co2 corte,0.6731637270473511,C | E | C,sistema
+60418,lavadora sin electricidad,0.9427412906209435,E | E | E,sistema
+60835,leche de oveja ecologica,0.864931717137609,E | I | I,sistema
+60889,led de suelo,0.8661124847434848,E | E | E,sistema
+61498,lenovo legion y520,0.7854404366591795,E | E | E,sistema
+61531,lente canon 35mm,0.7124053351915711,E | E | E,sistema
+61802,lg barra de sonido dolby atmos,1.0,E | E | E,sistema
+61898,lg tv 65 pulgadas 4k,0.9292410644337844,E | E | E,sistema
+61998,libro electrónico,1.0,E | E | E,sistema
+63133,llave dinamometrica 1/4,0.9427412906209435,E | E | E,sistema
+64232,luna 3,0.9226812240133833,E | S | S,sistema
+64364,luz solar interior,0.8380616661899456,E | E | E,sistema
+64648,macetero cerámica grande,0.7135127525970495,E | E | S,sistema
+65257,maleta 40x20x25 cm ryanair,0.738400106531549,S | S | E,sistema
+65258,maleta 55x40x20,0.7621133243405442,E | E | E,sistema
+65260,maleta estudiante,1.0,E | E | E,sistema
+65278,maletas gabol,0.6785874211096968,S | E | S,sistema
+65300,mallas de invierno mujer,0.8096947487970363,E | E | E,sistema
+65303,mallas kalenji mujer,0.4492201747170805,E | S | S,sistema
+65306,mallas mujer sexy,0.7955145916430639,E | E | I,sistema
+65426,mando usb inalambrico,0.8910545756824505,E | E | C,sistema
+65664,maquina soldar hilo sin gas,0.9294415579191924,E | E | E,sistema
+65675,mar sin limites,0.5852139431962846,E | I | I,sistema
+65761,marea cd el azoge,0.6783794539178638,E | E | I,sistema
+65762,mares del sur,0.5449296728180818,E | E | I,sistema
+66385,matizador sin sulfatos,1.0,E | E | E,sistema
+66691,me encanta mi papa,0.7961255650437378,E | I | C,sistema
+67059,mello music,0.19189631476646432,S | I | I,sistema
+68803,microcemento monto,0.8261612285164249,E | E | E,sistema
+69433,mini itx placa base,0.9146904720674044,E | E | E,sistema
+70297,moma bikes electrica e-mtb 29,0.8103020898263309,E | E | S,sistema
+70479,monos+ajustados manga mujer,0.9146904720674044,E | E | E,sistema
+71179,mp3 con auriculares inalambricos,0.7549848750991971,E | S | S,sistema
+71432,muebles escoberos exterior,1.0,E | E | E,sistema
+71442,muerte y vida de las grandes ciudades,0.7706643888134329,E | E | I,sistema
+71768,muñeco de madera wing chun,0.657111708924607,E | E | C,sistema
+72145,nanas para dormir bebes,0.5615787393232117,C | E | E,sistema
+72723,neem face wash,0.8096947487970363,E | E | E,sistema
+73270,next to me chicco,0.5006221614853839,C | E | C,sistema
+73605,nike negro niño,0.46018153453969196,I | E | I,sistema
+74963,oakley graduadas,0.4806554976591247,E | S | S,sistema
+76919,ovomaltine original,0.5726873948249772,S | E | E,sistema
+77165,padel hombre zapatillas,0.7014756942197137,E | E | E,sistema
+77436,pancarta mickey mouse,0.765560652668294,E | E | E,sistema
+77763,paperwhite sin publicidad,0.7439955838914349,E | E | E,sistema
+77868,parka mujer sin mangas,1.0,E | E | E,sistema
+78076,patines de ambar de soy luna originales,1.0,E | S | S,sistema
+78666,peluca muñeco chucky,0.903699736447809,E | S | S,sistema
+78676,peluche koala para bebe,0.9294415579191924,E | E | E,sistema
+78885,pepe the frog peluche,0.9922472706158698,E | E | E,sistema
+80582,pitos de carnaval cadiz,0.45240680466479155,S | S | S,sistema
+80838,planchas sin cable,0.9294415579191924,E | E | E,sistema
+81969,polo sin cuello hombre,0.5031389267230241,E | S | S,sistema
+82041,pomada del silencio,0.170548261629248,S | I | S,sistema
+82053,pomos y tiradores zara home,0.2363737678157232,S | S | S,sistema
+82225,pop funko batman,0.94037119889105,E | E | E,sistema
+82226,pop it zanahoria,0.684038417798662,E | E | E,sistema
+83106,premiata mujer 37,0.8698127568102422,E | E | E,sistema
+83490,pro 600 oral b,0.8704661585665603,E | E | E,sistema
+83841,proyector corto alcance led,0.7845032288776463,E | E | E,sistema
+84079,puerto hdmi a tablet,0.6598060423733608,S | E | S,sistema
+84519,puros habanos para fumar cohiba,0.0769023120857721,C | C | S,sistema
+84797,péndulo hebreo de haya,0.9629445545947617,E | E | E,sistema
+84873,quantico,0.8252884128121324,E | E | E,sistema
+85502,ram 32gb portatil,1.0,E | E | E,sistema
+87295,retorno ping pong,0.6992006454585237,E | E | E,sistema
+88166,rodillo bcool,0.3549310440958277,S | S | S,sistema
+88345,rolos dominicanos,0.43468597041817447,I | I | I,sistema
+88527,ropa para motos custom,1.0,E | E | E,sistema
+89565,saco cuna invierno,0.9294415579191924,E | E | E,sistema
+90421,sandalias tacon cordones mujer,0.7658923597070733,S | E | E,sistema
+90672,satseupser libro,0.5486150295707609,E | I | I,sistema
+91592,selectividad lengua,0.90623839388166,E | S | S,sistema
+91898,set degradado,0.5727543334691114,I | C | E,sistema
+93433,sillas giratorias sin ruedas,0.06873862881742802,I | I | C,sistema
+94252,skyzzie,0.8081894167949852,E | C | E,sistema
+96110,sony e gran angular,0.5859886050095852,S | E | S,sistema
+96195,sophie saint rose,0.5188440526333167,S | S | E,sistema
+96243,soporte pedales thrustmaster,0.6884778774459456,E | E | S,sistema
+96467,spalding tf50,0.9064951819544043,E | E | E,sistema
+98925,sudaderas hombres sin capucha,0.18124199418824458,S | I | S,sistema
+98957,suelos para cocinas sin obras,0.88995411685096,E | E | I,sistema
+99033,sujetador azul marino,1.0,E | E | E,sistema
+99329,super mario odyssey nintendo switch,0.9174147198130189,E | E | S,sistema
+99535,surtido galletas sin azucar,0.8496783769297368,E | S | S,sistema
+100286,taburete con reposabrazos giratorio,0.8436999957868074,E | E | S,sistema
+100408,tail butt plug,0.8544742247915199,E | E | E,sistema
+100721,tapiflex 150x200 sin patas,0.5125874040172169,E | S | S,sistema
+101167,teclados mecanicos cherry mini,0.8602251478516436,E | S | S,sistema
+101285,tela de punto por metros,0.8661124847434848,E | E | E,sistema
+101321,telefono movil sin internet,0.7082412439606062,E | E | S,sistema
+101358,televisiones qled 4k y soporte,0.6993244757797856,E | C | E,sistema
+101383,teléfono sin internet,0.8087695770594119,E | S | E,sistema
+101972,the feather thief,0.7293274460735114,E | E | E,sistema
+102282,the ordinary ojos,0.8907779384035648,E | E | E,sistema
+103185,timberland mujer botas,1.0,E | E | E,sistema
+103275,tinte barba rubio claro,0.60997450035586,E | E | E,sistema
+103555,tocado dorado para el pelo,0.8778830991479504,E | E | E,sistema
+104303,torre de ordenador 32gb i7,0.9403108584093678,E | E | S,sistema
+104670,tplink camara wifi,0.9064951819544043,E | E | E,sistema
+105616,tubo de aire para tapón de deposito colores,0.9320171656895685,E | E | E,sistema
+105660,tulipas,0.5993138969864685,I | I | E,sistema
+107132,urna cenizas pequeñas,1.0,E | E | E,sistema
+107918,vaper sin nicotina para niños,0.843078030656429,E | E | E,sistema
+108605,view2,0.5513910927400998,C | C | C,sistema
+109016,viviactive 3,0.9171103146354734,E | E | E,sistema
+113768,woomax cocina de madera,0.9826278518627807,E | E | E,sistema
+114382,xiaomi cinta de correr plegable,1.0,E | E | E,sistema
+114390,xiaomi mi 9,0.9716827359481676,E | E | E,sistema
+115366,zapata bicicleta spinning,1.0,E | E | E,sistema
+115413,zapatillas dunlop hombre vestir,0.5747392605611763,E | C | E,sistema
+115437,zapatillas montaña de mujer,1.0,E | E | E,sistema
+115452,zapatillas nike lunar gato,0.5946898090670094,I | S | S,sistema
+115457,zapatillas para niñas color blanco skecher,0.6119477736955263,E | S | S,sistema
+115520,zapatos tacón pikolinos de mujer,0.8802531908778441,E | E | E,sistema

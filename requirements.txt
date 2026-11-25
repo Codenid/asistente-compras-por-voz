@@ -18,3 +18,8 @@ accelerate
 faster-whisper
 TTS==0.22.0
 soundfile
+rank_bm25
+matplotlib
+librosa
+sounddevice
+jiwer

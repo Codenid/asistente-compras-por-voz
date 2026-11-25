@@ -1,0 +1,27 @@
+{
+ "productos": 10688,
+ "distractores": 0,
+ "consultas_eval": 250,
+ "consultas_dev": 150,
+ "pares_anotados": 10928,
+ "etiquetas": {
+  "dev": {
+   "C": 305,
+   "E": 1645,
+   "I": 690,
+   "S": 1399
+  },
+  "eval": {
+   "C": 548,
+   "E": 2814,
+   "I": 1032,
+   "S": 2495
+  }
+ },
+ "faltantes_%": {
+  "descripcion": 47.9,
+  "caracteristicas": 12.0,
+  "marca": 4.7,
+  "color": 37.2
+ }
+}

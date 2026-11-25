@@ -1,0 +1,14 @@
+{
+  "2. Datos (catalogo, consultas, qrels)": {
+    "hash": "f9adcda4163b",
+    "fecha": "2026-11-25 11:17"
+  },
+  "3. Tienda simulada (base con semilla)": {
+    "hash": "cf45d8141aa8",
+    "fecha": "2026-11-25 11:17"
+  },
+  "5. Evaluacion de recuperacion (ajuste dev, eval una vez)": {
+    "hash": "cb67ddbe1d7c",
+    "fecha": "2026-11-25 11:23"
+  }
+}
