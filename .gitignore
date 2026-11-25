@@ -1,0 +1,37 @@
+# Entornos virtuales
+.venv/
+.venv-*/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Configuración local y credenciales
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+
+# Perfiles y muestras de voz privadas
+data/voice_samples/*
+data/voice_profile*.pt
+data/*.pt
+
+# Datasets descargados (mantener solo el marcador del directorio)
+data/raw/*
+!data/raw/.gitkeep
+
+# Salidas generadas
+data/vector_store/
+experiments/output/
+dist/
+build/
