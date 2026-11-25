@@ -40,7 +40,7 @@ def analizar_salida(texto):
 
 
 class LLMLocal:
-    def __init__(self, modelo, cuatro_bits=True, max_tokens=384, dispositivo="cuda"):
+    def __init__(self, modelo, cuatro_bits=True, max_tokens=384, dispositivo="cuda", permitir_cpu=True):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
         self.torch = torch
@@ -53,7 +53,21 @@ class LLMLocal:
                                                            bnb_4bit_use_double_quant=True)
         else:
             kw["torch_dtype"] = torch.float16 if usar_cuda else torch.float32
-        self.model = AutoModelForCausalLM.from_pretrained(modelo, **kw).eval()
+        try:
+            self.model = AutoModelForCausalLM.from_pretrained(modelo, **kw).eval()
+        except ValueError as exc:
+            falta_vram = usar_cuda and cuatro_bits and (
+                "dispatched on the CPU or the disk" in str(exc)
+                or "enough GPU RAM" in str(exc)
+            )
+            if not (permitir_cpu and falta_vram):
+                raise
+            print("La VRAM disponible no alcanza para el modelo cuantizado; se cargará en CPU.")
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            self.model = AutoModelForCausalLM.from_pretrained(
+                modelo, torch_dtype=torch.float32, low_cpu_mem_usage=True
+            ).eval()
         self.max_tokens = max_tokens
 
     def generar(self, mensajes, herramientas):
