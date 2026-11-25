@@ -32,7 +32,7 @@ Los notebooks deben ejecutarse en Google Colab, desde la raíz del proyecto. El 
 ## Datos y voz
 
 - Coloca los Parquet de la versión reducida ESCI en `input/` o `data/raw/`.
-- Coloca una grabación de referencia por persona en `data/voice_samples/<voice_id>.wav`. Su transcripción en `<voice_id>.txt` es opcional: los perfiles se generan también cuando falta o está vacía.
+- Coloca una grabación de referencia por persona en `data/voice_samples/<voice_id>.wav`. El perfil se extrae directamente del audio.
 - El notebook 02 produce `data/voice_profiles/<voice_id>.pt`.
 - Los audios de escenario se guardan en `data/scenario_audio/<voice_id>/` como `E01_t1.wav` … `E06_tN.wav`. El notebook final muestra los nombres requeridos.
 
