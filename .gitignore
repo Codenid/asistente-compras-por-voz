@@ -35,3 +35,8 @@ data/vector_store/
 experiments/output/
 dist/
 build/
+
+# Perfiles y audios generados por la integración modular
+data/voice_profiles/
+data/scenario_audio/
+output/

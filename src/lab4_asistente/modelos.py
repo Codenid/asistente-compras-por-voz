@@ -40,34 +40,32 @@ def analizar_salida(texto):
 
 
 class LLMLocal:
-    def __init__(self, modelo, cuatro_bits=True, max_tokens=384, dispositivo="cuda", permitir_cpu=True):
+    def __init__(self, modelo, cuatro_bits=True, max_tokens=384, dispositivo="cuda"):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
         self.torch = torch
         self.tok = AutoTokenizer.from_pretrained(modelo)
         usar_cuda = str(dispositivo).startswith("cuda")
-        kw = {"device_map": "auto"} if usar_cuda else {}
+        if not usar_cuda or not torch.cuda.is_available():
+            raise RuntimeError("Qwen debe ejecutarse en CUDA para esta configuración local; no se permite cargarlo en CPU.")
+        # Asignación explícita: device_map='auto' podía repartir el modelo en RAM
+        # cuando faltaba VRAM, dejar la GPU ociosa y bloquear VS Code.
+        kw = {"device_map": {"": 0}}
         if cuatro_bits and usar_cuda:
             kw["quantization_config"] = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                                                            bnb_4bit_compute_dtype=torch.float16,
                                                            bnb_4bit_use_double_quant=True)
         else:
-            kw["torch_dtype"] = torch.float16 if usar_cuda else torch.float32
+            kw["torch_dtype"] = torch.float16
         try:
             self.model = AutoModelForCausalLM.from_pretrained(modelo, **kw).eval()
-        except ValueError as exc:
-            falta_vram = usar_cuda and cuatro_bits and (
-                "dispatched on the CPU or the disk" in str(exc)
-                or "enough GPU RAM" in str(exc)
-            )
-            if not (permitir_cpu and falta_vram):
-                raise
-            print("La VRAM disponible no alcanza para el modelo cuantizado; se cargará en CPU.")
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-            self.model = AutoModelForCausalLM.from_pretrained(
-                modelo, torch_dtype=torch.float32, low_cpu_mem_usage=True
-            ).eval()
+        except torch.cuda.OutOfMemoryError as exc:
+            raise RuntimeError("No alcanzó la VRAM para cargar Qwen 7B en 4 bits. Cierra VS Code/Jupyter "
+                               "que usen GPU, reinicia el kernel y vuelve a ejecutar.") from exc
+        mapa = getattr(self.model, "hf_device_map", {})
+        destinos = set(mapa.values())
+        if destinos and not destinos.issubset({0, "cuda:0"}):
+            raise RuntimeError(f"Qwen no quedó completamente en la GPU: {mapa}")
         self.max_tokens = max_tokens
 
     def generar(self, mensajes, herramientas):

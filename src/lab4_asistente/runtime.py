@@ -13,15 +13,26 @@ from .recuperacion import Recuperador
 from .tienda import Tienda
 
 
-def detectar_dispositivo():
-    """Usa CUDA solo si el runtime puede ejecutar un kernel básico."""
+def detectar_dispositivo(requerir_cuda=True):
+    """Comprueba que CUDA funcione y deja el LLM asignado explícitamente a la GPU."""
     if not torch.cuda.is_available():
+        if requerir_cuda:
+            raise RuntimeError("No hay CUDA disponible. Activa la GPU y selecciona el kernel .venv-dl-cuda.")
         return "cpu"
     try:
-        torch.arange(1, device="cuda")
-        return "cuda"
+        torch.cuda.init()
+        torch.arange(1, device=C.DISPOSITIVO_LLM)
+        torch.cuda.synchronize()
+        libre, total = torch.cuda.mem_get_info(0)
+        if libre < 8 * 1024**3:
+            raise RuntimeError(f"VRAM libre insuficiente: {libre / 1024**3:.1f} de {total / 1024**3:.1f} GB. "
+                               "Cierra procesos que usen la GPU y vuelve a ejecutar.")
+        print(f"GPU lista: {torch.cuda.get_device_name(0)} | "
+              f"VRAM libre: {libre / 1024**3:.1f}/{total / 1024**3:.1f} GB")
+        return C.DISPOSITIVO_LLM
     except RuntimeError as exc:
-        print(f"CUDA no puede ejecutar este modelo de PyTorch; se usará CPU: {exc}")
+        if requerir_cuda:
+            raise RuntimeError(f"CUDA no pudo inicializarse en la GPU: {exc}") from exc
         return "cpu"
 
 
@@ -31,13 +42,13 @@ def cargar_sistema(cargar_llm=True):
     catalogo = pd.read_parquet(C.RUTA_DATOS / "catalogo.parquet")
     consultas = pd.read_parquet(C.RUTA_DATOS / "consultas.parquet")
     qrels = pd.read_parquet(C.RUTA_EVAL / "qrels.parquet")
-    dispositivo = detectar_dispositivo()
+    dispositivo = detectar_dispositivo(requerir_cuda=cargar_llm)
     cargas = {}
 
     t0 = time.perf_counter()
     recuperador = Recuperador(catalogo)
-    recuperador.cargar_denso(C.MODELO_EMB, dispositivo, C.RUTA_CACHE)
-    recuperador.cargar_reranker(C.MODELO_RERANK, dispositivo)
+    recuperador.cargar_denso(C.MODELO_EMB, C.DISPOSITIVO_RECUPERACION, C.RUTA_CACHE)
+    recuperador.cargar_reranker(C.MODELO_RERANK, C.DISPOSITIVO_RECUPERACION)
     cargas["recuperacion"] = time.perf_counter() - t0
 
     parametros_path = C.RUTA_RESULTADOS / "recuperacion_parametros.json"
@@ -57,20 +68,7 @@ def cargar_sistema(cargar_llm=True):
     llm = None
     if cargar_llm:
         t0 = time.perf_counter()
-        try:
-            llm = LLMLocal(C.MODELO_LLM, cuatro_bits=True, dispositivo=dispositivo)
-        except ValueError as exc:
-            falta_vram = dispositivo == "cuda" and (
-                "Some modules are dispatched on the CPU or the disk" in str(exc)
-                or "enough GPU RAM" in str(exc)
-            )
-            if not falta_vram:
-                raise
-            print("VRAM insuficiente para Qwen en 4 bits; se cargará el modelo en CPU.")
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-            llm = LLMLocal(C.MODELO_LLM, cuatro_bits=False, dispositivo="cpu")
-            dispositivo = "cpu"
+        llm = LLMLocal(C.MODELO_LLM, cuatro_bits=True, dispositivo=C.DISPOSITIVO_LLM)
         cargas["llm"] = time.perf_counter() - t0
 
     sistema = Sistema(catalogo, recuperador, tienda, llm, C.K_RESULTADOS,
@@ -78,23 +76,25 @@ def cargar_sistema(cargar_llm=True):
     return {"catalogo": catalogo, "consultas": consultas, "qrels": qrels,
             "recuperador": recuperador, "tienda": tienda, "llm": llm,
             "sistema": sistema, "cargas": cargas, "dispositivo": dispositivo,
+            "dispositivos": {"llm": C.DISPOSITIVO_LLM if cargar_llm else None,
+                             "recuperacion": C.DISPOSITIVO_RECUPERACION},
             "parametros_recuperacion": parametros}
 
 
 def cargar_modelos_voz(voice_id, dispositivo=None):
     """Carga ASR y TTS; usa el perfil .pt preparado en el notebook de voz."""
     from .voz import ASR, TTSClonado
-    dispositivo = dispositivo or ("cuda" if torch.cuda.is_available() else "cpu")
     voice_id = str(voice_id)
-    referencia = C.RUTA_VOICE_SAMPLES / f"{voice_id}.wav"
-    perfil = C.RUTA_VOICE_PROFILES / f"{voice_id}.pt"
+    rutas = C.rutas_voz(voice_id)
+    referencia, perfil = rutas["referencia"], rutas["perfil"]
     if not referencia.exists() or not perfil.exists():
         raise FileNotFoundError(f"Se requieren {referencia} y {perfil}")
-    asr_device = 0 if dispositivo == "cuda" else -1
     t0 = time.perf_counter()
-    asr = ASR(C.MODELO_ASR, asr_device)
+    asr = ASR(C.MODELO_ASR, -1)
     carga_asr = time.perf_counter() - t0
     t0 = time.perf_counter()
-    tts = TTSClonado(C.MODELO_TTS, perfil, referencia, dispositivo)
+    tts = TTSClonado(C.MODELO_TTS, perfil, referencia, C.DISPOSITIVO_TTS)
     carga_tts = time.perf_counter() - t0
-    return asr, tts, {"asr": carga_asr, "tts": carga_tts}
+    return asr, tts, {"asr": carga_asr, "tts": carga_tts,
+                       "dispositivo_asr": C.DISPOSITIVO_ASR,
+                       "dispositivo_tts": C.DISPOSITIVO_TTS}

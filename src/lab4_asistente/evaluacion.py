@@ -1,4 +1,6 @@
 """Funciones pequeñas para resumir escenarios, ASR, voz y latencias."""
+import json
+
 import pandas as pd
 
 from .voz import cer, errores_entidades, wer
@@ -7,6 +9,40 @@ from .voz import cer, errores_entidades, wer
 def tabla_escenarios(resultados):
     return pd.DataFrame([{k: r.get(k) for k in ("id", "modo", "tipo", "completado", "fallos", "incumplimientos", "pedidos")}
                          for r in resultados])
+
+
+def tabla_aciertos_fallos(resultados, limite=5):
+    """Resume hasta cinco éxitos y cinco fallos con evidencia real de cada ejecución."""
+    filas = []
+    ordenados = [("acierto", r) for r in resultados if r.get("completado")]
+    ordenados += [("fallo", r) for r in resultados if not r.get("completado")]
+    conteo = {"acierto": 0, "fallo": 0}
+    for tipo, r in ordenados:
+        if conteo[tipo] >= limite:
+            continue
+        conteo[tipo] += 1
+        ops = [o for t in r.get("registro", []) for o in t.get("operaciones", [])]
+        errores = [o["resultado"].get("error") or "; ".join(o["resultado"].get("problemas", []))
+                   for o in ops if not o.get("resultado", {}).get("ok")]
+        nombres = list(dict.fromkeys(o.get("herramienta", "") for o in ops))
+        respuestas = [t.get("respuesta", "") for t in r.get("registro", [])]
+        if tipo == "acierto":
+            diagnostico = "El estado final pasó las condiciones definidas para este escenario."
+        elif errores:
+            diagnostico = "Una validación/herramienta informó: " + " | ".join(errores[:3])
+        else:
+            diagnostico = "El estado final no alcanzó el resultado esperado; revisar el diálogo y las operaciones registradas."
+        evidencia = {
+            "fallos_verificador": r.get("fallos", ""),
+            "incumplimientos": r.get("incumplimientos", ""),
+            "herramientas_ejecutadas": nombres,
+            "respuestas": respuestas,
+            "operaciones": ops,
+        }
+        filas.append({"tipo": tipo, "escenario": r.get("id"), "modo": r.get("modo"),
+                      "diagnostico_observado": diagnostico,
+                      "evidencia": json.dumps(evidencia, ensure_ascii=False, default=str)})
+    return pd.DataFrame(filas)
 
 
 def resumen_escenarios(resultados):

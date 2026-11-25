@@ -1,47 +1,5 @@
-# Notebooks
+# Ejecución de notebooks
 
-## Crear entorno
+La secuencia modular recomendada está en esta carpeta: `01_datos_y_catalogo.ipynb` → `02_preparar_perfil_de_voz.ipynb` → `03_rag_y_ablacion.ipynb` → `04_tienda_sqlite.ipynb` → `05_agente_y_memoria.ipynb` → `06_integracion_voz_y_compra.ipynb` → `07_pruebas_y_resultados.ipynb`.
 
-    ~/.pyenv/versions/3.11.9/bin/python -m venv .venv-asistente-voz
-    source .venv-asistente-voz/bin/activate
-    python --version
-
-Instalar las dependencias del proyecto:
-
-    python -m pip install -r requirements.txt
-
-Si se usará GPU, instala primero la versión de PyTorch compatible con la
-versión de CUDA del equipo y después ejecuta el comando anterior. En Jupyter,
-usa el mismo entorno como kernel para evitar errores como `No module named
-TTS`.
-
-## Abrir JupyterLab
-
-Desde la raíz del proyecto:
-
-    ./scripts/start_notebook.sh
-
-El kernel quedará asociado al entorno `.venv-asistente-voz`, por lo que las
-importaciones y paquetes se ejecutan dentro de ese entorno. Para abrir otro
-entorno Python (incluido uno con PyTorch/CUDA), registra su kernel así:
-
-    ./scripts/register_python_kernel.sh /ruta/a/tu/entorno "Python CUDA"
-    PYTHON_ENV=/ruta/a/tu/entorno ./scripts/start_notebook.sh
-
-Dentro del notebook puedes comprobar CUDA con:
-
-    import torch
-    print(torch.cuda.is_available())
-    print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CUDA no disponible")
-
-Espacio permanente para exploración interactiva.
-
-Convención sugerida:
-
-```text
-01_rag_exploration.ipynb
-02_voice_provider_test.ipynb
-03_agent_prompts.ipynb
-```
-
-Mantén aquí experimentos que ayuden a tomar decisiones técnicas. Cuando una prueba se estabilice, mueve la lógica reutilizable a `app/` y deja una prueba automatizada en `tests/`.
+Los notebooks `demo/` conservan prototipos previos. Revisa el `README.md` de la raíz para instalación, rutas de datos, selección de voz y uso de GPU.
