@@ -6,6 +6,15 @@
     source .venv-asistente-voz/bin/activate
     python --version
 
+Instalar las dependencias del proyecto:
+
+    python -m pip install -r requirements.txt
+
+Si se usará GPU, instala primero la versión de PyTorch compatible con la
+versión de CUDA del equipo y después ejecuta el comando anterior. En Jupyter,
+usa el mismo entorno como kernel para evitar errores como `No module named
+TTS`.
+
 ## Abrir JupyterLab
 
 Desde la raíz del proyecto:

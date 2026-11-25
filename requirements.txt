@@ -1,0 +1,19 @@
+# Entorno base para los notebooks del asistente de compras por voz.
+# Para una instalación con GPU, instala PyTorch siguiendo las instrucciones
+# oficiales de tu versión de CUDA antes de instalar este archivo.
+
+jupyterlab
+ipykernel
+# NumPy 2.x puede romper imports internos usados por SciPy/TTS.
+numpy==1.26.4
+pandas
+pyarrow
+scikit-learn
+faiss-cpu
+sentence-transformers
+# TTS 0.22.0 todavía importa BeamSearchScorer desde el nivel superior.
+transformers==4.56.2
+accelerate
+faster-whisper
+TTS==0.22.0
+soundfile
