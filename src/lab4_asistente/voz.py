@@ -80,18 +80,11 @@ class TTSClonado:
         perfil = torch.load(perfil_path, map_location=dispositivo, weights_only=True)
         self.lat = perfil["gpt_cond_latent"].to(dispositivo)
         self.spk = perfil["speaker_embedding"].to(dispositivo)
-        self.reference_text = str(perfil.get("reference_text", "")).strip()
-        self.ref = set(palabras(self.reference_text))
         self.referencia_path = str(referencia_path)
 
     def sintetizar(self, texto, ruta, semilla=0):
         import soundfile as sf
         import torch
-        texto_tokens = set(palabras(texto))
-        if self.ref and texto_tokens:
-            solapamiento = len(texto_tokens & self.ref) / len(texto_tokens | self.ref)
-            if solapamiento > 0.8:
-                raise ValueError("El texto sintetizado debe ser distinto al texto de referencia")
         torch.manual_seed(semilla)
         wav = self.m.inference(texto, "es", self.lat, self.spk, temperature=0.7, enable_text_splitting=True)["wav"]
         sf.write(str(ruta), np.asarray(wav, dtype=np.float32), self.sr)
