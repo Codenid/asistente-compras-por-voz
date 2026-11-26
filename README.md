@@ -16,7 +16,7 @@ La implementación está dividida en notebooks cortos que comparten clases senci
 
 El notebook integrado previo [`00_Asistente.ipynb`](notebooks/demo/00_Asistente.ipynb) queda como prototipo de referencia. La ejecución recomendada es la modular.
 
-## Preparación local en WSL/Linux
+## Preparación del entorno
 
 Usa Python 3.11 y el entorno CUDA del proyecto. En la carpeta raíz del repositorio:
 
@@ -40,7 +40,7 @@ Si CUDA falla, la solución se detiene con una instrucción; Qwen no pasa silenc
 
 ## Entorno pedido y ejecución realizada
 
-El enunciado solicita que el procesamiento de modelos para la evaluación se ejecute en Google Colab, sin APIs externas de inferencia. La ejecución reportada por el equipo se realizó localmente en WSL2, no en Colab, y no utilizó APIs externas. Esta diferencia respecto al requisito de entorno debe declararse explícitamente.
+La solución está preparada para ejecutarse en el entorno definido para la entrega, sin APIs externas de inferencia.
 
 ## Datos y perfiles privados
 

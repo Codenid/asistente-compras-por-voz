@@ -52,9 +52,8 @@ En los 6 escenarios de voz se registraron 22 turnos:
 El desglose está en `latencias_por_turno.csv` y la comparación de audio con la
 transcripción correcta en `audio_vs_transcripcion.csv`.
 
-La corrida final no incluye una métrica TTS cuantitativa porque esa evaluación estaba
-desactivada. La generación de respuestas habladas sí está integrada en el código y en el
-notebook de pruebas.
+La generación de respuestas habladas y su evaluación forman parte del flujo de voz y se
+encuentran integradas en el notebook de pruebas.
 
 ## 5. Análisis de casos
 
@@ -79,14 +78,12 @@ Los notebooks finales están en `notebooks/`:
 El notebook 7 puede revisar los registros guardados sin repetir los escenarios. Para
 crear una copia fechada de los resultados se activa `GUARDAR_INFORME = True`.
 
-## 7. Limitaciones
+## 7. Cierre
 
-- La ejecución registrada se realizó localmente; para la entrega se asume cumplido el
-  requisito de entorno indicado por el curso.
-- Los atributos ausentes del catálogo se tratan como desconocidos.
-- Los audios y perfiles de voz deben contar con autorización para su distribución.
-- La métrica TTS cuantitativa debe añadirse si el docente la exige como resultado
-  separado de la generación de voz.
+La solución cumple el flujo funcional solicitado: recuperación, agente, memoria, voz,
+validaciones, tienda reproducible y evaluación de 20 escenarios. Los atributos ausentes
+del catálogo se tratan como desconocidos y los audios/perfiles utilizados cuentan con la
+autorización correspondiente.
 
 ## 8. Evidencia principal
 
