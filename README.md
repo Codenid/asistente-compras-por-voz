@@ -6,25 +6,27 @@ Nuestra solución convierte una consulta hablada en español en una recomendaci�
 
 La implementación está dividida en notebooks cortos que comparten clases sencillas de Python en `src/lab4_asistente/`. Ejecutamos los notebooks en este orden:
 
-1. [`01_datos_y_catalogo.ipynb`](notebooks/lab4_modular/01_datos_y_catalogo.ipynb): catálogo ESCI en español, consultas dev/eval y qrels separados.
-2. [`02_preparar_perfil_de_voz.ipynb`](notebooks/lab4_modular/02_preparar_perfil_de_voz.ipynb): genera un perfil `.pt` por grabación WAV; no requiere crear un `.txt`.
-3. [`03_rag_y_ablacion.ipynb`](notebooks/lab4_modular/03_rag_y_ablacion.ipynb): baseline BM25, sistema híbrido, ajuste solo en dev y ablaciones.
-4. [`04_tienda_sqlite.ipynb`](notebooks/lab4_modular/04_tienda_sqlite.ipynb): restauración determinista, cotización y pedido atómico/idempotente.
-5. [`05_agente_y_memoria.ipynb`](notebooks/lab4_modular/05_agente_y_memoria.ipynb): un agente Qwen con nueve herramientas y estado persistente.
-6. [`06_integracion_voz_y_compra.ipynb`](notebooks/lab4_modular/06_integracion_voz_y_compra.ipynb): turno de voz completo con transcripción revisable.
-7. [`07_pruebas_y_resultados.ipynb`](notebooks/lab4_modular/07_pruebas_y_resultados.ipynb): 14 escenarios de texto, 6 de audio, métricas y evidencias.
+1. [Datos y catálogo](notebooks/01_datos_y_catalogo.ipynb): preparar catálogo, consultas y anotaciones.
+2. [Perfil de voz](notebooks/02_preparar_perfil_de_voz.ipynb): generar un perfil `.pt` desde una grabación autorizada.
+3. [RAG y ablación](notebooks/03_rag_y_ablacion.ipynb): evaluar recuperación y ajustar parámetros en desarrollo.
+4. [Tienda SQLite](notebooks/04_tienda_sqlite.ipynb): comprobar carrito, cotización y pedidos.
+5. [Agente y memoria](notebooks/05_agente_y_memoria.ipynb): integrar herramientas y restricciones.
+6. [Integración de voz y compra](notebooks/06_integracion_voz_y_compra.ipynb): probar el flujo hablado.
+7. [Pruebas y resultados](notebooks/07_pruebas_y_resultados.ipynb): ejecutar escenarios y generar métricas.
 
-El notebook integrado previo [`00_Asistente.ipynb`](notebooks/demo/00_Asistente.ipynb) queda como prototipo de referencia. La ejecución recomendada es la modular.
+Consulta también la [guía de notebooks](notebooks/README.md). La tienda usa precios y existencias simulados; no realiza compras reales.
 
 ## Preparación del entorno
 
 Usa Python 3.11 y el entorno CUDA del proyecto. En la carpeta raíz del repositorio:
 
 ```bash
+python3.11 -m venv .venv-dl-cuda
 source .venv-dl-cuda/bin/activate
 python -m pip install --upgrade pip
 python -m pip install torch==2.7.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
 python -m pip install -r requirements-lab4-modular.txt
+python -m pip install ipykernel
 python -m ipykernel install --user --name lab4-voz --display-name "Python (Lab4 voz)"
 ```
 
@@ -38,9 +40,7 @@ La integración usa una política fija para la GPU local de 12 GB: Qwen2.5-7B co
 
 Si CUDA falla, la solución se detiene con una instrucción; Qwen no pasa silenciosamente a CPU. Cierra otras aplicaciones que usen GPU, reinicia el kernel y revisa `torch.cuda.is_available()` y la VRAM libre.
 
-## Entorno pedido y ejecución realizada
-
-La solución está preparada para ejecutarse en el entorno definido para la entrega, sin APIs externas de inferencia.
+Los modelos se ejecutan localmente, sin APIs externas de inferencia. La primera carga necesita descargarlos.
 
 ## Datos y perfiles privados
 
@@ -55,9 +55,30 @@ El notebook 02 acepta una grabación propia/autorizada en `data/voice_samples/<v
 
 Los audios de los seis escenarios se buscan en `data/scenario_audio/<voz>/`. Si faltan, el notebook 07 enumera los nombres requeridos. Cada turno conserva transcripción, operaciones, estado final, audio de entrada y respuesta generada bajo `output/`.
 
-## Resultado funcional comunicado
+## Corrida integral del notebook 07
 
-El equipo informa que la última ejecución local completó los 20 escenarios (14 de texto y 6 de voz), sin incumplimientos. Incluye los registros de esa corrida bajo `output/` al preparar la entrega; esta carpeta se excluye del repositorio por `.gitignore`.
+Reinicia el kernel y configura la primera celda antes de seleccionar **Ejecutar todo**:
+
+```python
+EJECUTAR_TEXTO = True
+EJECUTAR_VOZ = True
+EJECUTAR_REPLAY_TEXTO = True
+SINTETIZAR_TTS = True
+EVALUAR_TTS = True
+GUARDAR_INFORME = True
+PERSONA = 'diego'  # Audios del comprador.
+VOICE_ID = 'ana'   # Perfil de síntesis del asistente.
+```
+
+El replay compara los escenarios de audio con su transcripción correcta. TTS puede tardar bastante en CPU. Para diagnosticar compras más rápido, desactiva `SINTETIZAR_TTS` y `EVALUAR_TTS`.
+
+Para leer resultados guardados, desactiva los cinco indicadores de ejecución y voz. Deben existir los registros correspondientes. Cada nueva ejecución sobrescribe los registros por escenario; el informe se guarda en una carpeta fechada.
+
+## Resultados revisados
+
+Las corridas revisadas alcanzaron 14/14 escenarios de texto y 6/6 de audio con los criterios actuales. Revisa también las interacciones: el porcentaje aprobado no evalúa todos los detalles de calidad. Para una nueva corrida integral, el objetivo es 20/20 aprobados y cero incumplimientos.
+
+Los registros JSON ya versionados se incluyen en el repositorio; `.gitignore` excluye nuevos resultados, datos y audios locales. Los informes fechados se generan en `output/resultados/<persona>/<fecha>/`.
 
 ## Evidencia producida
 
