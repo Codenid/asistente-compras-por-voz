@@ -40,3 +40,14 @@ build/
 data/voice_profiles/
 data/scenario_audio/
 output/
+
+# Protecciones locales históricas
+.venv-wsl/
+.diagnostico/
+*.log
+*.tmp
+input/*.parquet
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

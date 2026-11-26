@@ -51,3 +51,7 @@ Los valores se obtienen al ejecutar; esta trazabilidad no los sustituye. Las cau
 En el portátil local con 12 GB de VRAM, Qwen2.5-7B es el único modelo que permanece en GPU durante la integración y se carga en 4 bits. Recuperación, Whisper y XTTS se mantienen en CPU en los notebooks integrados. El notebook de perfiles carga XTTS en GPU en una ejecución aislada; el notebook de recuperación hace lo propio con e5 y el reranker. Cerramos cada kernel pesado antes de iniciar el siguiente. Qwen no usa `device_map="auto"` ni cambia a CPU si falta VRAM: la configuración exige CUDA y muestra un error operativo claro.
 
 El enunciado indica Colab como entorno de procesamiento para la entrega. La solución está preparada para ese runtime y no llama APIs externas; la ejecución local permite validar el flujo, pero no reemplaza evidencia en Colab cuando el curso exija ese entorno.
+
+## Resultado de la última ejecución comunicado por el equipo
+
+El equipo informa que completó los 20 escenarios (14 texto y 6 voz) sin incumplimientos, en una ejecución local de WSL2. Esta revisión no tiene los CSV/JSON de esa última corrida; por ello la cifra operativa se declara como resultado reportado y las métricas de recuperación, ASR, TTS y latencia deben verificarse en sus salidas antes de citarse como cifras finales. La ejecución local no equivale a una corrida en Colab.

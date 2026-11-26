@@ -46,11 +46,10 @@ ESQUEMAS = [
         "name": "buscar_productos",
         "description": "Busca productos en el catalogo (RAG). Devuelve titulo, marca, color, precio y existencias.",
         "parameters": {"type": "object", "properties": {
-            "cantidad": {"type": "integer", "description": "Unidades deseadas. Recupera la cantidad del mensaje o historial; si no esta clara, pregunta."},
             "consulta": {"type": "string", "description": "Descripcion del producto en palabras clave"},
             "precio_max": {"type": "number", "description": "Precio unitario maximo en euros (opcional)"},
             "k": {"type": "integer", "description": "Cantidad de resultados (1 a 10)"}},
-            "required": ["consulta", "cantidad"]}}},
+            "required": ["consulta"]}}},
     {"type": "function", "function": {
         "name": "ver_producto",
         "description": "Detalle de un producto: descripcion, caracteristicas, marca, color, precio y existencias.",
@@ -162,107 +161,25 @@ class Herramientas:
         self.estado.cotizacion_mostrada = self.estado.cotizo_en_turno = False
 
     # --- herramientas ---
-    def buscar_productos(self, consulta, cantidad=None, precio_max=None, k=None):
+    def buscar_productos(self, consulta, precio_max=None, k=None):
         if not isinstance(consulta, str) or not consulta.strip():
             raise ErrorTienda("consulta vacia")
-        cantidad = self._entero(cantidad)
-        if cantidad < 1:
-            raise ErrorTienda("cantidad debe ser un entero positivo")
         k = min(max(self._entero(k if k is not None else self.k, "k"), 1), 10)
-        limite_unitario = None
         if precio_max is not None:
-            limite_unitario = int(round(self._numero(precio_max, "precio_max") * 100))
-
-        carrito = self._carrito()
-        total_actual = int(round(carrito["total"] * 100))
-        subtotales = {
-            item["product_id"]: int(round(item["subtotal"] * 100))
-            for item in carrito["items"]
-        }
-        consulta_tokens = set(tokens(consulta))
-        genericos = {
-            "producto", "productos", "opcion", "opciones", "comprar",
-            "quiero", "necesito", "busca", "buscar", "ahora", "color", "marca",
-            "maximo", "euros", "mejor", "mismo", "misma", "presupuesto",
-            "sea", "sean", "para", "uno", "una", "dos", "tres", "cuatro",
-            "cinco", "seis", "siete", "ocho", "nueve", "diez",
-            "cambia", "cambiala", "cambialo", "otra", "otro", "tenga",
-            "unidades", "disponibles", "dame", "nueva", "nuevo", "cotizacion",
-        }
-        obligatorios = {
-            t for t in consulta_tokens
-            if re.search(r"[a-z]", t) and re.search(r"\d", t)
-        }
-        # Marca y color explícitos son restricciones, no simples señales de
-        # ranking. Evita ofrecer un espejo para una consulta H7 o reutilizar
-        # resultados grises después de que el usuario pidió negro.
-        for columna in ("marca", "color"):
-            for valor in self.cat[columna].dropna().astype(str).unique():
-                valor_tokens = {
-                    t for t in tokens(valor)
-                    if len(t) >= 3 and t not in genericos
-                }
-                if valor_tokens and valor_tokens <= consulta_tokens:
-                    obligatorios.update(valor_tokens)
-        # Conserva también la categoría principal de la consulta. Debe existir
-        # en algún título del catálogo; así "regleta Aigostar" no devuelve una
-        # freidora de esa marca y "bombillas H7" no devuelve un espejo LED.
-        for termino in tokens(consulta):
-            if termino in genericos or len(termino) < 3:
-                continue
-            aparece_en_titulo = self.cat["titulo"].astype(str).map(
-                lambda titulo: termino in set(tokens(titulo))
-            ).any()
-            if aparece_en_titulo:
-                obligatorios.add(termino)
-                break
+            precio_max = self._numero(precio_max, "precio_max")
         t0 = time.perf_counter()
-        indices = self.rec.buscar(consulta, k=30, metodo=self.metodo)
+        idx = self.rec.buscar(consulta, k=30, metodo=self.metodo)
         self.t_recuperacion += time.perf_counter() - t0
-        resultados, descartados = [], []
-        for indice in indices:
-            pid = self.rec.ids[indice]
-            ficha = self._ficha(pid)
-            producto = self.tienda.producto(pid)
-            precio_cent = producto["precio_cent"]
-            total_propuesto = total_actual - subtotales.get(pid, 0) + precio_cent * cantidad
-            motivos = []
-            ficha_tokens = set(tokens(" ".join([
-                str(ficha["titulo"]), str(ficha["marca"]), str(ficha["color"])
-            ])))
-            if obligatorios and not obligatorios <= ficha_tokens:
-                motivos.append(
-                    "no coincide con marca, color o modelo solicitado: "
-                    + ", ".join(sorted(obligatorios - ficha_tokens))
-                )
-            if producto["stock"] < cantidad:
-                motivos.append("stock insuficiente")
-            if limite_unitario is not None and precio_cent > limite_unitario:
-                motivos.append("supera el precio unitario maximo")
-            presupuesto = self.estado.presupuesto_cent
-            if presupuesto is not None and total_propuesto > presupuesto:
-                motivos.append("supera el presupuesto total")
-            if motivos:
-                descartados.append({**ficha, "motivos": motivos})
-                continue
-            resultados.append({
-                "posicion": len(resultados) + 1, **ficha,
-                "cantidad_solicitada": cantidad,
-                "subtotal": euros(precio_cent * cantidad),
-                "total_carrito_propuesto": euros(total_propuesto),
-            })
-            if len(resultados) >= k:
+        res = []
+        for i in idx:
+            f = self._ficha(self.rec.ids[i])
+            if precio_max is None or f["precio"] <= precio_max:
+                res.append({"posicion": len(res) + 1, **f})
+            if len(res) == k:
                 break
-        self.estado.mostrados = resultados
-        return {
-            "ok": True, "resultados": resultados, "descartados": descartados[:3],
-            "nota": (
-                "Opciones compatibles con cantidad, stock y presupuesto."
-                if resultados else
-                "No hay opciones compatibles entre los candidatos recuperados. "
-                "Explica los motivos; pregunta si desea cambiar restricciones."
-            ),
-        }
+        self.estado.mostrados = res
+        return {"ok": True, "resultados": res,
+                "nota": "sin resultados con esos filtros" if not res else "precios unitarios en euros"}
 
     def ver_producto(self, product_id):
         self._existe(product_id)
@@ -296,25 +213,13 @@ class Herramientas:
 
     def _fijar(self, product_id, cantidad):
         cid = self._carrito_abierto()
-        anterior = next(
-            (i["cantidad"] for i in self.tienda.carrito(cid)["items"]
-             if i["product_id"] == product_id),
-            0,
-        )
         self.tienda.fijar_cantidad(cid, product_id, cantidad)
         self._invalidar_cotizacion()
         car = self._carrito()
         out = {"ok": True, "carrito": car}
         p = self.estado.presupuesto_cent
         if p is not None and car["total"] * 100 > p:
-            # No dejar que el carrito quede en un estado que viola una
-            # restricción explícita; la cotización y la confirmación también
-            # revalidan, pero este bloqueo evita continuar con una cotización
-            # inválida.
-            self.tienda.fijar_cantidad(cid, product_id, anterior)
-            raise ErrorTienda(
-                f"el total {car['total']} supera el presupuesto {_f(p)}"
-            )
+            out["aviso"] = f"el total {car['total']} supera el presupuesto {_f(p)}"
         return out
 
     def agregar_al_carrito(self, product_id, cantidad=None):

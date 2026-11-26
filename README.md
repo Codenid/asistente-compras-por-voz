@@ -6,13 +6,13 @@ Nuestra solución convierte una consulta hablada en español en una recomendaci�
 
 La implementación está dividida en notebooks cortos que comparten clases sencillas de Python en `src/lab4_asistente/`. Ejecutamos los notebooks en este orden:
 
-1. [`01_datos_y_catalogo.ipynb`](notebooks/01_datos_y_catalogo.ipynb): catálogo ESCI en español, consultas dev/eval y qrels separados.
-2. [`02_preparar_perfil_de_voz.ipynb`](notebooks/02_preparar_perfil_de_voz.ipynb): genera un perfil `.pt` por grabación WAV; no requiere crear un `.txt`.
-3. [`03_rag_y_ablacion.ipynb`](notebooks/03_rag_y_ablacion.ipynb): baseline BM25, sistema híbrido, ajuste solo en dev y ablaciones.
-4. [`04_tienda_sqlite.ipynb`](notebooks/04_tienda_sqlite.ipynb): restauración determinista, cotización y pedido atómico/idempotente.
-5. [`05_agente_y_memoria.ipynb`](notebooks/05_agente_y_memoria.ipynb): un agente Qwen con nueve herramientas y estado persistente.
-6. [`06_integracion_voz_y_compra.ipynb`](notebooks/06_integracion_voz_y_compra.ipynb): turno de voz completo con transcripción revisable.
-7. [`07_pruebas_y_resultados.ipynb`](notebooks/07_pruebas_y_resultados.ipynb): 14 escenarios de texto, 6 de audio, métricas y evidencias.
+1. [`01_datos_y_catalogo.ipynb`](notebooks/lab4_modular/01_datos_y_catalogo.ipynb): catálogo ESCI en español, consultas dev/eval y qrels separados.
+2. [`02_preparar_perfil_de_voz.ipynb`](notebooks/lab4_modular/02_preparar_perfil_de_voz.ipynb): genera un perfil `.pt` por grabación WAV; no requiere crear un `.txt`.
+3. [`03_rag_y_ablacion.ipynb`](notebooks/lab4_modular/03_rag_y_ablacion.ipynb): baseline BM25, sistema híbrido, ajuste solo en dev y ablaciones.
+4. [`04_tienda_sqlite.ipynb`](notebooks/lab4_modular/04_tienda_sqlite.ipynb): restauración determinista, cotización y pedido atómico/idempotente.
+5. [`05_agente_y_memoria.ipynb`](notebooks/lab4_modular/05_agente_y_memoria.ipynb): un agente Qwen con nueve herramientas y estado persistente.
+6. [`06_integracion_voz_y_compra.ipynb`](notebooks/lab4_modular/06_integracion_voz_y_compra.ipynb): turno de voz completo con transcripción revisable.
+7. [`07_pruebas_y_resultados.ipynb`](notebooks/lab4_modular/07_pruebas_y_resultados.ipynb): 14 escenarios de texto, 6 de audio, métricas y evidencias.
 
 El notebook integrado previo [`00_Asistente.ipynb`](notebooks/demo/00_Asistente.ipynb) queda como prototipo de referencia. La ejecución recomendada es la modular.
 
@@ -38,9 +38,9 @@ La integración usa una política fija para la GPU local de 12 GB: Qwen2.5-7B co
 
 Si CUDA falla, la solución se detiene con una instrucción; Qwen no pasa silenciosamente a CPU. Cierra otras aplicaciones que usen GPU, reinicia el kernel y revisa `torch.cuda.is_available()` y la VRAM libre.
 
-## Ejecución de referencia para la entrega
+## Entorno pedido y ejecución realizada
 
-El enunciado solicita que el procesamiento de modelos para la evaluación se ejecute en Google Colab, sin APIs externas de inferencia. Para la evidencia de entrega, sube/clona el repositorio en Colab, activa una GPU y ejecuta los mismos notebooks en orden. El código no usa endpoints de inferencia externos. La configuración local documentada arriba sirve para la validación y el desarrollo en el equipo; no sustituye una corrida en Colab si la evaluación del curso exige ese entorno.
+El enunciado solicita que el procesamiento de modelos para la evaluación se ejecute en Google Colab, sin APIs externas de inferencia. La ejecución reportada por el equipo se realizó localmente en WSL2, no en Colab, y no utilizó APIs externas. Esta diferencia respecto al requisito de entorno debe declararse explícitamente.
 
 ## Datos y perfiles privados
 
@@ -54,6 +54,10 @@ No se suben los Parquet al repositorio. El notebook 01 valida el tamaño del cat
 El notebook 02 acepta una grabación propia/autorizada en `data/voice_samples/<voz>.wav`. El menú permite elegir el perfil. Las grabaciones y perfiles contienen información de voz. Los WAV no se suben; el `.gitignore` protege nuevas grabaciones, perfiles generados y audios de escenario. El repositorio ya incluye perfiles `.pt` versionados: si esos perfiles no deben ser públicos, hay que retirarlos y limpiar también su historial antes de compartirlo.
 
 Los audios de los seis escenarios se buscan en `data/scenario_audio/<voz>/`. Si faltan, el notebook 07 enumera los nombres requeridos. Cada turno conserva transcripción, operaciones, estado final, audio de entrada y respuesta generada bajo `output/`.
+
+## Resultado funcional comunicado
+
+El equipo informa que la última ejecución local completó los 20 escenarios (14 de texto y 6 de voz), sin incumplimientos. Incluye los registros de esa corrida bajo `output/` al preparar la entrega; esta carpeta se excluye del repositorio por `.gitignore`.
 
 ## Evidencia producida
 
