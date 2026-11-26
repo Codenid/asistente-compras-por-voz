@@ -74,6 +74,24 @@ def diagnosis(expected: dict[str, Any], verification: dict[str, Any],
     return "Revisar el detalle: el escenario no alcanzó una o más condiciones esperadas."
 
 
+def classify(expected: dict[str, Any], verification: dict[str, Any],
+             turns: list[dict[str, Any]], order_count: int | str) -> str:
+    """Clasificación orientativa basada en estado, herramientas y verificador."""
+    failures = [str(x).lower() for x in verification.get("fallos", []) or []]
+    incidents = verification.get("incumplimientos", []) or []
+    if incidents:
+        return "violacion_de_regla"
+    if verification.get("ok"):
+        return "aprobado"
+    if failures and all("respuesta no menciona" in x for x in failures):
+        return "evaluador_lenguaje"
+    if expected.get("pedidos") == 1 and order_count == 0:
+        return "error_asistente_o_integracion"
+    if any("aclaracion" in x for x in failures):
+        return "expectativa_o_manejo_de_ambiguedad"
+    return "fallo_no_clasificado"
+
+
 def collect(result_root: Path, include_diagnostics: bool = False) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     scenario_rows: list[dict[str, Any]] = []
     turn_rows: list[dict[str, Any]] = []
@@ -89,10 +107,12 @@ def collect(result_root: Path, include_diagnostics: bool = False) -> tuple[list[
         # frente a audio y pruebas aisladas). No mezclarlas con el conjunto
         # principal de 14 pruebas de texto + 6 pruebas de voz.
         relative_parts = record_path.relative_to(result_root).parts
-        if not include_diagnostics and any(
-            part in {"voz_transcripcion_correcta", "diagnostico_texto"}
-            for part in relative_parts
-        ):
+        is_primary = (
+            len(relative_parts) == 3 and relative_parts[0] == "texto"
+        ) or (
+            len(relative_parts) == 4 and relative_parts[0] == "voz_audio"
+        )
+        if not include_diagnostics and not is_primary:
             continue
         try:
             record = load_json(record_path)
@@ -149,6 +169,7 @@ def collect(result_root: Path, include_diagnostics: bool = False) -> tuple[list[
             "fallos_verificador": " | ".join(map(str, failures)),
             "incumplimientos_reglas": " | ".join(map(str, incidents)),
             "diagnostico_preliminar": diagnosis(expected, verification, orders),
+            "clasificacion": classify(expected, verification, turns, orders),
             "ruta_registro": str(record_path),
             "dialogo_completo": "\n".join(conversation),
         })
@@ -157,9 +178,10 @@ def collect(result_root: Path, include_diagnostics: bool = False) -> tuple[list[
 
 
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
-    if not rows:
-        return
     with path.open("w", newline="", encoding="utf-8-sig") as f:
+        if not rows:
+            f.write("")
+            return
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)

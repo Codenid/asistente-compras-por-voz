@@ -179,6 +179,43 @@ class Herramientas:
             item["product_id"]: int(round(item["subtotal"] * 100))
             for item in carrito["items"]
         }
+        consulta_tokens = set(tokens(consulta))
+        genericos = {
+            "producto", "productos", "opcion", "opciones", "comprar",
+            "quiero", "necesito", "busca", "buscar", "ahora", "color", "marca",
+            "maximo", "euros", "mejor", "mismo", "misma", "presupuesto",
+            "sea", "sean", "para", "uno", "una", "dos", "tres", "cuatro",
+            "cinco", "seis", "siete", "ocho", "nueve", "diez",
+            "cambia", "cambiala", "cambialo", "otra", "otro", "tenga",
+            "unidades", "disponibles", "dame", "nueva", "nuevo", "cotizacion",
+        }
+        obligatorios = {
+            t for t in consulta_tokens
+            if re.search(r"[a-z]", t) and re.search(r"\d", t)
+        }
+        # Marca y color explícitos son restricciones, no simples señales de
+        # ranking. Evita ofrecer un espejo para una consulta H7 o reutilizar
+        # resultados grises después de que el usuario pidió negro.
+        for columna in ("marca", "color"):
+            for valor in self.cat[columna].dropna().astype(str).unique():
+                valor_tokens = {
+                    t for t in tokens(valor)
+                    if len(t) >= 3 and t not in genericos
+                }
+                if valor_tokens and valor_tokens <= consulta_tokens:
+                    obligatorios.update(valor_tokens)
+        # Conserva también la categoría principal de la consulta. Debe existir
+        # en algún título del catálogo; así "regleta Aigostar" no devuelve una
+        # freidora de esa marca y "bombillas H7" no devuelve un espejo LED.
+        for termino in tokens(consulta):
+            if termino in genericos or len(termino) < 3:
+                continue
+            aparece_en_titulo = self.cat["titulo"].astype(str).map(
+                lambda titulo: termino in set(tokens(titulo))
+            ).any()
+            if aparece_en_titulo:
+                obligatorios.add(termino)
+                break
         t0 = time.perf_counter()
         indices = self.rec.buscar(consulta, k=30, metodo=self.metodo)
         self.t_recuperacion += time.perf_counter() - t0
@@ -190,6 +227,14 @@ class Herramientas:
             precio_cent = producto["precio_cent"]
             total_propuesto = total_actual - subtotales.get(pid, 0) + precio_cent * cantidad
             motivos = []
+            ficha_tokens = set(tokens(" ".join([
+                str(ficha["titulo"]), str(ficha["marca"]), str(ficha["color"])
+            ])))
+            if obligatorios and not obligatorios <= ficha_tokens:
+                motivos.append(
+                    "no coincide con marca, color o modelo solicitado: "
+                    + ", ".join(sorted(obligatorios - ficha_tokens))
+                )
             if producto["stock"] < cantidad:
                 motivos.append("stock insuficiente")
             if limite_unitario is not None and precio_cent > limite_unitario:
@@ -251,13 +296,25 @@ class Herramientas:
 
     def _fijar(self, product_id, cantidad):
         cid = self._carrito_abierto()
+        anterior = next(
+            (i["cantidad"] for i in self.tienda.carrito(cid)["items"]
+             if i["product_id"] == product_id),
+            0,
+        )
         self.tienda.fijar_cantidad(cid, product_id, cantidad)
         self._invalidar_cotizacion()
         car = self._carrito()
         out = {"ok": True, "carrito": car}
         p = self.estado.presupuesto_cent
         if p is not None and car["total"] * 100 > p:
-            out["aviso"] = f"el total {car['total']} supera el presupuesto {_f(p)}"
+            # No dejar que el carrito quede en un estado que viola una
+            # restricción explícita; la cotización y la confirmación también
+            # revalidan, pero este bloqueo evita continuar con una cotización
+            # inválida.
+            self.tienda.fijar_cantidad(cid, product_id, anterior)
+            raise ErrorTienda(
+                f"el total {car['total']} supera el presupuesto {_f(p)}"
+            )
         return out
 
     def agregar_al_carrito(self, product_id, cantidad=None):

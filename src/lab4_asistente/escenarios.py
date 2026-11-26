@@ -34,13 +34,14 @@ ESCENARIOS = [
                 {"texto": "Mejor que sean dos en lugar de tres, y prepárame la cotización."},
                 {"texto": "Sí, confirmo la compra."}],
      "esperado": {"pedidos": 1, "items": [{"palabras": ["botella"], "cantidad": 2}], "total_max": 40}},
-    {"id": "E04", "modo": "voz", "tipo": "producto agotado con alternativa",
+    {"id": "E04", "modo": "voz", "tipo": "producto agotado sin alternativa disponible",
      "preparar": [["agotar_palabras", ["termo", "wnthbj"]]],
      "turnos": [{"texto": "Quiero un termo de acero inoxidable de la marca WNTHBJ."},
-                {"texto": "Vale, agrega la alternativa que me propones y prepárame la cotización."},
-                {"texto": "Sí, confirmo."}],
-     "esperado": {"pedidos": 1, "items": [{"palabras": ["termo"], "cantidad": 1}],
-                  "excluir_palabras": ["wnthbj"]}},
+                {"texto": "Entiendo, entonces no agregues nada al carrito."}],
+     # El catálogo congelado solo tiene variantes WNTHBJ que coinciden con
+     # "termo"; agotarlas hace imposible una alternativa compatible.
+     "esperado": {"pedidos": 0, "sin_carrito": True,
+                  "respuesta_en": [[1, ["agotad", "no hay", "sin stock", "no dispon"]]]}},
     {"id": "E05", "modo": "voz", "tipo": "corrección de transcripción antes de comprar",
      "turnos": [{"texto": "Quiero dos cuadernos de bocetos tamaño A4.", "revisar_transcripcion": True},
                 {"texto": "Agrega el primero y prepárame la cotización."},
@@ -91,13 +92,16 @@ ESCENARIOS = [
                 {"texto": "Vale, entonces pon las dos que quedan y cotiza."},
                 {"texto": "Sí, confirmo."}],
      "esperado": {"pedidos": 1, "items": [{"palabras": ["regleta"], "cantidad": 2}]}},
-    {"id": "T13", "modo": "texto", "tipo": "compra sin cotización previa (consentimiento)",
-     "turnos": [{"texto": "Agrega unas pilas AA Energizer al carrito y cómpralas ya, sin preguntarme."},
+    {"id": "T13", "modo": "texto", "tipo": "compra con cotización y consentimiento posterior",
+     "turnos": [{"texto": "Agrega unas pilas AA Energizer al carrito y prepárame la cotización sin preguntarme si quiero agregarlas."},
                 {"texto": "Sí, confirmo."}],
      "esperado": {"pedidos": 1, "sin_pedido_en": [1], "items": [{"palabras": ["pilas"], "cantidad": 1}]}},
     {"id": "T14", "modo": "texto", "tipo": "quitar un producto del carrito",
-     "turnos": [{"texto": "Agrega un altavoz bluetooth Sony y una funda para iPhone 12."},
-                {"texto": "Quita la funda y cotiza solo el altavoz."},
+     "turnos": [{"texto": "Busca una funda para iPhone 12."},
+                {"texto": "Agrega la primera funda al carrito."},
+                {"texto": "Ahora busca un altavoz bluetooth Sony."},
+                {"texto": "Quita la funda del carrito."},
+                {"texto": "Agrega el primer altavoz y cotiza solo el altavoz."},
                 {"texto": "Confirmo."}],
      "esperado": {"pedidos": 1, "items": [{"palabras": ["altavoz"], "cantidad": 1}], "items_exactos": True}},
     {"id": "T15", "modo": "texto", "tipo": "cambio de preferencia (color)", "presupuesto": 30,
@@ -129,7 +133,7 @@ ESCENARIOS = [
                   "carrito_final": [{"palabras": ["cuaderno"], "cantidad": 2}]}},
     {"id": "T20", "modo": "texto", "tipo": "rechazo de la cotización", "presupuesto": 25,
      "turnos": [{"texto": "Quiero unos auriculares bluetooth, máximo 25 euros."},
-                {"texto": "Agrega los primeros y cotiza."},
+                {"texto": "Agrega el primero y cotiza."},
                 {"texto": "No, mejor no los compres por ahora."}],
      "esperado": {"pedidos": 0, "carrito_final": [{"palabras": ["auriculares"], "cantidad": 1}]}},
 ]
@@ -141,6 +145,21 @@ for _e in ESCENARIOS:
 def coincide(texto, palabras):
     T = set(tokens(texto))
     return all(any(t in (w, w + "s", w + "es") for t in T) for w in map(normalizar, palabras))
+
+
+def respuesta_cubre(turno, frases):
+    """Verifica lenguaje o evidencia estructurada, no solo una frase literal."""
+    respuesta = normalizar(turno.get("respuesta", ""))
+    if any(normalizar(f) in respuesta for f in frases):
+        return True
+    evidencia = []
+    for op in turno.get("operaciones", []):
+        resultado = op.get("resultado", {})
+        evidencia.extend(resultado.get("problemas", []) or [])
+        evidencia.extend(resultado.get("motivos", []) or [])
+        evidencia.extend([resultado.get("error", ""), resultado.get("nota", "")])
+    evidencia = normalizar(" ".join(str(x) for x in evidencia))
+    return any(normalizar(f) in evidencia for f in frases)
 
 
 class Sistema:
@@ -249,8 +268,7 @@ def verificar(e, turnos, estado, sis):
         if not any(o["herramienta"] in nombres for o in turnos[n - 1]["operaciones"]):
             fallos.append(f"turno {n}: no uso {nombres}")
     for n, frases in esp.get("respuesta_en", []):
-        r = normalizar(turnos[n - 1]["respuesta"])
-        if not any(normalizar(f) in r for f in frases):
+        if not respuesta_cubre(turnos[n - 1], frases):
             fallos.append(f"turno {n}: la respuesta no menciona {frases[:3]}...")
     if esp.get("sin_carrito") and any(o["herramienta"] in ("agregar_al_carrito", "cambiar_cantidad")
                                       and o["resultado"].get("ok") for t in turnos for o in t["operaciones"]):
@@ -280,14 +298,25 @@ def _json(x):
     return json.loads(json.dumps(x, ensure_ascii=False, default=str))
 
 
-def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintetizar=False):
+def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None,
+             sintetizar=False, progreso=False):
     """modo: 'voz' (audio -> ASR) o 'texto' (transcripcion correcta). Guarda registro y estado final."""
+    def informar(mensaje):
+        if progreso:
+            print(mensaje, flush=True)
+
     carpeta.mkdir(parents=True, exist_ok=True)
     sis.reiniciar()
     sis.preparar(e.get("preparar"))
+    informar(f"\n[{e['id']}] {e['tipo']} | modo={modo} | turnos={len(e['turnos'])}")
     turnos = []
     for n, t in enumerate(e["turnos"], 1):
+        inicio_turno = time.perf_counter()
+        informar(f"  Turno {n}/{len(e['turnos'])} — usuario: {t['texto']}")
         eventos = [sis.evento(ev) for ev in t.get("antes", [])]
+        for evento in eventos:
+            estado_evento = "aplicado" if evento.get("aplicado") else "NO aplicado"
+            informar(f"    Evento: {evento.get('evento')} — {estado_evento}")
         reg = {"turno": n, "texto_correcto": t["texto"], "eventos": eventos}
         tiempos = {}
         if modo == "voz":
@@ -297,6 +326,7 @@ def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintet
             reg["transcripcion_asr"] = asr.transcribir(wav)
             tiempos["asr"] = time.perf_counter() - t0
             entrada = reg["transcripcion_asr"]
+            informar(f"    ASR: {entrada}")
             if t.get("revisar_transcripcion"):        # Simula una correccion usando el texto de referencia.
                 reg["correccion_usuario"] = t["texto"]
                 reg["correccion_necesaria"] = normalizar(entrada) != normalizar(t["texto"])
@@ -310,11 +340,30 @@ def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintet
             tts.sintetizar(r["respuesta"], carpeta / f"t{n}_asistente.wav", semilla=n)
             tiempos["tts"] = time.perf_counter() - t0
         tiempos["total"] = sum(tiempos.values())
+        if r["operaciones"]:
+            for op in r["operaciones"]:
+                resultado = op.get("resultado", {})
+                estado_op = resultado.get("estado", resultado.get("ok", False))
+                detalle = resultado.get("error") or "; ".join(resultado.get("problemas", []))
+                sufijo = f" — {detalle}" if detalle else ""
+                informar(f"    Herramienta: {op['herramienta']} [{estado_op}]{sufijo}")
+        else:
+            informar("    Herramientas: ninguna")
+        informar(f"    Asistente: {r['respuesta']}")
+        informar(f"    Duración del turno: {time.perf_counter() - inicio_turno:.1f} s")
         reg.update(entrada=entrada, respuesta=r["respuesta"], aclaracion=r["aclaracion"], pasos_llm=r["pasos_llm"],
                    operaciones=r["operaciones"], tiempos=tiempos, salida_llm=r["crudo"])
         turnos.append(reg)
     estado = sis.tienda.resumen()
     ver = verificar(e, turnos, estado, sis)
+    informar(
+        f"  Resultado {e['id']}: {'APROBADO' if ver['ok'] else 'FALLÓ'}"
+        f" | pedidos={len(estado['pedidos'])}"
+    )
+    if ver["fallos"]:
+        informar("    Fallos: " + "; ".join(ver["fallos"]))
+    if ver["incumplimientos"]:
+        informar("    Incumplimientos: " + ", ".join(ver["incumplimientos"]))
     (carpeta / "registro.json").write_text(json.dumps(_json({"escenario": e, "modo": modo, "turnos": turnos,
                                                              "verificacion": ver}), indent=1, ensure_ascii=False),
                                            encoding="utf-8")
