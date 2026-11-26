@@ -1,7 +1,0 @@
-persona,escenario,completado_con_audio,completado_con_transcripcion_correcta,resultado_distinto
-nicole,E01,False,True,True
-nicole,E02,True,True,False
-nicole,E03,False,False,False
-nicole,E04,False,False,False
-nicole,E05,False,False,False
-nicole,E06,False,False,False

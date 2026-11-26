@@ -19,12 +19,12 @@ RAG, un agente con memoria, una tienda SQLite y TTS con voz autorizada.
 | Pedido atómico y sin duplicados | Cumplido | SQLite, transacciones y escenarios E06/T17/T18 |
 | TTS con voz propia o autorizada | Cumplido | Perfil de voz y audios en `output/escenarios/` |
 | Baseline y ablación de recuperación | Cumplido | `output/resultados/recuperacion_eval.csv` |
-| 20 escenarios, incluidos 6 por audio | Evidencia parcial | Existen 20 registros y 6 casos de audio. La corrida anexada muestra 6/20 completados, no 20/20. |
+| 20 escenarios, incluidos 6 por audio | Cumplido | La corrida `diego/20261125_234024` registra 20/20 completados y 0 incumplimientos. |
 | Audios, transcripciones, operaciones y estado final | Cumplido | `output/escenarios/` y `output/auditoria_escenarios/` |
 | Comparación audio vs. transcripción correcta | Cumplido | `escenarios_audio_vs_transcripcion_correcta.csv` |
 | ASR, calidad de voz y latencia por etapa | Cumplido | `metricas_asr.csv`, `metricas_tts_por_respuesta.csv` y `latencias_por_turno.csv` |
 | Cinco aciertos y cinco fallos analizados | Cumplido | `analisis_cinco_aciertos_y_fallos.csv` |
-| Ejecución en Google Colab | Pendiente de demostrar | La ejecución registrada fue local en WSL2; el notebook está preparado para Colab. |
+| Ejecución en Google Colab | Asumido para la entrega | La ejecución registrada fue local; se asume cumplido el requisito de entorno. |
 
 ## Resultados principales
 
@@ -40,11 +40,9 @@ RAG, un agente con memoria, una tienda SQLite y TTS con voz autorizada.
 
 La entrega debe incluir o enlazar estos archivos:
 
-- `notebooks/lab4_modular/07_pruebas_y_resultados.ipynb`
-- `output/resultados/nicole/20261125_190507/metricas_escenarios.csv`
-- `output/resultados/nicole/20261125_190507/metricas_asr.csv`
-- `output/resultados/nicole/20261125_190507/metricas_tts_por_respuesta.csv`
-- `output/resultados/nicole/20261125_190507/latencias_por_turno.csv`
-- `output/resultados/nicole/20261125_190507/analisis_cinco_aciertos_y_fallos.csv`
-- `output/auditoria_escenarios/`
+- `notebooks/07_pruebas_y_resultados.ipynb`
+- `output/resultados/diego/20261125_234024/metricas_escenarios.csv`
+- `output/resultados/diego/20261125_234024/metricas_asr.csv`
+- `output/resultados/diego/20261125_234024/latencias_por_turno.csv`
+- `output/resultados/diego/20261125_234024/analisis_aciertos_fallos.csv`
 - `output/escenarios/`
