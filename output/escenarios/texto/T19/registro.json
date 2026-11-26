@@ -1,0 +1,208 @@
+{
+ "escenario": {
+  "id": "T19",
+  "modo": "texto",
+  "tipo": "cantidad faltante e inválida",
+  "turnos": [
+   {
+    "texto": "Agrega cuadernos al carrito.",
+    "audio": "T19_t1.wav"
+   },
+   {
+    "texto": "Menos dos cuadernos.",
+    "audio": "T19_t2.wav"
+   },
+   {
+    "texto": "Dos cuadernos de bocetos Artway.",
+    "audio": "T19_t3.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 0,
+   "aclaracion_en": [
+    1,
+    2
+   ],
+   "carrito_final": [
+    {
+     "palabras": [
+      "cuaderno"
+     ],
+     "cantidad": 2
+    }
+   ]
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Agrega cuadernos al carrito.",
+   "eventos": [],
+   "entrada": "Agrega cuadernos al carrito.",
+   "respuesta": "Disculpa, no pude completar la solicitud. ¿Puedes repetirla con mas detalle?",
+   "aclaracion": true,
+   "pasos_llm": 8,
+   "operaciones": [],
+   "tiempos": {
+    "llm": 13.336594560008962,
+    "recuperacion": 0.0,
+    "herramientas": 0.0,
+    "total": 13.336594560008962
+   },
+   "salida_llm": [
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
+    "Por favor, especifica la cantidad de cuadernos que deseas comprar."
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Menos dos cuadernos.",
+   "eventos": [],
+   "entrada": "Menos dos cuadernos.",
+   "respuesta": "Disculpa, no pude completar la solicitud. ¿Puedes repetirla con mas detalle?",
+   "aclaracion": true,
+   "pasos_llm": 8,
+   "operaciones": [],
+   "tiempos": {
+    "llm": 15.422791298999073,
+    "recuperacion": 0.0,
+    "herramientas": 0.0,
+    "total": 15.422791298999073
+   },
+   "salida_llm": [
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
+    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Dos cuadernos de bocetos Artway.",
+   "eventos": [],
+   "entrada": "Dos cuadernos de bocetos Artway.",
+   "respuesta": "Se han agregado dos cuadernos de bocetos Artway al carrito. El total es de 17,98 euros. ¿Quieres cotizar el carrito o hay algo más que necesites?",
+   "aclaracion": false,
+   "pasos_llm": 4,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 2,
+      "consulta": "cuadernos de bocetos Artway"
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B06Y6898PJ",
+        "titulo": "Artway Cuaderno de bocetos, Negro, 1 x Apaisado A4",
+        "marca": "ARTWAY",
+        "color": "Negro",
+        "precio": 8.99,
+        "stock": 3,
+        "disponible": true,
+        "cantidad_solicitada": 2,
+        "subtotal": 17.98,
+        "total_carrito_propuesto": 17.98
+       }
+      ],
+      "descartados": [
+       {
+        "product_id": "B07G4BTQFD",
+        "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesional, tapa dura negra, encuadernado anillas en espiral con pa",
+        "marca": "perfect ideaz",
+        "color": "blanco",
+        "precio": 21.99,
+        "stock": 4,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: artway"
+        ]
+       },
+       {
+        "product_id": "B07PJF4DW7",
+        "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 Hojas), Dibujo Profesional, Tapa Dura Negra, Encuadernado Anillas en Espiral con Pa",
+        "marca": "perfect ideaz",
+        "color": "Blanco",
+        "precio": 39.99,
+        "stock": 14,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: artway"
+        ]
+       },
+       {
+        "product_id": "B07WD59MF6",
+        "titulo": "perfect ideaz Cuaderno de bocetos DIN-A5, 96 páginas (48 Hojas), Dibujo Profesional, Tapa Dura Negra, Encuadernado Anillas en Espiral con Pa",
+        "marca": "perfect ideaz",
+        "color": "Blanco",
+        "precio": 12.99,
+        "stock": 5,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: artway"
+        ]
+       }
+      ],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    },
+    {
+     "paso": 3,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B06Y6898PJ",
+      "cantidad": 2
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B06Y6898PJ",
+         "titulo": "Artway Cuaderno de bocetos, Negro, 1 x Apaisado A4",
+         "cantidad": 2,
+         "precio": 8.99,
+         "stock": 3,
+         "subtotal": 17.98
+        }
+       ],
+       "total": 17.98
+      }
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 11.497603636002168,
+    "recuperacion": 9.728027376000682,
+    "herramientas": 0.03810023900223314,
+    "total": 21.263731251005083
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 2, \"consulta\": \"cuadernos de bocetos Artway\"}}\n</tool_call>",
+    "He encontrado los cuadernos de bocetos Artway que necesitas. El primero que te muestro cuesta 8,99 euros cada uno. El total sería 17,98 euros. ¿Estás seguro de querer agregar estos cuadernos al carrito?\n\nSi quieres cambiar algo, avísame.",
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B06Y6898PJ\", \"cantidad\": 2}}\n</tool_call>",
+    "Se han agregado dos cuadernos de bocetos Artway al carrito. El total es de 17,98 euros. ¿Quieres cotizar el carrito o hay algo más que necesites?"
+   ]
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

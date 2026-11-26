@@ -1,0 +1,23 @@
+{
+ "huella": "afdd683c93168902",
+ "pedidos": [],
+ "carritos": [
+  {
+   "carrito_id": 1,
+   "estado": "abierto",
+   "version": 1,
+   "items": [
+    {
+     "product_id": "B06Y6898PJ",
+     "cantidad": 2,
+     "precio_cent": 899,
+     "stock": 3,
+     "subtotal_cent": 1798
+    }
+   ],
+   "total_cent": 1798
+  }
+ ],
+ "productos_modificados": [],
+ "stock_negativo": 0
+}

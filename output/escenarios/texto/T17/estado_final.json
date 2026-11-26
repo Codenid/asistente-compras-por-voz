@@ -1,0 +1,44 @@
+{
+ "huella": "84e72483234f6636",
+ "pedidos": [
+  {
+   "pedido_id": 1,
+   "cotizacion_id": "COT-1-1",
+   "total_cent": 3799,
+   "items": [
+    {
+     "product_id": "B09HCVRVTV",
+     "cantidad": 1,
+     "precio_cent": 3799
+    }
+   ]
+  }
+ ],
+ "carritos": [
+  {
+   "carrito_id": 1,
+   "estado": "cerrado",
+   "version": 1,
+   "items": [
+    {
+     "product_id": "B09HCVRVTV",
+     "cantidad": 1,
+     "precio_cent": 3799,
+     "stock": 12,
+     "subtotal_cent": 3799
+    }
+   ],
+   "total_cent": 3799
+  }
+ ],
+ "productos_modificados": [
+  {
+   "product_id": "B09HCVRVTV",
+   "stock_base": 13,
+   "stock": 12,
+   "precio_base_cent": 3499,
+   "precio_cent": 3799
+  }
+ ],
+ "stock_negativo": 0
+}

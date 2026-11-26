@@ -1,0 +1,21 @@
+id,modo,tipo,completado,fallos,incumplimientos,pedidos
+T07,texto,compra simple con presupuesto,True,,,1
+T08,texto,varios productos con presupuesto total,True,,,1
+T09,texto,presupuesto insuficiente,False,"turno 1: la respuesta no menciona ['presupuesto', 'no alcanza', 'supera']...",,0
+T10,texto,atributo no verificable,False,"turno 1: la respuesta no menciona ['descono', 'no figura', 'no aparece']...",,0
+T11,texto,agotado sin solución,False,"turno 1: la respuesta no menciona ['agotad', 'no hay', 'sin stock']...",,0
+T12,texto,cantidad mayor que el stock,False,pedidos 0 (esperado 1); sin item ['regleta'],,0
+T13,texto,compra sin cotización previa (consentimiento),False,pedidos 0 (esperado 1); sin item ['pilas'],,0
+T14,texto,quitar un producto del carrito,False,pedidos 0 (esperado 1); sin item ['altavoz']; items en pedido 0 (esperado 1),,0
+T15,texto,cambio de preferencia (color),False,"sin item ['mochila', 'negro']",,1
+T16,texto,comparar alternativas,True,,,0
+T17,texto,cambio de precio entre cotización y confirmación,True,,,1
+T18,texto,confirmación repetida sin duplicar,True,,,1
+T19,texto,cantidad faltante e inválida,False,turno 2: no pidio aclaracion o modifico el carrito; carrito final sin ['cuaderno'] x2,,0
+T20,texto,rechazo de la cotización,True,,,0
+E01,voz,compra que cumple restricciones,False,pedidos 0 (esperado 1); sin item ['pilas'],,0
+E02,voz,solicitud ambigua con aclaración,True,,,1
+E03,voz,cambio de cantidad conservando restricciones,False,pedidos 0 (esperado 1); sin item ['botella'],,0
+E04,voz,producto agotado con alternativa,False,pedidos 0 (esperado 1); sin item ['termo'],,0
+E05,voz,corrección de transcripción antes de comprar,False,pedidos 0 (esperado 1); sin item ['cuaderno'],,0
+E06,voz,cambio de stock entre cotización y confirmación,False,pedidos 0 (esperado 1); sin item ['mochila'],,0

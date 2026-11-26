@@ -1,0 +1,146 @@
+{
+ "escenario": {
+  "id": "T09",
+  "modo": "texto",
+  "tipo": "presupuesto insuficiente",
+  "presupuesto": 10,
+  "turnos": [
+   {
+    "texto": "Quiero cinco altavoces bluetooth, pero solo tengo 10 euros en total.",
+    "audio": "T09_t1.wav"
+   },
+   {
+    "texto": "Agrégalos igual y confirma la compra.",
+    "audio": "T09_t2.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 0,
+   "respuesta_en": [
+    [
+     1,
+     [
+      "presupuesto",
+      "no alcanza",
+      "supera",
+      "insuficiente",
+      "no es posible",
+      "no puedo",
+      "excede"
+     ]
+    ]
+   ]
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero cinco altavoces bluetooth, pero solo tengo 10 euros en total.",
+   "eventos": [],
+   "entrada": "Quiero cinco altavoces bluetooth, pero solo tengo 10 euros en total.",
+   "respuesta": "Lo siento, no encontramos altavoces bluetooth dentro de tu presupuesto. ¿Te gustaría considerar otros dispositivos o ajustar tu presupuesto?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "registrar_restricciones",
+     "argumentos": {
+      "presupuesto_max": 10
+     },
+     "resultado": {
+      "ok": true,
+      "presupuesto_max": 10.0,
+      "preferencias": []
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 5,
+      "consulta": "altavoces bluetooth"
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [],
+      "descartados": [
+       {
+        "product_id": "B083XY7DHN",
+        "titulo": "PRIXTON Aloha - Altavoz Bluetooth portatil Divisible en 2 Altavoces Independientes, Reproducción Bluetooth 4.2 y USB, Función Manos Libres, ",
+        "marca": "PRIXTON",
+        "color": "Negro",
+        "precio": 28.99,
+        "stock": 16,
+        "disponible": true,
+        "motivos": [
+         "supera el presupuesto total"
+        ]
+       },
+       {
+        "product_id": "B08SWDQDV2",
+        "titulo": "Altavoz Bluetooth Portatil Inalámbrico Sonido Stereo de 360° con Luz LED, HD Audio, Manos Libres, Interfaz Auxiliar, Ranura para Tarjetas TF",
+        "marca": "OURISE",
+        "color": "a",
+        "precio": 27.99,
+        "stock": 17,
+        "disponible": true,
+        "motivos": [
+         "supera el presupuesto total"
+        ]
+       },
+       {
+        "product_id": "B015HIJSN4",
+        "titulo": "August MS515 Altavoz Estéreo Bluetooth Inalámbrico Portátil - Alcance de Bluetooth hasta 10m - Entrada de Audio - para Computadoras Portátil",
+        "marca": "August",
+        "color": "negro",
+        "precio": 16.99,
+        "stock": 6,
+        "disponible": true,
+        "motivos": [
+         "supera el presupuesto total"
+        ]
+       }
+      ],
+      "nota": "No hay opciones compatibles entre los candidatos recuperados. Explica los motivos; pregunta si desea cambiar restricciones."
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 4.8119605489991955,
+    "recuperacion": 10.987988210999902,
+    "herramientas": 0.005301981000229716,
+    "total": 15.805250740999327
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 10}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 5, \"consulta\": \"altavoces bluetooth\"}}\n</tool_call>",
+    "Lo siento, no encontramos altavoces bluetooth dentro de tu presupuesto. ¿Te gustaría considerar otros dispositivos o ajustar tu presupuesto?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Agrégalos igual y confirma la compra.",
+   "eventos": [],
+   "entrada": "Agrégalos igual y confirma la compra.",
+   "respuesta": "Por favor, especifica el modelo de altavoz bluetooth que prefieres para agregarlo al carrito.",
+   "aclaracion": false,
+   "pasos_llm": 1,
+   "operaciones": [],
+   "tiempos": {
+    "llm": 1.4628052700027183,
+    "recuperacion": 0.0,
+    "herramientas": 0.0,
+    "total": 1.4628052700027183
+   },
+   "salida_llm": [
+    "Por favor, especifica el modelo de altavoz bluetooth que prefieres para agregarlo al carrito."
+   ]
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

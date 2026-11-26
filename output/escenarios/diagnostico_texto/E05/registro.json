@@ -1,0 +1,244 @@
+{
+ "escenario": {
+  "id": "E05",
+  "modo": "voz",
+  "tipo": "corrección de transcripción antes de comprar",
+  "turnos": [
+   {
+    "texto": "Quiero dos cuadernos de bocetos tamaño A4.",
+    "revisar_transcripcion": true,
+    "audio": "E05_t1.wav"
+   },
+   {
+    "texto": "Agrega el primero y prepárame la cotización.",
+    "audio": "E05_t2.wav"
+   },
+   {
+    "texto": "Sí, confirmo.",
+    "audio": "E05_t3.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 1,
+   "items": [
+    {
+     "palabras": [
+      "cuaderno"
+     ],
+     "cantidad": 2
+    }
+   ]
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero dos cuadernos de bocetos tamaño A4.",
+   "eventos": [],
+   "entrada": "Quiero dos cuadernos de bocetos tamaño A4.",
+   "respuesta": "Encontré varias opciones. ¿Te interesa el \"perfect ideaz Cuaderno de bocetos DIN A4\" por $43.98, o prefieres el \"perfect ideaz Cuaderno de bocetos DIN A4\" por $79.98?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 2,
+      "consulta": "cuadernos bocetos A4"
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B07G4BTQFD",
+        "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesional, tapa dura negra, encuadernado anillas en espiral con pa",
+        "marca": "perfect ideaz",
+        "color": "blanco",
+        "precio": 21.99,
+        "stock": 4,
+        "disponible": true,
+        "cantidad_solicitada": 2,
+        "subtotal": 43.98,
+        "total_carrito_propuesto": 43.98
+       },
+       {
+        "posicion": 2,
+        "product_id": "B07PJF4DW7",
+        "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 Hojas), Dibujo Profesional, Tapa Dura Negra, Encuadernado Anillas en Espiral con Pa",
+        "marca": "perfect ideaz",
+        "color": "Blanco",
+        "precio": 39.99,
+        "stock": 14,
+        "disponible": true,
+        "cantidad_solicitada": 2,
+        "subtotal": 79.98,
+        "total_carrito_propuesto": 79.98
+       },
+       {
+        "posicion": 3,
+        "product_id": "B06Y6898PJ",
+        "titulo": "Artway Cuaderno de bocetos, Negro, 1 x Apaisado A4",
+        "marca": "ARTWAY",
+        "color": "Negro",
+        "precio": 8.99,
+        "stock": 3,
+        "disponible": true,
+        "cantidad_solicitada": 2,
+        "subtotal": 17.98,
+        "total_carrito_propuesto": 17.98
+       },
+       {
+        "posicion": 4,
+        "product_id": "B08B687BYC",
+        "titulo": "Bloc de Dibujo A4 Cuaderno Papel Texturizado, Bocetos y Dibujos Artistas para Niños Principiantes, para Acuarela, Pintura Acrílica y al Óleo",
+        "marca": "RZKJ-SHOP",
+        "color": "Crema",
+        "precio": 31.99,
+        "stock": 9,
+        "disponible": true,
+        "cantidad_solicitada": 2,
+        "subtotal": 63.98,
+        "total_carrito_propuesto": 63.98
+       },
+       {
+        "posicion": 5,
+        "product_id": "B01MSDKOVM",
+        "titulo": "Belle Vous Bloc Dibujo A4 con 46 Paginas de 128 GSM (Pack de 2) 21 x 29,5 cm - Cuaderno Pintura Acuarela, Bocetos Artista con Tapa - Libreta",
+        "marca": "BELLE VOUS",
+        "color": "Blanco",
+        "precio": 56.99,
+        "stock": 24,
+        "disponible": true,
+        "cantidad_solicitada": 2,
+        "subtotal": 113.98,
+        "total_carrito_propuesto": 113.98
+       }
+      ],
+      "descartados": [],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 4.903270025999518,
+    "recuperacion": 13.394605116998719,
+    "herramientas": 0.00341927800400299,
+    "total": 18.30129442100224
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 2, \"consulta\": \"cuadernos bocetos A4\"}}\n</tool_call>",
+    "Encontré varias opciones. ¿Te interesa el \"perfect ideaz Cuaderno de bocetos DIN A4\" por $43.98, o prefieres el \"perfect ideaz Cuaderno de bocetos DIN A4\" por $79.98?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Agrega el primero y prepárame la cotización.",
+   "eventos": [],
+   "entrada": "Agrega el primero y prepárame la cotización.",
+   "respuesta": "El total de tu pedido es de $43.98. ¿Estás seguro de querer confirmar este pedido?",
+   "aclaracion": false,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B07G4BTQFD",
+      "cantidad": 2
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07G4BTQFD",
+         "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesio",
+         "cantidad": 2,
+         "precio": 21.99,
+         "stock": 4,
+         "subtotal": 43.98
+        }
+       ],
+       "total": 43.98
+      }
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07G4BTQFD",
+         "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesio",
+         "cantidad": 2,
+         "precio": 21.99,
+         "stock": 4,
+         "subtotal": 43.98
+        }
+       ],
+       "total": 43.98
+      },
+      "total": 43.98,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 4.616213596000307,
+    "recuperacion": 0.0,
+    "herramientas": 0.019093248003628105,
+    "total": 4.635306844003935
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B07G4BTQFD\", \"cantidad\": 2}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
+    "El total de tu pedido es de $43.98. ¿Estás seguro de querer confirmar este pedido?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Sí, confirmo.",
+   "eventos": [],
+   "entrada": "Sí, confirmo.",
+   "respuesta": "Pedido registrado por 43.98 euros.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "registrado",
+      "pedido_id": 1,
+      "total": 43.98,
+      "nota": "pedido registrado e inventario actualizado"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.007421389000228373,
+    "total": 0.007421389000228373
+   },
+   "salida_llm": []
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

@@ -1,0 +1,247 @@
+{
+ "escenario": {
+  "id": "T20",
+  "modo": "texto",
+  "tipo": "rechazo de la cotización",
+  "presupuesto": 25,
+  "turnos": [
+   {
+    "texto": "Quiero unos auriculares bluetooth, máximo 25 euros.",
+    "audio": "T20_t1.wav"
+   },
+   {
+    "texto": "Agrega el primero y cotiza.",
+    "audio": "T20_t2.wav"
+   },
+   {
+    "texto": "No, mejor no los compres por ahora.",
+    "audio": "T20_t3.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 0,
+   "carrito_final": [
+    {
+     "palabras": [
+      "auriculares"
+     ],
+     "cantidad": 1
+    }
+   ]
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero unos auriculares bluetooth, máximo 25 euros.",
+   "eventos": [],
+   "entrada": "Quiero unos auriculares bluetooth, máximo 25 euros.",
+   "respuesta": "Encontramos varios auriculares bluetooth dentro de tu presupuesto. ¿Te interesa la opción número uno, los auriculares AUKOY por 9.99 euros?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "registrar_restricciones",
+     "argumentos": {
+      "presupuesto_max": 25
+     },
+     "resultado": {
+      "ok": true,
+      "presupuesto_max": 25.0,
+      "preferencias": []
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 1,
+      "consulta": "auriculares bluetooth",
+      "precio_max": 25,
+      "k": 5
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B094MJLRBL",
+        "titulo": "Auriculares inalámbricos Bluetooth 5.0 con cancelación de Ruido IPX5, Impermeables, micrófono Integrado en la Oreja, Auriculares de Sonido 3",
+        "marca": "AUKOY",
+        "color": "Azul",
+        "precio": 9.99,
+        "stock": 2,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 9.99,
+        "total_carrito_propuesto": 9.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B07M8QVJQ3",
+        "titulo": "Auriculares Bluetooth, HOMSCAM Auriculares inalámbricos Bluetooth 5.0 Sonido Estéreo Auricular Mini Twins In-Ear Auriculares Carga Rapida Re",
+        "marca": "HOMSCAM",
+        "color": "Negro",
+        "precio": 5.99,
+        "stock": 21,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 5.99,
+        "total_carrito_propuesto": 5.99
+       },
+       {
+        "posicion": 3,
+        "product_id": "B07W96J8SD",
+        "titulo": "Auriculares bluetooth, Auriculares inalámbricos Bluetooth 5.0 Sonido Estéreo Auricular Mini Twins In-Ear Auriculares Carga Rapida Resistente",
+        "marca": "orit",
+        "color": "Blanco",
+        "precio": 16.99,
+        "stock": 10,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 16.99,
+        "total_carrito_propuesto": 16.99
+       },
+       {
+        "posicion": 4,
+        "product_id": "B07Q79C2D8",
+        "titulo": "Auriculares Inalámbricos Bluetooth, HOMSCAM Auriculares Bluetooth con Micrófonos Impermeable True Wireless Earbuds Bluetooth 5.0 HiFi Mini T",
+        "marca": "HOMSCAM",
+        "color": "Negro",
+        "precio": 22.99,
+        "stock": 15,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 22.99,
+        "total_carrito_propuesto": 22.99
+       },
+       {
+        "posicion": 5,
+        "product_id": "B09FF5C5YK",
+        "titulo": "Auriculares Bluetooth, Auriculares Inalámbricos Bluetooth, Auriculares con Cancelación de Ruido, Cascos Inhalabricos In Ear de IPX5 Impermea",
+        "marca": "Ssmnr",
+        "color": "Negro",
+        "precio": 7.99,
+        "stock": 3,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 7.99,
+        "total_carrito_propuesto": 7.99
+       }
+      ],
+      "descartados": [],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 5.473818983999081,
+    "recuperacion": 11.580605612001818,
+    "herramientas": 0.021421790999738732,
+    "total": 17.075846387000638
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 25}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"auriculares bluetooth\", \"precio_max\": 25, \"k\": 5}}\n</tool_call>",
+    "Encontramos varios auriculares bluetooth dentro de tu presupuesto. ¿Te interesa la opción número uno, los auriculares AUKOY por 9.99 euros?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Agrega el primero y cotiza.",
+   "eventos": [],
+   "entrada": "Agrega el primero y cotiza.",
+   "respuesta": "El auriculares AUKOY que has elegido cuestan 9.99 euros. El total de tu pedido es 9.99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "aclaracion": false,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B094MJLRBL",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B094MJLRBL",
+         "titulo": "Auriculares inalámbricos Bluetooth 5.0 con cancelación de Ruido IPX5, Impermeabl",
+         "cantidad": 1,
+         "precio": 9.99,
+         "stock": 2,
+         "subtotal": 9.99
+        }
+       ],
+       "total": 9.99
+      }
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B094MJLRBL",
+         "titulo": "Auriculares inalámbricos Bluetooth 5.0 con cancelación de Ruido IPX5, Impermeabl",
+         "cantidad": 1,
+         "precio": 9.99,
+         "stock": 2,
+         "subtotal": 9.99
+        }
+       ],
+       "total": 9.99
+      },
+      "total": 9.99,
+      "presupuesto_max": 25.0,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 5.290900294996391,
+    "recuperacion": 0.0,
+    "herramientas": 0.021719630996813066,
+    "total": 5.312619925993204
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B094MJLRBL\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
+    "El auriculares AUKOY que has elegido cuestan 9.99 euros. El total de tu pedido es 9.99 euros. ¿Estás seguro de querer confirmar este pedido?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "No, mejor no los compres por ahora.",
+   "eventos": [],
+   "entrada": "No, mejor no los compres por ahora.",
+   "respuesta": "Entendido. ¿Hay algún otro producto que te interese?",
+   "aclaracion": true,
+   "pasos_llm": 1,
+   "operaciones": [],
+   "tiempos": {
+    "llm": 1.6593776179979614,
+    "recuperacion": 0.0,
+    "herramientas": 0.0,
+    "total": 1.6593776179979614
+   },
+   "salida_llm": [
+    "Entendido. ¿Hay algún otro producto que te interese?"
+   ]
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

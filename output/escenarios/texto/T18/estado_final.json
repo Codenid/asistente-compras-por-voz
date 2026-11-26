@@ -1,0 +1,44 @@
+{
+ "huella": "1054636678fed8eb",
+ "pedidos": [
+  {
+   "pedido_id": 1,
+   "cotizacion_id": "COT-1-1",
+   "total_cent": 2799,
+   "items": [
+    {
+     "product_id": "B01N10KEPP",
+     "cantidad": 1,
+     "precio_cent": 2799
+    }
+   ]
+  }
+ ],
+ "carritos": [
+  {
+   "carrito_id": 1,
+   "estado": "cerrado",
+   "version": 1,
+   "items": [
+    {
+     "product_id": "B01N10KEPP",
+     "cantidad": 1,
+     "precio_cent": 2799,
+     "stock": 9,
+     "subtotal_cent": 2799
+    }
+   ],
+   "total_cent": 2799
+  }
+ ],
+ "productos_modificados": [
+  {
+   "product_id": "B01N10KEPP",
+   "stock_base": 10,
+   "stock": 9,
+   "precio_base_cent": 2799,
+   "precio_cent": 2799
+  }
+ ],
+ "stock_negativo": 0
+}

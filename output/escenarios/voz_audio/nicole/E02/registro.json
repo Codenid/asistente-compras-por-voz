@@ -1,0 +1,246 @@
+{
+ "escenario": {
+  "id": "E02",
+  "modo": "voz",
+  "tipo": "solicitud ambigua con aclaración",
+  "turnos": [
+   {
+    "texto": "Quiero comprar una funda.",
+    "audio": "E02_t1.wav"
+   },
+   {
+    "texto": "Es para un iPhone doce, de color negro.",
+    "audio": "E02_t2.wav"
+   },
+   {
+    "texto": "Agrega la primera y dime el total.",
+    "audio": "E02_t3.wav"
+   },
+   {
+    "texto": "Sí, confirmo.",
+    "audio": "E02_t4.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 1,
+   "aclaracion_en": [
+    1
+   ],
+   "items": [
+    {
+     "palabras": [
+      "funda"
+     ],
+     "cantidad": 1
+    }
+   ]
+  }
+ },
+ "modo": "voz",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero comprar una funda.",
+   "eventos": [],
+   "transcripcion_asr": "Quiero comprar una funda.",
+   "entrada": "Quiero comprar una funda.",
+   "respuesta": "¿Para qué dispositivo quieres comprar la funda?",
+   "aclaracion": true,
+   "pasos_llm": 1,
+   "operaciones": [],
+   "tiempos": {
+    "asr": 5.652973811998891,
+    "llm": 0.8864767969989771,
+    "recuperacion": 0.0,
+    "herramientas": 0.0,
+    "tts": 10.464287886999955,
+    "total": 17.003738495997823
+   },
+   "salida_llm": [
+    "¿Para qué dispositivo quieres comprar la funda?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Es para un iPhone doce, de color negro.",
+   "eventos": [],
+   "transcripcion_asr": "Es para un iPhone 12 de color negro.",
+   "entrada": "Es para un iPhone 12 de color negro.",
+   "respuesta": "Encontramos varias opciones. ¿Te interesa la funda JETech de $107.99, la funda TORRAS de $31.99 o la funda Oureidoo de $11.99?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "consulta": "funda para iPhone 12 negro",
+      "precio_max": null,
+      "k": 3
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B07QQZCVR4",
+        "titulo": "JETech Funda de Silicona Compatible iPhone 12 Pro MAX 6,7 Pulgadas, Funda Protectora de Cuerpo Completo con Tacto Suave y Sedoso, Cubierta a",
+        "marca": "JETech",
+        "color": "Negro",
+        "precio": 107.99,
+        "stock": 17,
+        "disponible": true
+       },
+       {
+        "posicion": 2,
+        "product_id": "B08DK6D9VV",
+        "titulo": "TORRAS Militar a Prueba de Golpes Funda iPhone 12/Funda iPhone 12 Pro [Certificado por El Ejército] A Prueba De Golpes Funda iPhone 12 A Ray",
+        "marca": "TORRAS",
+        "color": "Negra",
+        "precio": 31.99,
+        "stock": 23,
+        "disponible": true
+       },
+       {
+        "posicion": 3,
+        "product_id": "B08DG4YPMM",
+        "titulo": "Oureidoo 6X Funda iPhone 12 Pro MAX 2020, Carcasa en Silicona - [ Negro + Blanco Translúcido + Azul Claro + Rojo + Rosado + Menta Verde ]",
+        "marca": "Oureidoo",
+        "color": "desconocido",
+        "precio": 11.99,
+        "stock": 3,
+        "disponible": true
+       }
+      ],
+      "nota": "precios unitarios en euros"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 5.277665587000229,
+    "llm": 4.351755858000615,
+    "recuperacion": 6.791823629999271,
+    "herramientas": 0.0037479250004253117,
+    "tts": 61.3174222359994,
+    "total": 77.74241523599994
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"funda para iPhone 12 negro\", \"precio_max\": null, \"k\": 3}}\n</tool_call>",
+    "Encontramos varias opciones. ¿Te interesa la funda JETech de $107.99, la funda TORRAS de $31.99 o la funda Oureidoo de $11.99?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Agrega la primera y dime el total.",
+   "eventos": [],
+   "transcripcion_asr": "Agrega la primera y dime el total.",
+   "entrada": "Agrega la primera y dime el total.",
+   "respuesta": "El total de tu compra es de $107.99. ¿Estás seguro de querer confirmar este pedido?",
+   "aclaracion": false,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B07QQZCVR4",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07QQZCVR4",
+         "titulo": "JETech Funda de Silicona Compatible iPhone 12 Pro MAX 6,7 Pulgadas, Funda Protec",
+         "cantidad": 1,
+         "precio": 107.99,
+         "stock": 17,
+         "subtotal": 107.99
+        }
+       ],
+       "total": 107.99
+      }
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07QQZCVR4",
+         "titulo": "JETech Funda de Silicona Compatible iPhone 12 Pro MAX 6,7 Pulgadas, Funda Protec",
+         "cantidad": 1,
+         "precio": 107.99,
+         "stock": 17,
+         "subtotal": 107.99
+        }
+       ],
+       "total": 107.99
+      },
+      "total": 107.99,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 6.323119079999742,
+    "llm": 3.839760048998869,
+    "recuperacion": 0.0,
+    "herramientas": 0.03828001200054132,
+    "tts": 33.47518088200013,
+    "total": 43.676340022999284
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B07QQZCVR4\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
+    "El total de tu compra es de $107.99. ¿Estás seguro de querer confirmar este pedido?"
+   ]
+  },
+  {
+   "turno": 4,
+   "texto_correcto": "Sí, confirmo.",
+   "eventos": [],
+   "transcripcion_asr": "Sí, confirmo.",
+   "entrada": "Sí, confirmo.",
+   "respuesta": "Pedido registrado por 107.99 euros.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "registrado",
+      "pedido_id": 1,
+      "total": 107.99,
+      "nota": "pedido registrado e inventario actualizado"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 4.283632946999205,
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.016047732999140862,
+    "tts": 16.151869745999647,
+    "total": 20.451550425997993
+   },
+   "salida_llm": []
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

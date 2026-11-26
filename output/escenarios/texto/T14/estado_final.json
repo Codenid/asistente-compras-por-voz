@@ -1,0 +1,44 @@
+{
+ "huella": "64531b24082e4bd8",
+ "pedidos": [
+  {
+   "pedido_id": 1,
+   "cotizacion_id": "COT-1-3",
+   "total_cent": 2899,
+   "items": [
+    {
+     "product_id": "B092JHPFQX",
+     "cantidad": 1,
+     "precio_cent": 2899
+    }
+   ]
+  }
+ ],
+ "carritos": [
+  {
+   "carrito_id": 1,
+   "estado": "cerrado",
+   "version": 3,
+   "items": [
+    {
+     "product_id": "B092JHPFQX",
+     "cantidad": 1,
+     "precio_cent": 2899,
+     "stock": 21,
+     "subtotal_cent": 2899
+    }
+   ],
+   "total_cent": 2899
+  }
+ ],
+ "productos_modificados": [
+  {
+   "product_id": "B092JHPFQX",
+   "stock_base": 22,
+   "stock": 21,
+   "precio_base_cent": 2899,
+   "precio_cent": 2899
+  }
+ ],
+ "stock_negativo": 0
+}

@@ -1,0 +1,284 @@
+{
+ "escenario": {
+  "id": "T07",
+  "modo": "texto",
+  "tipo": "compra simple con presupuesto",
+  "presupuesto": 30,
+  "turnos": [
+   {
+    "texto": "Quiero comprar un altavoz bluetooth Sony, máximo 30 euros.",
+    "audio": "T07_t1.wav"
+   },
+   {
+    "texto": "Agrega el primero y cotiza.",
+    "audio": "T07_t2.wav"
+   },
+   {
+    "texto": "Confirmo.",
+    "audio": "T07_t3.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 1,
+   "items": [
+    {
+     "palabras": [
+      "altavoz"
+     ],
+     "cantidad": 1
+    }
+   ],
+   "total_max": 30
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero comprar un altavoz bluetooth Sony, máximo 30 euros.",
+   "eventos": [],
+   "entrada": "Quiero comprar un altavoz bluetooth Sony, máximo 30 euros.",
+   "respuesta": "He encontrado opciones para ti. La primera es un altavoz Bluetooth portátil de la marca Genérico por 29,99 euros, la segunda es un altavoz Bluetooth de Sony por 28,99 euros y la tercera es otro altavoz de Sony por 22,99 euros. ¿Te interesa cualquiera de estas opciones?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 1,
+      "consulta": "altavoz bluetooth sony",
+      "precio_max": 30,
+      "k": 5
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B099MQKFGG",
+        "titulo": "Altavoz Bluetooth Portátil, Altavoz Bluetooth Inalámbrico Estéreo Sonido de Bajo Bluetooth 5.0 Manos Libres/Modo AUX/Tarjeta TF/USB para Sam",
+        "marca": "Genérico",
+        "color": "negro 1",
+        "precio": 29.99,
+        "stock": 4,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 29.99,
+        "total_carrito_propuesto": 29.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B092JHPFQX",
+        "titulo": "Sony SRS-XP500 - Altavoz Bluetooth con sonido potente, iluminación y batería de 20 h (IPX4, Mega Bass, función de Carga rápida, Party Connec",
+        "marca": "Sony",
+        "color": "Negro",
+        "precio": 28.99,
+        "stock": 22,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 28.99,
+        "total_carrito_propuesto": 28.99
+       },
+       {
+        "posicion": 3,
+        "product_id": "B078WTP3XH",
+        "titulo": "Sony SRSXB21B - Altavoz portátil Bluetooth (Extra bass, modo sonido live, party booster y luces de fiesta llamativas), color negro",
+        "marca": "Sony",
+        "color": "Negro",
+        "precio": 22.99,
+        "stock": 16,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 22.99,
+        "total_carrito_propuesto": 22.99
+       },
+       {
+        "posicion": 4,
+        "product_id": "B08YDXKTTQ",
+        "titulo": "Sony SRS-XB13 - Altavoz Bluetooth Compacto, Duradero y Potente con EXTRA BASS (Resistente al agua, Inalámbrico, 16h Autonomía), Amarillo Lim",
+        "marca": "Sony",
+        "color": "Amarillo Lima",
+        "precio": 10.99,
+        "stock": 2,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 10.99,
+        "total_carrito_propuesto": 10.99
+       },
+       {
+        "posicion": 5,
+        "product_id": "B08B44L17V",
+        "titulo": "Sony SRS-XB43 Altavoz Bluetooth Potente, con Luces, Extra Bass, Resistente al Agua, Polvo, óxido y Larga duración de batería de hasta 24h, N",
+        "marca": "Sony",
+        "color": "negro",
+        "precio": 22.99,
+        "stock": 24,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 22.99,
+        "total_carrito_propuesto": 22.99
+       }
+      ],
+      "descartados": [
+       {
+        "product_id": "B097TBPYFG",
+        "titulo": "Sony LSPX-S3 Altavoz Bluetooth inalámbrico de Cristal con luz (Sonido de 360 Grados, 8 Horas de autonomía, Manos Libres, diseño Elegante), P",
+        "marca": "Sony",
+        "color": "plata",
+        "precio": 32.99,
+        "stock": 17,
+        "disponible": true,
+        "motivos": [
+         "supera el precio unitario maximo"
+        ]
+       },
+       {
+        "product_id": "B06VWXPC19",
+        "titulo": "Sony SRS-XB10, Altavoz Inalámbrico Portátil, Bluetooth, Negro",
+        "marca": "Sony",
+        "color": "Negro",
+        "precio": 35.99,
+        "stock": 8,
+        "disponible": true,
+        "motivos": [
+         "supera el precio unitario maximo"
+        ]
+       },
+       {
+        "product_id": "B08B449V5L",
+        "titulo": "Sony Extra Bass SRSXB33C.CE7 - Altavoz Bluetooth, Gris",
+        "marca": "Sony",
+        "color": "Gris",
+        "precio": 30.99,
+        "stock": 9,
+        "disponible": true,
+        "motivos": [
+         "supera el precio unitario maximo"
+        ]
+       }
+      ],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 6.651797017999343,
+    "recuperacion": 15.53356237800108,
+    "herramientas": 0.0035319189992151223,
+    "total": 22.188891314999637
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"altavoz bluetooth sony\", \"precio_max\": 30, \"k\": 5}}\n</tool_call>",
+    "He encontrado opciones para ti. La primera es un altavoz Bluetooth portátil de la marca Genérico por 29,99 euros, la segunda es un altavoz Bluetooth de Sony por 28,99 euros y la tercera es otro altavoz de Sony por 22,99 euros. ¿Te interesa cualquiera de estas opciones?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Agrega el primero y cotiza.",
+   "eventos": [],
+   "entrada": "Agrega el primero y cotiza.",
+   "respuesta": "El altavoz Bluetooth portátil que has elegido cuesta 29,99 euros. El total de tu compra es 29,99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "aclaracion": false,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B099MQKFGG",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B099MQKFGG",
+         "titulo": "Altavoz Bluetooth Portátil, Altavoz Bluetooth Inalámbrico Estéreo Sonido de Bajo",
+         "cantidad": 1,
+         "precio": 29.99,
+         "stock": 4,
+         "subtotal": 29.99
+        }
+       ],
+       "total": 29.99
+      }
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B099MQKFGG",
+         "titulo": "Altavoz Bluetooth Portátil, Altavoz Bluetooth Inalámbrico Estéreo Sonido de Bajo",
+         "cantidad": 1,
+         "precio": 29.99,
+         "stock": 4,
+         "subtotal": 29.99
+        }
+       ],
+       "total": 29.99
+      },
+      "total": 29.99,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 5.18309533700085,
+    "recuperacion": 0.0,
+    "herramientas": 0.01977088800049387,
+    "total": 5.202866225001344
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B099MQKFGG\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
+    "El altavoz Bluetooth portátil que has elegido cuesta 29,99 euros. El total de tu compra es 29,99 euros. ¿Estás seguro de querer confirmar este pedido?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Confirmo.",
+   "eventos": [],
+   "entrada": "Confirmo.",
+   "respuesta": "Pedido registrado por 29.99 euros.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "registrado",
+      "pedido_id": 1,
+      "total": 29.99,
+      "nota": "pedido registrado e inventario actualizado"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.007755732000077842,
+    "total": 0.007755732000077842
+   },
+   "salida_llm": []
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

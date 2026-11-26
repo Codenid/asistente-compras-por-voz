@@ -1,0 +1,83 @@
+{
+ "escenario": {
+  "id": "T10",
+  "modo": "texto",
+  "tipo": "atributo no verificable",
+  "turnos": [
+   {
+    "texto": "¿El altavoz Mangobeat con base de madera es resistente al agua?",
+    "audio": "T10_t1.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 0,
+   "sin_carrito": true,
+   "herramienta_en": [
+    [
+     1,
+     [
+      "consultar_atributo",
+      "ver_producto"
+     ]
+    ]
+   ],
+   "respuesta_en": [
+    [
+     1,
+     [
+      "descono",
+      "no figura",
+      "no aparece",
+      "no se indica",
+      "no consta",
+      "no especifica",
+      "no menciona",
+      "no tengo informacion",
+      "no hay informacion"
+     ]
+    ]
+   ]
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "¿El altavoz Mangobeat con base de madera es resistente al agua?",
+   "eventos": [],
+   "entrada": "¿El altavoz Mangobeat con base de madera es resistente al agua?",
+   "respuesta": "Lo siento, no encontré información sobre el altavoz Mangobeat. ¿Podrías proporcionarme más detalles o verificar el nombre del producto?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "consultar_atributo",
+     "argumentos": {
+      "product_id": "Mangobeat",
+      "atributo": "resistente al agua"
+     },
+     "resultado": {
+      "ok": false,
+      "error": "product_id desconocido: 'Mangobeat'. Usa un id devuelto por buscar_productos"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 3.9324372279988893,
+    "recuperacion": 0.0,
+    "herramientas": 0.0003563310019671917,
+    "total": 3.9327935590008565
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"consultar_atributo\", \"arguments\": {\"product_id\": \"Mangobeat\", \"atributo\": \"resistente al agua\"}}\n</tool_call>",
+    "Lo siento, no encontré información sobre el altavoz Mangobeat. ¿Podrías proporcionarme más detalles o verificar el nombre del producto?"
+   ]
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

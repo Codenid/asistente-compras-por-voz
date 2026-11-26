@@ -1,0 +1,113 @@
+{
+ "huella": "42d71f93e5fffa6d",
+ "pedidos": [],
+ "carritos": [],
+ "productos_modificados": [
+  {
+   "product_id": "B01LZAEPKB",
+   "stock_base": 3,
+   "stock": 0,
+   "precio_base_cent": 3799,
+   "precio_cent": 3799
+  },
+  {
+   "product_id": "B074575XMR",
+   "stock_base": 5,
+   "stock": 0,
+   "precio_base_cent": 1699,
+   "precio_cent": 1699
+  },
+  {
+   "product_id": "B075SWWP31",
+   "stock_base": 3,
+   "stock": 0,
+   "precio_base_cent": 10199,
+   "precio_cent": 10199
+  },
+  {
+   "product_id": "B07BJZDR29",
+   "stock_base": 20,
+   "stock": 0,
+   "precio_base_cent": 4399,
+   "precio_cent": 4399
+  },
+  {
+   "product_id": "B07CKWG8TW",
+   "stock_base": 10,
+   "stock": 0,
+   "precio_base_cent": 3099,
+   "precio_cent": 3099
+  },
+  {
+   "product_id": "B07JZ6HZ5J",
+   "stock_base": 25,
+   "stock": 0,
+   "precio_base_cent": 1199,
+   "precio_cent": 1199
+  },
+  {
+   "product_id": "B07MBPGWJL",
+   "stock_base": 23,
+   "stock": 0,
+   "precio_base_cent": 1399,
+   "precio_cent": 1399
+  },
+  {
+   "product_id": "B07VWNGQVK",
+   "stock_base": 8,
+   "stock": 0,
+   "precio_base_cent": 5099,
+   "precio_cent": 5099
+  },
+  {
+   "product_id": "B07XP3MVDD",
+   "stock_base": 7,
+   "stock": 0,
+   "precio_base_cent": 699,
+   "precio_cent": 699
+  },
+  {
+   "product_id": "B082NQ2GHS",
+   "stock_base": 7,
+   "stock": 0,
+   "precio_base_cent": 999,
+   "precio_cent": 999
+  },
+  {
+   "product_id": "B082TXF22V",
+   "stock_base": 8,
+   "stock": 0,
+   "precio_base_cent": 5599,
+   "precio_cent": 5599
+  },
+  {
+   "product_id": "B083BVQ8T9",
+   "stock_base": 13,
+   "stock": 0,
+   "precio_base_cent": 3199,
+   "precio_cent": 3199
+  },
+  {
+   "product_id": "B08B849BSN",
+   "stock_base": 12,
+   "stock": 0,
+   "precio_base_cent": 1199,
+   "precio_cent": 1199
+  },
+  {
+   "product_id": "B08VR8VYFZ",
+   "stock_base": 5,
+   "stock": 0,
+   "precio_base_cent": 2399,
+   "precio_cent": 2399
+  },
+  {
+   "product_id": "B091TCRVCV",
+   "stock_base": 16,
+   "stock": 0,
+   "precio_base_cent": 2599,
+   "precio_cent": 2599
+  }
+ ],
+ "stock_negativo": 0
+}

@@ -1,0 +1,357 @@
+{
+ "escenario": {
+  "id": "T17",
+  "modo": "texto",
+  "tipo": "cambio de precio entre cotización y confirmación",
+  "turnos": [
+   {
+    "texto": "Quiero una taza para café.",
+    "audio": "T17_t1.wav"
+   },
+   {
+    "texto": "Agrega la primera y cotiza.",
+    "audio": "T17_t2.wav"
+   },
+   {
+    "texto": "Sí, confirmo.",
+    "antes": [
+     [
+      "precio_carrito",
+      0,
+      300
+     ]
+    ],
+    "audio": "T17_t3.wav"
+   },
+   {
+    "texto": "De acuerdo, confirmo con el nuevo precio.",
+    "audio": "T17_t4.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 1,
+   "sin_pedido_en": [
+    3
+   ],
+   "items": [
+    {
+     "palabras": [
+      "taza"
+     ],
+     "cantidad": 1
+    }
+   ]
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero una taza para café.",
+   "eventos": [],
+   "entrada": "Quiero una taza para café.",
+   "respuesta": "Disculpa, no pude completar la solicitud. ¿Puedes repetirla con mas detalle?",
+   "aclaracion": true,
+   "pasos_llm": 8,
+   "operaciones": [],
+   "tiempos": {
+    "llm": 13.094534560994362,
+    "recuperacion": 0.0,
+    "herramientas": 0.0,
+    "total": 13.094534560994362
+   },
+   "salida_llm": [
+    "¿Desea una taza específica o prefiere que busque una general?",
+    "¿Desea una taza específica o prefiere que busque una general?",
+    "¿Desea una taza específica o prefiere que busque una general?",
+    "¿Desea una taza específica o prefiere que busque una general?",
+    "¿Desea una taza específica o prefiere que busque una general?",
+    "¿Desea una taza específica o prefiere que busque una general?",
+    "¿Desea una taza específica o prefiere que busque una general?",
+    "¿Desea una taza específica o prefiere que busque una general?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Agrega la primera y cotiza.",
+   "eventos": [],
+   "entrada": "Agrega la primera y cotiza.",
+   "respuesta": "El producto que has elegido es la \"Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz\" por 34.99 euros. El total de tu pedido es 34.99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "aclaracion": false,
+   "pasos_llm": 3,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 1,
+      "consulta": "taza para café"
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B09HCVRVTV",
+        "titulo": "Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz",
+        "marca": "N\\A",
+        "color": "desconocido",
+        "precio": 34.99,
+        "stock": 13,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 34.99,
+        "total_carrito_propuesto": 34.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B0823MN34W",
+        "titulo": "eeQiu Taza de café para Llevar 13oz 100% a Prueba de Fugas - Taza de Viaje de Acero Inoxidable - Taza de automóvil de Doble Pared Tapa de Ai",
+        "marca": "eeQiu",
+        "color": "Negro",
+        "precio": 11.99,
+        "stock": 20,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 11.99,
+        "total_carrito_propuesto": 11.99
+       },
+       {
+        "posicion": 3,
+        "product_id": "B09BNLJ5MZ",
+        "titulo": "N\\A Me Encanta Cuando mi mamá me Deja Jugar Videojuegos Taza de café, Divertida Taza de café de Jugador Regalo para Hombres mamá papá Regalo",
+        "marca": "N\\A",
+        "color": "desconocido",
+        "precio": 17.99,
+        "stock": 18,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 17.99,
+        "total_carrito_propuesto": 17.99
+       },
+       {
+        "posicion": 4,
+        "product_id": "B096VL9ZLS",
+        "titulo": "Taza que Cambia de Color - 7 PCS a Prueba de Fugas Plástico Vaso Taza de café reutilizable con Tapas y pajita Tazas de viaje sin BPA - 24oz ",
+        "marca": "HAPPON",
+        "color": "desconocido",
+        "precio": 70.99,
+        "stock": 4,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 70.99,
+        "total_carrito_propuesto": 70.99
+       },
+       {
+        "posicion": 5,
+        "product_id": "B09G2CSRPR",
+        "titulo": "Me encanta cuando mi esposa me deja ir al golf, taza divertida del día del padre, regalo para marido o papá, taza de té de café de cerámica,",
+        "marca": "N\\A",
+        "color": "desconocido",
+        "precio": 13.99,
+        "stock": 16,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 13.99,
+        "total_carrito_propuesto": 13.99
+       }
+      ],
+      "descartados": [
+       {
+        "product_id": "B08ZLX5MXL",
+        "titulo": "Taza Desayuno con Mensaje Respira_ Regalos Originales para Mujer_ Taza café Infusiones o Decoración Hogar en Cerámica de Gran Calidad.",
+        "marca": "AN",
+        "color": "desconocido",
+        "precio": 31.99,
+        "stock": 0,
+        "disponible": false,
+        "motivos": [
+         "stock insuficiente"
+        ]
+       }
+      ],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    },
+    {
+     "paso": 2,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B09HCVRVTV",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B09HCVRVTV",
+         "titulo": "Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz",
+         "cantidad": 1,
+         "precio": 34.99,
+         "stock": 13,
+         "subtotal": 34.99
+        }
+       ],
+       "total": 34.99
+      }
+     }
+    },
+    {
+     "paso": 2,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B09HCVRVTV",
+         "titulo": "Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz",
+         "cantidad": 1,
+         "precio": 34.99,
+         "stock": 13,
+         "subtotal": 34.99
+        }
+       ],
+       "total": 34.99
+      },
+      "total": 34.99,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 8.307310151998536,
+    "recuperacion": 14.544883720998769,
+    "herramientas": 0.12489108499721624,
+    "total": 22.97708495799452
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"taza para café\"}}\n</tool_call>",
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B09HCVRVTV\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
+    "El producto que has elegido es la \"Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz\" por 34.99 euros. El total de tu pedido es 34.99 euros. ¿Estás seguro de querer confirmar este pedido?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Sí, confirmo.",
+   "eventos": [
+    {
+     "evento": [
+      "precio_carrito",
+      0,
+      300
+     ],
+     "aplicado": true,
+     "product_id": "B09HCVRVTV"
+    }
+   ],
+   "entrada": "Sí, confirmo.",
+   "respuesta": "No registré el pedido porque cambió el precio. La nueva cotización es de 37.99 euros. Confirma si aceptas el nuevo total.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": false,
+      "estado": "rechazado",
+      "problemas": [
+       "B09HCVRVTV: el precio cambio de 34.99 a 37.99"
+      ],
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B09HCVRVTV",
+         "titulo": "Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz",
+         "cantidad": 1,
+         "precio": 37.99,
+         "stock": 13,
+         "subtotal": 37.99
+        }
+       ],
+       "total": 37.99
+      },
+      "siguiente_paso": "explica el problema y propone una alternativa; vuelve a cotizar"
+     }
+    },
+    {
+     "paso": 0,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B09HCVRVTV",
+         "titulo": "Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz",
+         "cantidad": 1,
+         "precio": 37.99,
+         "stock": 13,
+         "subtotal": 37.99
+        }
+       ],
+       "total": 37.99
+      },
+      "total": 37.99,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.00024614900030428544,
+    "total": 0.00024614900030428544
+   },
+   "salida_llm": []
+  },
+  {
+   "turno": 4,
+   "texto_correcto": "De acuerdo, confirmo con el nuevo precio.",
+   "eventos": [],
+   "entrada": "De acuerdo, confirmo con el nuevo precio.",
+   "respuesta": "Pedido registrado por 37.99 euros.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "registrado",
+      "pedido_id": 1,
+      "total": 37.99,
+      "nota": "pedido registrado e inventario actualizado"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.0072627679983270355,
+    "total": 0.0072627679983270355
+   },
+   "salida_llm": []
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

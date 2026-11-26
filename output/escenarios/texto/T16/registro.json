@@ -1,0 +1,96 @@
+{
+ "escenario": {
+  "id": "T16",
+  "modo": "texto",
+  "tipo": "comparar alternativas",
+  "turnos": [
+   {
+    "texto": "Compara los dos altavoces bluetooth más baratos que tengas.",
+    "audio": "T16_t1.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 0,
+   "sin_carrito": true,
+   "herramienta_en": [
+    [
+     1,
+     [
+      "buscar_productos"
+     ]
+    ]
+   ]
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Compara los dos altavoces bluetooth más baratos que tengas.",
+   "eventos": [],
+   "entrada": "Compara los dos altavoces bluetooth más baratos que tengas.",
+   "respuesta": "La primera opción es el altavoz Genérico negro por 29.99 euros y la segunda es el altavoz OURISE de color a por 27.99 euros. ¿Cuál prefieres?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 1,
+      "consulta": "altavoz bluetooth",
+      "k": 2
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B099MQKFGG",
+        "titulo": "Altavoz Bluetooth Portátil, Altavoz Bluetooth Inalámbrico Estéreo Sonido de Bajo Bluetooth 5.0 Manos Libres/Modo AUX/Tarjeta TF/USB para Sam",
+        "marca": "Genérico",
+        "color": "negro 1",
+        "precio": 29.99,
+        "stock": 4,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 29.99,
+        "total_carrito_propuesto": 29.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B08SWDQDV2",
+        "titulo": "Altavoz Bluetooth Portatil Inalámbrico Sonido Stereo de 360° con Luz LED, HD Audio, Manos Libres, Interfaz Auxiliar, Ranura para Tarjetas TF",
+        "marca": "OURISE",
+        "color": "a",
+        "precio": 27.99,
+        "stock": 17,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 27.99,
+        "total_carrito_propuesto": 27.99
+       }
+      ],
+      "descartados": [],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 4.610290634002013,
+    "recuperacion": 14.77393900899915,
+    "herramientas": 0.0031136230027186684,
+    "total": 19.38734326600388
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"altavoz bluetooth\", \"k\": 2}}\n</tool_call>",
+    "La primera opción es el altavoz Genérico negro por 29.99 euros y la segunda es el altavoz OURISE de color a por 27.99 euros. ¿Cuál prefieres?"
+   ]
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "huella": "afdd683c93168902",
+ "pedidos": [],
+ "carritos": [
+  {
+   "carrito_id": 1,
+   "estado": "abierto",
+   "version": 1,
+   "items": [
+    {
+     "product_id": "B094MJLRBL",
+     "cantidad": 1,
+     "precio_cent": 999,
+     "stock": 2,
+     "subtotal_cent": 999
+    }
+   ],
+   "total_cent": 999
+  }
+ ],
+ "productos_modificados": [],
+ "stock_negativo": 0
+}

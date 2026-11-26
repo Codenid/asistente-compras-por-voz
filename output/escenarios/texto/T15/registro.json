@@ -1,0 +1,350 @@
+{
+ "escenario": {
+  "id": "T15",
+  "modo": "texto",
+  "tipo": "cambio de preferencia (color)",
+  "presupuesto": 30,
+  "turnos": [
+   {
+    "texto": "Quiero una mochila para portátil de color gris, máximo 30 euros.",
+    "audio": "T15_t1.wav"
+   },
+   {
+    "texto": "Mejor que sea de color negro, con el mismo presupuesto.",
+    "audio": "T15_t2.wav"
+   },
+   {
+    "texto": "Agrega la primera y cotiza.",
+    "audio": "T15_t3.wav"
+   },
+   {
+    "texto": "Sí, confirmo.",
+    "audio": "T15_t4.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 1,
+   "items": [
+    {
+     "palabras": [
+      "mochila",
+      "negro"
+     ],
+     "cantidad": 1
+    }
+   ],
+   "total_max": 30
+  }
+ },
+ "modo": "texto",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero una mochila para portátil de color gris, máximo 30 euros.",
+   "eventos": [],
+   "entrada": "Quiero una mochila para portátil de color gris, máximo 30 euros.",
+   "respuesta": "Encontré dos opciones para usted. La primera es una mochila de la marca RJEU por 9.99 euros y la segunda es de HOMIEE por 10.99 euros. ¿Prefiere la mochila de la marca RJEU o la de HOMIEE?",
+   "aclaracion": true,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "cantidad": 1,
+      "consulta": "mochila portatil gris",
+      "precio_max": 30
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B0872S65JB",
+        "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con Bolsillo RFID, Bolsos Casuales para la Universidad/Negocios/V",
+        "marca": "RJEU",
+        "color": "Gris",
+        "precio": 9.99,
+        "stock": 2,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 9.99,
+        "total_carrito_propuesto": 9.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B07QTHKC4G",
+        "titulo": "HOMIEE 15.6 Pulgadas Mochila de Viaje para Portátil con Puerto de Carga USB para Auriculares Bolsa antirrobo, Mochila Informal Delgada, para",
+        "marca": "HOMIEE",
+        "color": "Gris",
+        "precio": 10.99,
+        "stock": 16,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 10.99,
+        "total_carrito_propuesto": 10.99
+       }
+      ],
+      "descartados": [
+       {
+        "product_id": "B07PQ9HVYL",
+        "titulo": "Daabliz - Bolsos 40x20x25 Ryanair y Vueling - Bolsa Viaje/Maleta De Cabina Hombre Mujer Juvenil - Viajes Negocios Diaria Casual - Gran Capac",
+        "marca": "Daabliz",
+        "color": "Gris",
+        "precio": 16.99,
+        "stock": 7,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: mochila"
+        ]
+       },
+       {
+        "product_id": "B07BY1R9S2",
+        "titulo": "SKPA-T Belgrado Travel - Maleta de ABS, Gris Oscuro, 70 cm",
+        "marca": "SKPAT",
+        "color": "Gris Oscuro (Belgrado Travel)",
+        "precio": 68.99,
+        "stock": 4,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: mochila",
+         "supera el precio unitario maximo"
+        ]
+       },
+       {
+        "product_id": "B0126DN42Y",
+        "titulo": "Gabol - Reims | Bolso de Viaje Grande de Tela de 40 x 30 x 20 cm con Capacidad para 21 L de Color Gris",
+        "marca": "Gabol",
+        "color": "Gris",
+        "precio": 15.99,
+        "stock": 1,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: mochila"
+        ]
+       }
+      ],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 5.493911530000332,
+    "recuperacion": 5.304218985998887,
+    "herramientas": 0.10632453900325345,
+    "total": 10.904455055002472
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"mochila portatil gris\", \"precio_max\": 30}}\n</tool_call>",
+    "Encontré dos opciones para usted. La primera es una mochila de la marca RJEU por 9.99 euros y la segunda es de HOMIEE por 10.99 euros. ¿Prefiere la mochila de la marca RJEU o la de HOMIEE?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Mejor que sea de color negro, con el mismo presupuesto.",
+   "eventos": [],
+   "entrada": "Mejor que sea de color negro, con el mismo presupuesto.",
+   "respuesta": "Encontré varias opciones en color negro dentro de su presupuesto. ¿Le gustaría agregar la mochila Kono por 20.99 euros, la Besttravel por 31.99 euros, la FUXINGYAO por 31.99 euros, la Cabin Max por 7.99 euros o la MARK RYDEN por 16.99 euros?",
+   "aclaracion": true,
+   "pasos_llm": 1,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "consulta": "quiero mochila de maximo 30 euros. Mejor que sea de color negro, con el mismo presupuesto.",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B07HHNRJJJ",
+        "titulo": "Kono Anime Cartoon Luminous música Boy Backpack Escuela Estudiante Mochila de Moda, Mochila Escolar Unisex Bookbag Maleta De Viaje Trolley O",
+        "marca": "Kono",
+        "color": "Negro",
+        "precio": 20.99,
+        "stock": 20,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 20.99,
+        "total_carrito_propuesto": 20.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B07Q5S8K28",
+        "titulo": "Mochila Unisex Impermeable para Ordenador Portátil de hasta 15.6 Pulgadas, con Puerto USB, conector para Auriculares y Bolsillo Antirrobo. P",
+        "marca": "Besttravel",
+        "color": "Negro",
+        "precio": 31.99,
+        "stock": 9,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 31.99,
+        "total_carrito_propuesto": 31.99
+       },
+       {
+        "posicion": 3,
+        "product_id": "B093NYPDX5",
+        "titulo": "FUXINGYAO Mochila Unisex para Ordenador Portátil de hasta 15.6 PulgadasMochila Portatil Mochila Hombre Mochila del Negocio Trabajo Diario Vi",
+        "marca": "FUXINGYAO",
+        "color": "Negro",
+        "precio": 31.99,
+        "stock": 9,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 31.99,
+        "total_carrito_propuesto": 31.99
+       },
+       {
+        "posicion": 4,
+        "product_id": "B07SM7B7VR",
+        "titulo": "Cabin Max Metz 20L 40x20x25 cm Maleta de Cabina Pequeña Mochila de Viaje Stowaway Ideal para Llevar Debajo del Asiento en Ryanair (Negro)",
+        "marca": "Cabin Max",
+        "color": "Negro",
+        "precio": 7.99,
+        "stock": 9,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 7.99,
+        "total_carrito_propuesto": 7.99
+       },
+       {
+        "posicion": 5,
+        "product_id": "B0981VQVMN",
+        "titulo": "MARK RYDEN Mochila de Viaje 26-40L Hombre Mujer Maleta de Cabina Mochila Impermeable de Equipaje de Mano Aprobada para Transporte Avion IATA",
+        "marca": "MARK RYDEN",
+        "color": "Negro(1.0)",
+        "precio": 16.99,
+        "stock": 1,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 16.99,
+        "total_carrito_propuesto": 16.99
+       }
+      ],
+      "descartados": [],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 4.133555278000131,
+    "recuperacion": 11.022835824001959,
+    "herramientas": 0.12891643899638439,
+    "total": 15.285307540998474
+   },
+   "salida_llm": [
+    "Encontré varias opciones en color negro dentro de su presupuesto. ¿Le gustaría agregar la mochila Kono por 20.99 euros, la Besttravel por 31.99 euros, la FUXINGYAO por 31.99 euros, la Cabin Max por 7.99 euros o la MARK RYDEN por 16.99 euros?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Agrega la primera y cotiza.",
+   "eventos": [],
+   "entrada": "Agrega la primera y cotiza.",
+   "respuesta": "El total de su compra es de 20.99 euros. ¿Está todo correcto y desea confirmar su pedido?",
+   "aclaracion": false,
+   "pasos_llm": 2,
+   "operaciones": [
+    {
+     "paso": 1,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B07HHNRJJJ",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07HHNRJJJ",
+         "titulo": "Kono Anime Cartoon Luminous música Boy Backpack Escuela Estudiante Mochila de Mo",
+         "cantidad": 1,
+         "precio": 20.99,
+         "stock": 20,
+         "subtotal": 20.99
+        }
+       ],
+       "total": 20.99
+      }
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07HHNRJJJ",
+         "titulo": "Kono Anime Cartoon Luminous música Boy Backpack Escuela Estudiante Mochila de Mo",
+         "cantidad": 1,
+         "precio": 20.99,
+         "stock": 20,
+         "subtotal": 20.99
+        }
+       ],
+       "total": 20.99
+      },
+      "total": 20.99,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 4.836931687001197,
+    "recuperacion": 0.0,
+    "herramientas": 0.017920119000336854,
+    "total": 4.854851806001534
+   },
+   "salida_llm": [
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B07HHNRJJJ\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
+    "El total de su compra es de 20.99 euros. ¿Está todo correcto y desea confirmar su pedido?"
+   ]
+  },
+  {
+   "turno": 4,
+   "texto_correcto": "Sí, confirmo.",
+   "eventos": [],
+   "entrada": "Sí, confirmo.",
+   "respuesta": "Pedido registrado por 20.99 euros.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "registrado",
+      "pedido_id": 1,
+      "total": 20.99,
+      "nota": "pedido registrado e inventario actualizado"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.012471091999032069,
+    "total": 0.012471091999032069
+   },
+   "salida_llm": []
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}

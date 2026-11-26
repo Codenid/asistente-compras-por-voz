@@ -1,0 +1,400 @@
+{
+ "escenario": {
+  "id": "E02",
+  "modo": "voz",
+  "tipo": "solicitud ambigua con aclaración",
+  "turnos": [
+   {
+    "texto": "Quiero comprar una funda.",
+    "audio": "E02_t1.wav"
+   },
+   {
+    "texto": "Es para un iPhone doce, de color negro.",
+    "audio": "E02_t2.wav"
+   },
+   {
+    "texto": "Agrega la primera y dime el total.",
+    "audio": "E02_t3.wav"
+   },
+   {
+    "texto": "Sí, confirmo.",
+    "audio": "E02_t4.wav"
+   }
+  ],
+  "esperado": {
+   "pedidos": 1,
+   "aclaracion_en": [
+    1
+   ],
+   "items": [
+    {
+     "palabras": [
+      "funda"
+     ],
+     "cantidad": 1
+    }
+   ]
+  }
+ },
+ "modo": "voz",
+ "turnos": [
+  {
+   "turno": 1,
+   "texto_correcto": "Quiero comprar una funda.",
+   "eventos": [],
+   "transcripcion_asr": "Quiero comprar una fonda.",
+   "entrada": "Quiero comprar una fonda.",
+   "respuesta": "Encontré Juego de Funda de edredón de 400 conteo de Hilos, 100% algodón de Fibra Larga, C por 40.99 euros. ¿Quieres esta opción?",
+   "aclaracion": true,
+   "pasos_llm": 8,
+   "operaciones": [
+    {
+     "paso": 9,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "consulta": "Quiero comprar una fonda.",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B07V6DGX7J",
+        "titulo": "Juego de Funda de edredón de 400 conteo de Hilos, 100% algodón de Fibra Larga, Conjunto de 3 Piezas con Cierre de botón (Funda nórdica de 24",
+        "marca": "Pizuna",
+        "color": "Piedra de Pedernal",
+        "precio": 40.99,
+        "stock": 22,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 40.99,
+        "total_carrito_propuesto": 40.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B071JDNZSY",
+        "titulo": "Unimall 1*Funda Nórdica(220x240cm) y 2*Fundas de Almohada(50x75cm), 1*Sábana(250x270cm) para Cama 150, Juego de Fundas Nórdicos de Cama Cuat",
+        "marca": "Unimall",
+        "color": "1",
+        "precio": 32.99,
+        "stock": 25,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 32.99,
+        "total_carrito_propuesto": 32.99
+       },
+       {
+        "posicion": 3,
+        "product_id": "B07FRRW2W7",
+        "titulo": "DOTBUY Juego de Funda de Edredón, 3 Piezas Funda Nórdica Microfibra Juego de Cama Cremallera Funda de Almohada (Cama 90-150x200cm, Rosa roja",
+        "marca": "DOTBUY",
+        "color": "Rosa Roja",
+        "precio": 19.99,
+        "stock": 7,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 19.99,
+        "total_carrito_propuesto": 19.99
+       },
+       {
+        "posicion": 4,
+        "product_id": "B07FRRQS8S",
+        "titulo": "DOTBUY Juego de Funda de Edredón, 3 Piezas Funda Nórdica Microfibra Juego de Cama Cremallera Funda de Almohada (Cama 150-220x240cm, Rosa roj",
+        "marca": "DOTBUY",
+        "color": "Rosa Roja",
+        "precio": 13.99,
+        "stock": 21,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 13.99,
+        "total_carrito_propuesto": 13.99
+       },
+       {
+        "posicion": 5,
+        "product_id": "B07HFB7DWZ",
+        "titulo": "Pati'Chou Sabrina - Juego de Funda Nórdica Cama de 90 cm, 2 piezas, 100% Algodón (funda de edredón 140x200 cm y 1 funda de almohada 65x65 cm",
+        "marca": "Pati'Chou",
+        "color": "Multicolor",
+        "precio": 4.99,
+        "stock": 23,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 4.99,
+        "total_carrito_propuesto": 4.99
+       }
+      ],
+      "descartados": [],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 5.226736845997948,
+    "llm": 15.970864022001479,
+    "recuperacion": 18.55020956000226,
+    "herramientas": 0.10977415199886309,
+    "total": 39.85758458000055
+   },
+   "salida_llm": [
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?",
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?",
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?",
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?",
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?",
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?",
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?",
+    "¿Desea comprar una fonda para una persona o para una familia? También, ¿tiene algún presupuesto en mente?"
+   ]
+  },
+  {
+   "turno": 2,
+   "texto_correcto": "Es para un iPhone doce, de color negro.",
+   "eventos": [],
+   "transcripcion_asr": "Es para un iPhone 12, de color negro.",
+   "entrada": "Es para un iPhone 12, de color negro.",
+   "respuesta": "Encontré varias opciones de fundas para iPhone 12 en color negro. ¿Te interesa la funda de JETech por 107.99 euros?",
+   "aclaracion": true,
+   "pasos_llm": 1,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "consulta": "quiero comprar fonda. Es para un iPhone 12, de color negro.",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B07QQZCVR4",
+        "titulo": "JETech Funda de Silicona Compatible iPhone 12 Pro MAX 6,7 Pulgadas, Funda Protectora de Cuerpo Completo con Tacto Suave y Sedoso, Cubierta a",
+        "marca": "JETech",
+        "color": "Negro",
+        "precio": 107.99,
+        "stock": 17,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 107.99,
+        "total_carrito_propuesto": 107.99
+       },
+       {
+        "posicion": 2,
+        "product_id": "B08DG4YPMM",
+        "titulo": "Oureidoo 6X Funda iPhone 12 Pro MAX 2020, Carcasa en Silicona - [ Negro + Blanco Translúcido + Azul Claro + Rojo + Rosado + Menta Verde ]",
+        "marca": "Oureidoo",
+        "color": "desconocido",
+        "precio": 11.99,
+        "stock": 3,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 11.99,
+        "total_carrito_propuesto": 11.99
+       },
+       {
+        "posicion": 3,
+        "product_id": "B08X3L5183",
+        "titulo": "KKM Vidrio Templado Funda con Protector de Pantalla Incorporado y Protector de Lentes de Cámara para iPhone 12 6.1 Pulgadas, Compatible con ",
+        "marca": "KKM",
+        "color": "Negro",
+        "precio": 27.99,
+        "stock": 15,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 27.99,
+        "total_carrito_propuesto": 27.99
+       },
+       {
+        "posicion": 4,
+        "product_id": "B08X3KG5BB",
+        "titulo": "KKM Vidrio Templado Funda con Protector de Pantalla Incorporado y Protector de Lentes de Cámara para iPhone 12 Pro 6.1 Pulgadas, Compatible ",
+        "marca": "KKM",
+        "color": "Negro",
+        "precio": 20.99,
+        "stock": 15,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 20.99,
+        "total_carrito_propuesto": 20.99
+       },
+       {
+        "posicion": 5,
+        "product_id": "B08X3LTV6R",
+        "titulo": "KKM Vidrio Templado Funda con Protector de Pantalla Incorporado y Protector de Lentes de Cámara para iPhone 12 Pro MAX 6.7 Pulgadas, Compati",
+        "marca": "KKM",
+        "color": "Negro",
+        "precio": 79.99,
+        "stock": 18,
+        "disponible": true,
+        "cantidad_solicitada": 1,
+        "subtotal": 79.99,
+        "total_carrito_propuesto": 79.99
+       }
+      ],
+      "descartados": [
+       {
+        "product_id": "B099Z42FRC",
+        "titulo": "Newseego Funda Compatible con iPhone 12 Pro MAX, Bonita Corazones Flotantes de Colores Silicona Líquido Case para iPhone 12 Pro MAX Protecto",
+        "marca": "Newseego",
+        "color": "White Heart",
+        "precio": 14.99,
+        "stock": 19,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: negro"
+        ]
+       },
+       {
+        "product_id": "B08DK6D9VV",
+        "titulo": "TORRAS Militar a Prueba de Golpes Funda iPhone 12/Funda iPhone 12 Pro [Certificado por El Ejército] A Prueba De Golpes Funda iPhone 12 A Ray",
+        "marca": "TORRAS",
+        "color": "Negra",
+        "precio": 31.99,
+        "stock": 23,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: negro"
+        ]
+       },
+       {
+        "product_id": "B08Z3H3K5T",
+        "titulo": "RosyHeart Funda Compatible con iPhone 12/ iPhone 12 Pro (6.1\"), Protección de Cámara Carcasa Compatible con iPhone 12, Cubierta Deslizante p",
+        "marca": "RosyHeart",
+        "color": "desconocido",
+        "precio": 8.99,
+        "stock": 11,
+        "disponible": true,
+        "motivos": [
+         "no coincide con marca, color o modelo solicitado: negro"
+        ]
+       }
+      ],
+      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 9.398240933001944,
+    "llm": 2.619102731001476,
+    "recuperacion": 17.0724491530018,
+    "herramientas": 0.2662532009962888,
+    "total": 29.356046018001507
+   },
+   "salida_llm": [
+    "Encontré varias opciones de fundas para iPhone 12 en color negro. ¿Te interesa la funda de JETech por 107.99 euros?"
+   ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Agrega la primera y dime el total.",
+   "eventos": [],
+   "transcripcion_asr": "Agrega la primera y dime el total.",
+   "entrada": "Agrega la primera y dime el total.",
+   "respuesta": "El total de tu compra es de 107.99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "aclaracion": false,
+   "pasos_llm": 1,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B07QQZCVR4",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07QQZCVR4",
+         "titulo": "JETech Funda de Silicona Compatible iPhone 12 Pro MAX 6,7 Pulgadas, Funda Protec",
+         "cantidad": 1,
+         "precio": 107.99,
+         "stock": 17,
+         "subtotal": 107.99
+        }
+       ],
+       "total": 107.99
+      }
+     }
+    },
+    {
+     "paso": 0,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07QQZCVR4",
+         "titulo": "JETech Funda de Silicona Compatible iPhone 12 Pro MAX 6,7 Pulgadas, Funda Protec",
+         "cantidad": 1,
+         "precio": 107.99,
+         "stock": 17,
+         "subtotal": 107.99
+        }
+       ],
+       "total": 107.99
+      },
+      "total": 107.99,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 8.550954272999661,
+    "llm": 1.8627726920021814,
+    "recuperacion": 0.0,
+    "herramientas": 0.024475488000462065,
+    "total": 10.438202453002305
+   },
+   "salida_llm": [
+    "El total de tu compra es de 107.99 euros. ¿Estás seguro de querer confirmar este pedido?"
+   ]
+  },
+  {
+   "turno": 4,
+   "texto_correcto": "Sí, confirmo.",
+   "eventos": [],
+   "transcripcion_asr": "Sí, confirmo.",
+   "entrada": "Sí, confirmo.",
+   "respuesta": "Pedido registrado por 107.99 euros.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "registrado",
+      "pedido_id": 1,
+      "total": 107.99,
+      "nota": "pedido registrado e inventario actualizado"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 5.827321982997091,
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.01118656399921747,
+    "total": 5.838508546996309
+   },
+   "salida_llm": []
+  }
+ ],
+ "verificacion": {
+  "ok": true,
+  "fallos": [],
+  "incumplimientos": []
+ }
+}
