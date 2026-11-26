@@ -40,92 +40,58 @@
    "correccion_usuario": "Quiero dos cuadernos de bocetos tamaño A4.",
    "correccion_necesaria": true,
    "entrada": "Quiero dos cuadernos de bocetos tamaño A4.",
-   "respuesta": "Encontré Arteza Cuadernos de dibujo A4 | Pack de 2 blocs de 80 hojas cada uno | Papel gru por 39.99 euros. ¿Quieres esta opción?",
+   "respuesta": "Encontré dos opciones. La primera es el \"perfect ideaz Cuaderno de bocetos DIN A4\" por 21.99 euros con stock para 4 unidades. La segunda opción es el \"perfect ideaz Cuaderno de bocetos DIN A4\" por 39.99 euros con stock para 14 unidades. ¿Cuál prefieres?",
    "aclaracion": true,
-   "pasos_llm": 8,
+   "pasos_llm": 3,
    "operaciones": [
     {
-     "paso": 9,
+     "paso": 2,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "consulta": "Quiero dos cuadernos de bocetos tamaño A4.",
-      "cantidad": 2
+      "consulta": "cuaderno bocetos A4",
+      "k": 2
      },
      "resultado": {
       "ok": true,
       "resultados": [
        {
         "posicion": 1,
-        "product_id": "B07MLYJZHH",
-        "titulo": "Arteza Cuadernos de dibujo A4 | Pack de 2 blocs de 80 hojas cada uno | Papel grueso de 130g | para dibujo artístico con medios secos",
-        "marca": "ARTEZA",
-        "color": "multicolor",
-        "precio": 39.99,
-        "stock": 8,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 79.98,
-        "total_carrito_propuesto": 79.98
-       }
-      ],
-      "descartados": [
-       {
-        "product_id": "B01MSDKOVM",
-        "titulo": "Belle Vous Bloc Dibujo A4 con 46 Paginas de 128 GSM (Pack de 2) 21 x 29,5 cm - Cuaderno Pintura Acuarela, Bocetos Artista con Tapa - Libreta",
-        "marca": "BELLE VOUS",
-        "color": "Blanco",
-        "precio": 56.99,
-        "stock": 24,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: cuadernos"
-        ]
-       },
-       {
         "product_id": "B07G4BTQFD",
         "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesional, tapa dura negra, encuadernado anillas en espiral con pa",
         "marca": "perfect ideaz",
         "color": "blanco",
         "precio": 21.99,
         "stock": 4,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: cuadernos"
-        ]
+        "disponible": true
        },
        {
+        "posicion": 2,
         "product_id": "B07PJF4DW7",
         "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 Hojas), Dibujo Profesional, Tapa Dura Negra, Encuadernado Anillas en Espiral con Pa",
         "marca": "perfect ideaz",
         "color": "Blanco",
         "precio": 39.99,
         "stock": 14,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: cuadernos"
-        ]
+        "disponible": true
        }
       ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "asr": 4.781712080999569,
-    "llm": 15.267299391995039,
-    "recuperacion": 11.785946437998064,
-    "herramientas": 0.11187568700188422,
-    "total": 31.946833597994555
+    "asr": 11.555026075002388,
+    "llm": 6.668212053999014,
+    "recuperacion": 9.349515693000285,
+    "herramientas": 0.004881248998572119,
+    "tts": 361.0674741020048,
+    "total": 388.64510917300504
    },
    "salida_llm": [
-    "Por favor, confirme si prefiere cuadernos específicos de una marca o si está abierto a sugerencias generales.",
-    "Por ahora, buscaremos cuadernos de bocetos tamaño A4 disponibles. ¿Hay alguna marca en particular que prefiera?",
-    "Buscando cuadernos de bocetos tamaño A4. ¿Prefiere una marca en particular?",
-    "Buscando cuadernos de bocetos tamaño A4. ¿Hay alguna marca en particular que prefiera?",
-    "Buscando cuadernos de bocetos tamaño A4. ¿Prefiere una marca en particular?",
-    "Buscando cuadernos de bocetos tamaño A4. ¿Prefiere una marca en particular?",
-    "Buscando cuadernos de bocetos tamaño A4. ¿Prefiere una marca en particular?",
-    "Buscando cuadernos de bocetos tamaño A4. ¿Prefiere una marca en particular?"
+    "Buscando cuadernos de bocetos tamaño A4...",
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"cuaderno bocetos A4\", \"k\": 2}}\n</tool_call>",
+    "Encontré dos opciones. La primera es el \"perfect ideaz Cuaderno de bocetos DIN A4\" por 21.99 euros con stock para 4 unidades. La segunda opción es el \"perfect ideaz Cuaderno de bocetos DIN A4\" por 39.99 euros con stock para 14 unidades. ¿Cuál prefieres?"
    ]
   },
   {
@@ -134,15 +100,15 @@
    "eventos": [],
    "transcripcion_asr": "Agregue el primero y prepárame la cotización.",
    "entrada": "Agregue el primero y prepárame la cotización.",
-   "respuesta": "El total de tu pedido es de 79.98 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "respuesta": "Total cotizado: 43.98 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
-   "pasos_llm": 2,
+   "pasos_llm": 0,
    "operaciones": [
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
-      "product_id": "B07MLYJZHH",
+      "product_id": "B07G4BTQFD",
       "cantidad": 2
      },
      "resultado": {
@@ -150,20 +116,20 @@
       "carrito": {
        "items": [
         {
-         "product_id": "B07MLYJZHH",
-         "titulo": "Arteza Cuadernos de dibujo A4 | Pack de 2 blocs de 80 hojas cada uno | Papel gru",
+         "product_id": "B07G4BTQFD",
+         "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesio",
          "cantidad": 2,
-         "precio": 39.99,
-         "stock": 8,
-         "subtotal": 79.98
+         "precio": 21.99,
+         "stock": 4,
+         "subtotal": 43.98
         }
        ],
-       "total": 79.98
+       "total": 43.98
       }
      }
     },
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -172,17 +138,17 @@
       "carrito": {
        "items": [
         {
-         "product_id": "B07MLYJZHH",
-         "titulo": "Arteza Cuadernos de dibujo A4 | Pack de 2 blocs de 80 hojas cada uno | Papel gru",
+         "product_id": "B07G4BTQFD",
+         "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesio",
          "cantidad": 2,
-         "precio": 39.99,
-         "stock": 8,
-         "subtotal": 79.98
+         "precio": 21.99,
+         "stock": 4,
+         "subtotal": 43.98
         }
        ],
-       "total": 79.98
+       "total": 43.98
       },
-      "total": 79.98,
+      "total": 43.98,
       "presupuesto_max": null,
       "valida": true,
       "problemas": [],
@@ -191,16 +157,14 @@
     }
    ],
    "tiempos": {
-    "asr": 7.8687143019997166,
-    "llm": 4.403011164002237,
+    "asr": 9.042382610001368,
+    "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.01971674299784354,
-    "total": 12.291442208999797
+    "herramientas": 0.02076303099602228,
+    "tts": 194.37406946400006,
+    "total": 203.43721510499745
    },
-   "salida_llm": [
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B07MLYJZHH\", \"cantidad\": 2}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "El total de tu pedido es de 79.98 euros. ¿Estás seguro de querer confirmar este pedido?"
-   ]
+   "salida_llm": []
   },
   {
    "turno": 3,
@@ -208,7 +172,7 @@
    "eventos": [],
    "transcripcion_asr": "Sí, confirmo.",
    "entrada": "Sí, confirmo.",
-   "respuesta": "Pedido registrado por 79.98 euros.",
+   "respuesta": "Pedido registrado por 43.98 euros.",
    "aclaracion": false,
    "pasos_llm": 0,
    "operaciones": [
@@ -220,17 +184,18 @@
       "ok": true,
       "estado": "registrado",
       "pedido_id": 1,
-      "total": 79.98,
+      "total": 43.98,
       "nota": "pedido registrado e inventario actualizado"
      }
     }
    ],
    "tiempos": {
-    "asr": 8.916711828002008,
+    "asr": 5.161877690996334,
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.011220862001209753,
-    "total": 8.927932690003217
+    "herramientas": 0.010215002999757417,
+    "tts": 79.21152972299751,
+    "total": 84.3836224169936
    },
    "salida_llm": []
   }

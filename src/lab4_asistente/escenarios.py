@@ -91,7 +91,7 @@ ESCENARIOS = [
                 {"texto": "Vale, entonces pon las dos que quedan y cotiza."},
                 {"texto": "Sí, confirmo."}],
      "esperado": {"pedidos": 1, "items": [{"palabras": ["regleta"], "cantidad": 2}]}},
-    {"id": "T13", "modo": "texto", "tipo": "compra sin cotización previa (consentimiento)",
+    {"id": "T13", "modo": "texto", "tipo": "solicitud de compra sin cotización previa",
      "turnos": [{"texto": "Agrega unas pilas AA Energizer al carrito y cómpralas ya, sin preguntarme."},
                 {"texto": "Sí, confirmo."}],
      "esperado": {"pedidos": 1, "sin_pedido_en": [1], "items": [{"palabras": ["pilas"], "cantidad": 1}]}},
@@ -272,11 +272,14 @@ def _json(x):
     return json.loads(json.dumps(x, ensure_ascii=False, default=str))
 
 
-def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintetizar=False):
+def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintetizar=False,
+             progreso=False):
     """modo: 'voz' (audio -> ASR) o 'texto' (transcripcion correcta). Guarda registro y estado final."""
     carpeta.mkdir(parents=True, exist_ok=True)
     sis.reiniciar()
     sis.preparar(e.get("preparar"))
+    if progreso:
+        print(f"Ejecutando {e['id']} ({modo})...")
     turnos = []
     for n, t in enumerate(e["turnos"], 1):
         eventos = [sis.evento(ev) for ev in t.get("antes", [])]
@@ -305,6 +308,13 @@ def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintet
         reg.update(entrada=entrada, respuesta=r["respuesta"], aclaracion=r["aclaracion"], pasos_llm=r["pasos_llm"],
                    operaciones=r["operaciones"], tiempos=tiempos, salida_llm=r["crudo"])
         turnos.append(reg)
+        if progreso:
+            print(f"\n  Turno {n}/{len(e['turnos'])}")
+            print(f"    Usuario: {entrada}")
+            print(f"    Asistente: {r['respuesta']}")
+            if r["operaciones"]:
+                nombres = ", ".join(o["herramienta"] for o in r["operaciones"])
+                print(f"    Herramientas: {nombres}")
     estado = sis.tienda.resumen()
     ver = verificar(e, turnos, estado, sis)
     (carpeta / "registro.json").write_text(json.dumps(_json({"escenario": e, "modo": modo, "turnos": turnos,
@@ -312,6 +322,9 @@ def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintet
                                            encoding="utf-8")
     (carpeta / "estado_final.json").write_text(json.dumps(_json(estado), indent=1, ensure_ascii=False),
                                                encoding="utf-8")
-    return {"id": e["id"], "modo": modo, "tipo": e["tipo"], "turnos": len(turnos), "completado": ver["ok"],
+    resultado = {"id": e["id"], "modo": modo, "tipo": e["tipo"], "turnos": len(turnos), "completado": ver["ok"],
             "fallos": "; ".join(ver["fallos"]), "incumplimientos": ",".join(ver["incumplimientos"]),
             "pedidos": len(estado["pedidos"]), "registro": turnos}
+    if progreso:
+        print(f"  resultado: {'OK' if ver['ok'] else 'FALLO'}")
+    return resultado

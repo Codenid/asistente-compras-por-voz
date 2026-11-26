@@ -46,7 +46,7 @@
    "texto_correcto": "Quiero cinco regletas Aigostar de cinco enchufes.",
    "eventos": [],
    "entrada": "Quiero cinco regletas Aigostar de cinco enchufes.",
-   "respuesta": "Lo siento, no encontramos regletas Aigostar con 5 enchufes disponibles. ¿Te interesaría una alternativa como la NVEESHOX en negro por 18,99 euros?",
+   "respuesta": "Encontré una regleta Aigostar de 5 enchufes. El precio es de 4,99 euros y solo quedan 2 disponibles. ¿Te gustaría agregarla al carrito? Si quieres otra opción, puedes decirme \"otra regleta\".",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
@@ -54,63 +54,77 @@
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 5,
-      "consulta": "regleta Aigostar 5 enchufes"
+      "consulta": "regleta aigostar 5 enchufes",
+      "k": 5
      },
      "resultado": {
       "ok": true,
-      "resultados": [],
-      "descartados": [
+      "resultados": [
        {
+        "posicion": 1,
         "product_id": "B010XOBQJ6",
         "titulo": "Aigostar Regleta alargador de 5 enchufes con cable de 5 metros e interruptor. Color Blanco",
         "marca": "Aigostar",
         "color": "5m Cable",
         "precio": 4.99,
         "stock": 2,
-        "disponible": true,
-        "motivos": [
-         "stock insuficiente"
-        ]
+        "disponible": true
        },
        {
-        "product_id": "B08J9WLFNY",
-        "titulo": "NVEESHOX Regleta Enchufes con 5 Tomas , Enchufe de protección contra sobretensiones, 2m Cable, Adecuado para el hogar y la Oficina 2500W / 1",
-        "marca": "NVEESHOX",
-        "color": "Negro",
-        "precio": 18.99,
-        "stock": 16,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: aigostar"
-        ]
-       },
-       {
+        "posicion": 2,
         "product_id": "B08XM6H5D8",
         "titulo": "Sameriver Regleta Vertical Torre 8 Enchufes de Seguridad ,Regleta Enchufes con 5 Rápida USB y Cable de 5M y 4 Interruptores, Base Enchufes M",
         "marca": "Sameriver",
         "color": "White",
         "precio": 13.99,
         "stock": 7,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: aigostar"
-        ]
+        "disponible": true
+       },
+       {
+        "posicion": 3,
+        "product_id": "B08J9WLFNY",
+        "titulo": "NVEESHOX Regleta Enchufes con 5 Tomas , Enchufe de protección contra sobretensiones, 2m Cable, Adecuado para el hogar y la Oficina 2500W / 1",
+        "marca": "NVEESHOX",
+        "color": "Negro",
+        "precio": 18.99,
+        "stock": 16,
+        "disponible": true
+       },
+       {
+        "posicion": 4,
+        "product_id": "B08R8FBZTN",
+        "titulo": "Sameriver Regleta Vertical,Regleta 12 Enchufes y 5 USB Rápida Tomas,Alargador Enchufe 5M,Torre enchufes Proteccion sobretension,Base enchufe",
+        "marca": "Sameriver",
+        "color": "desconocido",
+        "precio": 10.99,
+        "stock": 21,
+        "disponible": true
+       },
+       {
+        "posicion": 5,
+        "product_id": "B094D8XY5M",
+        "titulo": "NVEESHOX (4000W/16A) Regletas Enchufes Cubo,Ladron Enchufes Multiples Estándar Powercube 5 Tomas en 1 Regleta Enchufes Pared Regleta Sin Cab",
+        "marca": "NVEESHOX",
+        "color": "Black",
+        "precio": 43.99,
+        "stock": 23,
+        "disponible": true
        }
       ],
-      "nota": "No hay opciones compatibles entre los candidatos recuperados. Explica los motivos; pregunta si desea cambiar restricciones."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "llm": 4.494170745998417,
-    "recuperacion": 10.521991441000864,
-    "herramientas": 0.1326802109979326,
-    "total": 15.148842397997214
+    "llm": 4.713581255000463,
+    "recuperacion": 11.507405884000036,
+    "herramientas": 0.004268936998414574,
+    "total": 16.225256075998914
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 5, \"consulta\": \"regleta Aigostar 5 enchufes\"}}\n</tool_call>",
-    "Lo siento, no encontramos regletas Aigostar con 5 enchufes disponibles. ¿Te interesaría una alternativa como la NVEESHOX en negro por 18,99 euros?"
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"regleta aigostar 5 enchufes\", \"k\": 5}}\n</tool_call>",
+    "Encontré una regleta Aigostar de 5 enchufes. El precio es de 4,99 euros y solo quedan 2 disponibles. ¿Te gustaría agregarla al carrito?\n\nSi quieres otra opción, puedes decirme \"otra regleta\"."
    ]
   },
   {
@@ -118,82 +132,15 @@
    "texto_correcto": "Vale, entonces pon las dos que quedan y cotiza.",
    "eventos": [],
    "entrada": "Vale, entonces pon las dos que quedan y cotiza.",
-   "respuesta": "El total en el carrito es de 37,98 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "respuesta": "Cotización: 2 x Aigostar Regleta alargador de 5 enchufes con cable de 5 metros e interruptor. Co. Total: 9.98 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
-   "pasos_llm": 4,
+   "pasos_llm": 1,
    "operaciones": [
     {
      "paso": 1,
-     "herramienta": "buscar_productos",
-     "argumentos": {
-      "cantidad": 2,
-      "consulta": "regleta nveeshox negro",
-      "precio_max": null,
-      "k": 2
-     },
-     "resultado": {
-      "ok": true,
-      "resultados": [
-       {
-        "posicion": 1,
-        "product_id": "B08J9WLFNY",
-        "titulo": "NVEESHOX Regleta Enchufes con 5 Tomas , Enchufe de protección contra sobretensiones, 2m Cable, Adecuado para el hogar y la Oficina 2500W / 1",
-        "marca": "NVEESHOX",
-        "color": "Negro",
-        "precio": 18.99,
-        "stock": 16,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 37.98,
-        "total_carrito_propuesto": 37.98
-       }
-      ],
-      "descartados": [
-       {
-        "product_id": "B094D8XY5M",
-        "titulo": "NVEESHOX (4000W/16A) Regletas Enchufes Cubo,Ladron Enchufes Multiples Estándar Powercube 5 Tomas en 1 Regleta Enchufes Pared Regleta Sin Cab",
-        "marca": "NVEESHOX",
-        "color": "Black",
-        "precio": 43.99,
-        "stock": 23,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: negro"
-        ]
-       },
-       {
-        "product_id": "B08DD642PD",
-        "titulo": "NVEESHOX Regletas Vertical Enchufes con 9 Tomas Corrientes y 5 Rápida USB (4 USB-A e 1 USB-C) Cable de extensión de 2 m Enchufe de Protecció",
-        "marca": "NVEESHOX",
-        "color": "Blanco y Negro",
-        "precio": 8.99,
-        "stock": 4,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: regleta"
-        ]
-       },
-       {
-        "product_id": "B000MQ7E38",
-        "titulo": "Brennenstuhl Eco-Line regleta de enchufes con 8 tomas de corriente (cable de 3 m, interruptor) negro",
-        "marca": "Brennenstuhl",
-        "color": "negro",
-        "precio": 10.99,
-        "stock": 19,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: nveeshox"
-        ]
-       }
-      ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
-     }
-    },
-    {
-     "paso": 3,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
-      "product_id": "B08J9WLFNY",
+      "product_id": "B010XOBQJ6",
       "cantidad": 2
      },
      "resultado": {
@@ -201,20 +148,20 @@
       "carrito": {
        "items": [
         {
-         "product_id": "B08J9WLFNY",
-         "titulo": "NVEESHOX Regleta Enchufes con 5 Tomas , Enchufe de protección contra sobretensio",
+         "product_id": "B010XOBQJ6",
+         "titulo": "Aigostar Regleta alargador de 5 enchufes con cable de 5 metros e interruptor. Co",
          "cantidad": 2,
-         "precio": 18.99,
-         "stock": 16,
-         "subtotal": 37.98
+         "precio": 4.99,
+         "stock": 2,
+         "subtotal": 9.98
         }
        ],
-       "total": 37.98
+       "total": 9.98
       }
      }
     },
     {
-     "paso": 3,
+     "paso": 1,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -223,17 +170,17 @@
       "carrito": {
        "items": [
         {
-         "product_id": "B08J9WLFNY",
-         "titulo": "NVEESHOX Regleta Enchufes con 5 Tomas , Enchufe de protección contra sobretensio",
+         "product_id": "B010XOBQJ6",
+         "titulo": "Aigostar Regleta alargador de 5 enchufes con cable de 5 metros e interruptor. Co",
          "cantidad": 2,
-         "precio": 18.99,
-         "stock": 16,
-         "subtotal": 37.98
+         "precio": 4.99,
+         "stock": 2,
+         "subtotal": 9.98
         }
        ],
-       "total": 37.98
+       "total": 9.98
       },
-      "total": 37.98,
+      "total": 9.98,
       "presupuesto_max": null,
       "valida": true,
       "problemas": [],
@@ -242,16 +189,13 @@
     }
    ],
    "tiempos": {
-    "llm": 10.463728988994262,
-    "recuperacion": 7.5504323940003815,
-    "herramientas": 0.11605902599694673,
-    "total": 18.13022040899159
+    "llm": 2.626022879998345,
+    "recuperacion": 0.0,
+    "herramientas": 0.020883656001387862,
+    "total": 2.646906535999733
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 2, \"consulta\": \"regleta nveeshox negro\", \"precio_max\": null, \"k\": 2}}\n</tool_call>",
-    "He encontrado la regleta NVEESHOX en negro con 5 enchufes. El precio es de 18,99 euros la unidad. El total para 2 unidades sería 37,98 euros. ¿Estás seguro de querer agregar esto al carrito?",
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B08J9WLFNY\", \"cantidad\": 2}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "El total en el carrito es de 37,98 euros. ¿Estás seguro de querer confirmar este pedido?"
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B010XOBQJ6\", \"cantidad\": 2}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>"
    ]
   },
   {
@@ -259,7 +203,7 @@
    "texto_correcto": "Sí, confirmo.",
    "eventos": [],
    "entrada": "Sí, confirmo.",
-   "respuesta": "Pedido registrado por 37.98 euros.",
+   "respuesta": "Pedido registrado por 9.98 euros.",
    "aclaracion": false,
    "pasos_llm": 0,
    "operaciones": [
@@ -271,7 +215,7 @@
       "ok": true,
       "estado": "registrado",
       "pedido_id": 1,
-      "total": 37.98,
+      "total": 9.98,
       "nota": "pedido registrado e inventario actualizado"
      }
     }
@@ -279,8 +223,8 @@
    "tiempos": {
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.007681744002184132,
-    "total": 0.007681744002184132
+    "herramientas": 0.005946587003563764,
+    "total": 0.005946587003563764
    },
    "salida_llm": []
   }

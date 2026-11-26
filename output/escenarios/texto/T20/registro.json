@@ -10,7 +10,7 @@
     "audio": "T20_t1.wav"
    },
    {
-    "texto": "Agrega el primero y cotiza.",
+    "texto": "Agrega los primeros y cotiza.",
     "audio": "T20_t2.wav"
    },
    {
@@ -37,7 +37,7 @@
    "texto_correcto": "Quiero unos auriculares bluetooth, máximo 25 euros.",
    "eventos": [],
    "entrada": "Quiero unos auriculares bluetooth, máximo 25 euros.",
-   "respuesta": "Encontramos varios auriculares bluetooth dentro de tu presupuesto. ¿Te interesa la opción número uno, los auriculares AUKOY por 9.99 euros?",
+   "respuesta": "Encontré varios auriculares bluetooth dentro de tu presupuesto. ¿Te interesa el modelo AUKOY Azul por 9.99 euros, que tiene stock disponible, o prefieres otro?",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
@@ -45,19 +45,23 @@
      "paso": 1,
      "herramienta": "registrar_restricciones",
      "argumentos": {
-      "presupuesto_max": 25
+      "presupuesto_max": 25,
+      "preferencias": [
+       "bluetooth"
+      ]
      },
      "resultado": {
       "ok": true,
       "presupuesto_max": 25.0,
-      "preferencias": []
+      "preferencias": [
+       "bluetooth"
+      ]
      }
     },
     {
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
       "consulta": "auriculares bluetooth",
       "precio_max": 25,
       "k": 5
@@ -73,10 +77,7 @@
         "color": "Azul",
         "precio": 9.99,
         "stock": 2,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 9.99,
-        "total_carrito_propuesto": 9.99
+        "disponible": true
        },
        {
         "posicion": 2,
@@ -86,10 +87,7 @@
         "color": "Negro",
         "precio": 5.99,
         "stock": 21,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 5.99,
-        "total_carrito_propuesto": 5.99
+        "disponible": true
        },
        {
         "posicion": 3,
@@ -99,10 +97,7 @@
         "color": "Blanco",
         "precio": 16.99,
         "stock": 10,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 16.99,
-        "total_carrito_propuesto": 16.99
+        "disponible": true
        },
        {
         "posicion": 4,
@@ -112,10 +107,7 @@
         "color": "Negro",
         "precio": 22.99,
         "stock": 15,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 22.99,
-        "total_carrito_propuesto": 22.99
+        "disponible": true
        },
        {
         "posicion": 5,
@@ -125,39 +117,36 @@
         "color": "Negro",
         "precio": 7.99,
         "stock": 3,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 7.99,
-        "total_carrito_propuesto": 7.99
+        "disponible": true
        }
       ],
-      "descartados": [],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "llm": 5.473818983999081,
-    "recuperacion": 11.580605612001818,
-    "herramientas": 0.021421790999738732,
-    "total": 17.075846387000638
+    "llm": 5.349095281002519,
+    "recuperacion": 11.181524277999415,
+    "herramientas": 0.00471784699766431,
+    "total": 16.5353374059996
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 25}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"auriculares bluetooth\", \"precio_max\": 25, \"k\": 5}}\n</tool_call>",
-    "Encontramos varios auriculares bluetooth dentro de tu presupuesto. ¿Te interesa la opción número uno, los auriculares AUKOY por 9.99 euros?"
+    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 25, \"preferencias\": [\"bluetooth\"]}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"auriculares bluetooth\", \"precio_max\": 25, \"k\": 5}}\n</tool_call>",
+    "Encontré varios auriculares bluetooth dentro de tu presupuesto. ¿Te interesa el modelo AUKOY Azul por 9.99 euros, que tiene stock disponible, o prefieres otro?"
    ]
   },
   {
    "turno": 2,
-   "texto_correcto": "Agrega el primero y cotiza.",
+   "texto_correcto": "Agrega los primeros y cotiza.",
    "eventos": [],
-   "entrada": "Agrega el primero y cotiza.",
-   "respuesta": "El auriculares AUKOY que has elegido cuestan 9.99 euros. El total de tu pedido es 9.99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "entrada": "Agrega los primeros y cotiza.",
+   "respuesta": "Total cotizado: 9.99 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
-   "pasos_llm": 2,
+   "pasos_llm": 0,
    "operaciones": [
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
       "product_id": "B094MJLRBL",
@@ -181,7 +170,7 @@
      }
     },
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -209,33 +198,30 @@
     }
    ],
    "tiempos": {
-    "llm": 5.290900294996391,
+    "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.021719630996813066,
-    "total": 5.312619925993204
+    "herramientas": 0.023316014994634315,
+    "total": 0.023316014994634315
    },
-   "salida_llm": [
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B094MJLRBL\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "El auriculares AUKOY que has elegido cuestan 9.99 euros. El total de tu pedido es 9.99 euros. ¿Estás seguro de querer confirmar este pedido?"
-   ]
+   "salida_llm": []
   },
   {
    "turno": 3,
    "texto_correcto": "No, mejor no los compres por ahora.",
    "eventos": [],
    "entrada": "No, mejor no los compres por ahora.",
-   "respuesta": "Entendido. ¿Hay algún otro producto que te interese?",
+   "respuesta": "Entendido. ¿Hay algún otro auricular bluetooth que te interese dentro de tu presupuesto?",
    "aclaracion": true,
    "pasos_llm": 1,
    "operaciones": [],
    "tiempos": {
-    "llm": 1.6593776179979614,
+    "llm": 1.5337191990038264,
     "recuperacion": 0.0,
     "herramientas": 0.0,
-    "total": 1.6593776179979614
+    "total": 1.5337191990038264
    },
    "salida_llm": [
-    "Entendido. ¿Hay algún otro producto que te interese?"
+    "Entendido. ¿Hay algún otro auricular bluetooth que te interese dentro de tu presupuesto?"
    ]
   }
  ],

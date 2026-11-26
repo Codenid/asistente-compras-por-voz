@@ -29,7 +29,7 @@
    "texto_correcto": "Compara los dos altavoces bluetooth más baratos que tengas.",
    "eventos": [],
    "entrada": "Compara los dos altavoces bluetooth más baratos que tengas.",
-   "respuesta": "La primera opción es el altavoz Genérico negro por 29.99 euros y la segunda es el altavoz OURISE de color a por 27.99 euros. ¿Cuál prefieres?",
+   "respuesta": "He encontrado dos altavoces bluetooth. El primero es el Altavoz Bluetooth Portátil de la marca Genérica, negro, por 29,99 euros y tiene stock disponible. El segundo es el Altavoz Bluetooth Inalámbrico de la marca OURISE, color a, por 27,99 euros y también está disponible. ¿Cuál prefieres?",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
@@ -37,8 +37,8 @@
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
       "consulta": "altavoz bluetooth",
+      "precio_max": null,
       "k": 2
      },
      "resultado": {
@@ -52,10 +52,7 @@
         "color": "negro 1",
         "precio": 29.99,
         "stock": 4,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 29.99,
-        "total_carrito_propuesto": 29.99
+        "disponible": true
        },
        {
         "posicion": 2,
@@ -65,26 +62,23 @@
         "color": "a",
         "precio": 27.99,
         "stock": 17,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 27.99,
-        "total_carrito_propuesto": 27.99
+        "disponible": true
        }
       ],
-      "descartados": [],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "llm": 4.610290634002013,
-    "recuperacion": 14.77393900899915,
-    "herramientas": 0.0031136230027186684,
-    "total": 19.38734326600388
+    "llm": 5.29035620099603,
+    "recuperacion": 11.76423367499956,
+    "herramientas": 0.0037201209997874685,
+    "total": 17.058309996995376
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"altavoz bluetooth\", \"k\": 2}}\n</tool_call>",
-    "La primera opción es el altavoz Genérico negro por 29.99 euros y la segunda es el altavoz OURISE de color a por 27.99 euros. ¿Cuál prefieres?"
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"altavoz bluetooth\", \"precio_max\": null, \"k\": 2}}\n</tool_call>",
+    "He encontrado dos altavoces bluetooth. El primero es el Altavoz Bluetooth Portátil de la marca Genérica, negro, por 29,99 euros y tiene stock disponible. El segundo es el Altavoz Bluetooth Inalámbrico de la marca OURISE, color a, por 27,99 euros y también está disponible. ¿Cuál prefieres?"
    ]
   }
  ],

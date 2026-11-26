@@ -61,7 +61,7 @@
    "eventos": [],
    "transcripcion_asr": "Quiero dos mochilas para portátil con un máximo de 60 euros en total.",
    "entrada": "Quiero dos mochilas para portátil con un máximo de 60 euros en total.",
-   "respuesta": "Por favor, elija entre estas opciones: 1. Mochila RJEU, color Gris por 9.99 euros. 2. Mochila HOMIEE, color Gris por 10.99 euros. 3. Mochila MATEIN, color Negro por 17.99 euros. 4. Mochila Aerolite, color Negro por 12.99 euros. 5. Mochila IvyH, color Azul 2 Piezas por 25.99 euros. ¿Cuál desea agregar al carrito?",
+   "respuesta": "Encontré dos opciones para usted. La primera es una mochila de HOMIEE por 10,99 euros y la segunda es una mochila de RJEU por 9,99 euros. ¿Prefiere alguna de estas dos opciones o desea otra?",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
@@ -69,93 +69,54 @@
      "paso": 1,
      "herramienta": "registrar_restricciones",
      "argumentos": {
-      "presupuesto_max": 60
+      "presupuesto_max": 60,
+      "preferencias": [
+       "mochila",
+       "portátil"
+      ]
      },
      "resultado": {
       "ok": true,
       "presupuesto_max": 60.0,
-      "preferencias": []
+      "preferencias": [
+       "mochila",
+       "portátil"
+      ]
      }
     },
     {
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 2,
-      "consulta": "mochila portatil",
+      "consulta": "mochila portátil",
       "precio_max": 60,
-      "k": 5
+      "k": 2
      },
      "resultado": {
       "ok": true,
       "resultados": [
        {
         "posicion": 1,
-        "product_id": "B0872S65JB",
-        "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con Bolsillo RFID, Bolsos Casuales para la Universidad/Negocios/V",
-        "marca": "RJEU",
-        "color": "Gris",
-        "precio": 9.99,
-        "stock": 2,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 19.98,
-        "total_carrito_propuesto": 19.98
-       },
-       {
-        "posicion": 2,
         "product_id": "B07QTHKC4G",
         "titulo": "HOMIEE 15.6 Pulgadas Mochila de Viaje para Portátil con Puerto de Carga USB para Auriculares Bolsa antirrobo, Mochila Informal Delgada, para",
         "marca": "HOMIEE",
         "color": "Gris",
         "precio": 10.99,
         "stock": 16,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 21.98,
-        "total_carrito_propuesto": 21.98
+        "disponible": true
        },
        {
-        "posicion": 3,
-        "product_id": "B074KV9TT4",
-        "titulo": "Mochila de viaje de negocios, mochila para computadora portátil con puerto USB para hombres Niñas de mujer para niños, mochila antirrobo par",
-        "marca": "MATEIN",
-        "color": "Negro",
-        "precio": 17.99,
-        "stock": 25,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 35.98,
-        "total_carrito_propuesto": 35.98
-       },
-       {
-        "posicion": 4,
-        "product_id": "B07XBLF412",
-        "titulo": "Aerolite 40x20x25cm Tamaño Máximo Permitido por Ryanair Equipaje de Mano Bolsa de Cabina Bolsa de Hombro Mochila Bolsa de Vuelo 40x20x25, Ne",
-        "marca": "Aerolite",
-        "color": "Negro",
-        "precio": 12.99,
-        "stock": 12,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 25.98,
-        "total_carrito_propuesto": 25.98
-       },
-       {
-        "posicion": 5,
-        "product_id": "B092VLWKCH",
-        "titulo": "Mochila Escolar para Niños Mochila de Dinosaurio Conjunto de Mochilas para Estudiantes de Primaria Impermeable Nailon Mochila con Estuche pa",
-        "marca": "IvyH",
-        "color": "Azul 2 Piezas",
-        "precio": 25.99,
-        "stock": 22,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 51.98,
-        "total_carrito_propuesto": 51.98
+        "posicion": 2,
+        "product_id": "B0872S65JB",
+        "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con Bolsillo RFID, Bolsos Casuales para la Universidad/Negocios/V",
+        "marca": "RJEU",
+        "color": "Gris",
+        "precio": 9.99,
+        "stock": 2,
+        "disponible": true
        }
       ],
-      "descartados": [
+      "agotados": [
        {
         "product_id": "B075Z16J1Z",
         "titulo": "Mochila de Portátil, REYLEO Mochila Hombre con Puerto de USB para Ordenador hasta 15,6 Pulgadas， Mochila Escolares Impermeable para Diario N",
@@ -163,51 +124,24 @@
         "color": "Rb01 Plus",
         "precio": 10.99,
         "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "stock insuficiente"
-        ]
-       },
-       {
-        "product_id": "B099DT177G",
-        "titulo": "Thnkstaps Mochila Para Portátil, Antirrobo Mochila Portátil, Mochila de Negocios Impermeable para Hombres, Mochila de Viaje Transpirable Par",
-        "marca": "Thnkstaps",
-        "color": "Black",
-        "precio": 83.99,
-        "stock": 7,
-        "disponible": true,
-        "motivos": [
-         "supera el precio unitario maximo",
-         "supera el presupuesto total"
-        ]
-       },
-       {
-        "product_id": "B093NYPDX5",
-        "titulo": "FUXINGYAO Mochila Unisex para Ordenador Portátil de hasta 15.6 PulgadasMochila Portatil Mochila Hombre Mochila del Negocio Trabajo Diario Vi",
-        "marca": "FUXINGYAO",
-        "color": "Negro",
-        "precio": 31.99,
-        "stock": 9,
-        "disponible": true,
-        "motivos": [
-         "supera el presupuesto total"
-        ]
+        "disponible": false
        }
       ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "asr": 7.1870019560010405,
-    "llm": 8.589140892003343,
-    "recuperacion": 13.215344944001117,
-    "herramientas": 0.09815384900139179,
-    "total": 29.089641641006892
+    "asr": 12.60178968100081,
+    "llm": 8.33546665700851,
+    "recuperacion": 13.388439849004499,
+    "herramientas": 0.004224351992888842,
+    "tts": 258.5771915229998,
+    "total": 292.9071120620065
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 60}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 2, \"consulta\": \"mochila portatil\", \"precio_max\": 60, \"k\": 5}}\n</tool_call>",
-    "Por favor, elija entre estas opciones: \n1. Mochila RJEU, color Gris por 9.99 euros.\n2. Mochila HOMIEE, color Gris por 10.99 euros.\n3. Mochila MATEIN, color Negro por 17.99 euros.\n4. Mochila Aerolite, color Negro por 12.99 euros.\n5. Mochila IvyH, color Azul 2 Piezas por 25.99 euros.\n\n¿Cuál desea agregar al carrito?"
+    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 60, \"preferencias\": [\"mochila\", \"portátil\"]}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"mochila portátil\", \"precio_max\": 60, \"k\": 2}}\n</tool_call>",
+    "Encontré dos opciones para usted. La primera es una mochila de HOMIEE por 10,99 euros y la segunda es una mochila de RJEU por 9,99 euros. ¿Prefiere alguna de estas dos opciones o desea otra?"
    ]
   },
   {
@@ -216,263 +150,10 @@
    "eventos": [],
    "transcripcion_asr": "Agrega la primera opción y prepárame la cotización.",
    "entrada": "Agrega la primera opción y prepárame la cotización.",
-   "respuesta": "El total de su pedido es de 19.98 euros. ¿Está todo correcto y desea confirmar su pedido?",
-   "aclaracion": false,
-   "pasos_llm": 1,
-   "operaciones": [
-    {
-     "paso": 0,
-     "herramienta": "agregar_al_carrito",
-     "argumentos": {
-      "product_id": "B0872S65JB",
-      "cantidad": 2
-     },
-     "resultado": {
-      "ok": true,
-      "carrito": {
-       "items": [
-        {
-         "product_id": "B0872S65JB",
-         "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con B",
-         "cantidad": 2,
-         "precio": 9.99,
-         "stock": 2,
-         "subtotal": 19.98
-        }
-       ],
-       "total": 19.98
-      }
-     }
-    },
-    {
-     "paso": 0,
-     "herramienta": "cotizar",
-     "argumentos": {},
-     "resultado": {
-      "ok": true,
-      "cotizacion_id": "COT-1-1",
-      "carrito": {
-       "items": [
-        {
-         "product_id": "B0872S65JB",
-         "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con B",
-         "cantidad": 2,
-         "precio": 9.99,
-         "stock": 2,
-         "subtotal": 19.98
-        }
-       ],
-       "total": 19.98
-      },
-      "total": 19.98,
-      "presupuesto_max": 60.0,
-      "valida": true,
-      "problemas": [],
-      "siguiente_paso": "presenta el total y pide confirmacion"
-     }
-    }
-   ],
-   "tiempos": {
-    "asr": 6.789056584999344,
-    "llm": 1.9836489039989829,
-    "recuperacion": 0.0,
-    "herramientas": 0.02238664100150345,
-    "total": 8.79509212999983
-   },
-   "salida_llm": [
-    "El total de su pedido es de 19.98 euros. ¿Está todo correcto y desea confirmar su pedido?"
-   ]
-  },
-  {
-   "turno": 3,
-   "texto_correcto": "Sí, confirmo.",
-   "eventos": [
-    {
-     "evento": [
-      "stock_carrito",
-      0,
-      1
-     ],
-     "aplicado": true,
-     "product_id": "B0872S65JB"
-    }
-   ],
-   "transcripcion_asr": "Sí, confirmo.",
-   "entrada": "Sí, confirmo.",
-   "respuesta": "No registré el pedido porque cambiaron las condiciones de la cotización. Puedo buscar una alternativa y preparar una nueva cotización.",
+   "respuesta": "Total cotizado: 21.98 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
    "pasos_llm": 0,
    "operaciones": [
-    {
-     "paso": 0,
-     "herramienta": "confirmar_pedido",
-     "argumentos": {},
-     "resultado": {
-      "ok": false,
-      "estado": "rechazado",
-      "problemas": [
-       "B0872S65JB: stock insuficiente (pedido 2, disponibles 1)"
-      ],
-      "carrito": {
-       "items": [
-        {
-         "product_id": "B0872S65JB",
-         "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con B",
-         "cantidad": 2,
-         "precio": 9.99,
-         "stock": 1,
-         "subtotal": 19.98
-        }
-       ],
-       "total": 19.98
-      },
-      "siguiente_paso": "explica el problema y propone una alternativa; vuelve a cotizar"
-     }
-    },
-    {
-     "paso": 0,
-     "herramienta": "cotizar",
-     "argumentos": {},
-     "resultado": {
-      "ok": true,
-      "cotizacion_id": "COT-1-1",
-      "carrito": {
-       "items": [
-        {
-         "product_id": "B0872S65JB",
-         "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con B",
-         "cantidad": 2,
-         "precio": 9.99,
-         "stock": 1,
-         "subtotal": 19.98
-        }
-       ],
-       "total": 19.98
-      },
-      "total": 19.98,
-      "presupuesto_max": 60.0,
-      "valida": false,
-      "problemas": [
-       "B0872S65JB: stock insuficiente (disponibles 1)"
-      ],
-      "siguiente_paso": "explica los problemas y propone una solucion"
-     }
-    }
-   ],
-   "tiempos": {
-    "asr": 5.969038395000098,
-    "llm": 0.0,
-    "recuperacion": 0.0,
-    "herramientas": 0.0003043930009880569,
-    "total": 5.969342788001086
-   },
-   "salida_llm": []
-  },
-  {
-   "turno": 4,
-   "texto_correcto": "Cámbiala por otra mochila que tenga dos unidades disponibles y dame la nueva cotización.",
-   "eventos": [],
-   "transcripcion_asr": "Cámbiala por otra mochila que tenga dos unidades disponibles y dame la nueva cotización.",
-   "entrada": "Cámbiala por otra mochila que tenga dos unidades disponibles y dame la nueva cotización.",
-   "respuesta": "El total de su pedido ahora es de 21.98 euros. ¿Está todo correcto y desea confirmar su pedido?",
-   "aclaracion": false,
-   "pasos_llm": 1,
-   "operaciones": [
-    {
-     "paso": 0,
-     "herramienta": "buscar_productos",
-     "argumentos": {
-      "consulta": "Cámbiala por otra mochila que tenga dos unidades disponibles y dame la nueva cotización.",
-      "cantidad": 2,
-      "precio_max": 60.0
-     },
-     "resultado": {
-      "ok": true,
-      "resultados": [
-       {
-        "posicion": 1,
-        "product_id": "B07QTHKC4G",
-        "titulo": "HOMIEE 15.6 Pulgadas Mochila de Viaje para Portátil con Puerto de Carga USB para Auriculares Bolsa antirrobo, Mochila Informal Delgada, para",
-        "marca": "HOMIEE",
-        "color": "Gris",
-        "precio": 10.99,
-        "stock": 16,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 21.98,
-        "total_carrito_propuesto": 41.96
-       },
-       {
-        "posicion": 2,
-        "product_id": "B074KV9TT4",
-        "titulo": "Mochila de viaje de negocios, mochila para computadora portátil con puerto USB para hombres Niñas de mujer para niños, mochila antirrobo par",
-        "marca": "MATEIN",
-        "color": "Negro",
-        "precio": 17.99,
-        "stock": 25,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 35.98,
-        "total_carrito_propuesto": 55.96
-       }
-      ],
-      "descartados": [
-       {
-        "product_id": "B07QD9YXTK",
-        "titulo": "L.O.L. Surprise ! Mochila De Niña Y Adolescente | La Última Idea De Regalo De La Colección Confetti Pop De Las Muñecas Queen Bee, Merbaby, K",
-        "marca": "L.O.L. Surprise !",
-        "color": "Queen Bee",
-        "precio": 37.99,
-        "stock": 1,
-        "disponible": true,
-        "motivos": [
-         "stock insuficiente",
-         "supera el presupuesto total"
-        ]
-       },
-       {
-        "product_id": "B09FJM9VSP",
-        "titulo": "GFDFD Mochila Rodadura, Viajes Impermeable Colegio Ruedas Mochila, Equipaje de la Carretilla del Ordenador portátil Mochila Maleta compacta ",
-        "marca": "GFDFD",
-        "color": "Como Muestra La Imagen",
-        "precio": 5.99,
-        "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "stock insuficiente"
-        ]
-       },
-       {
-        "product_id": "B07Q5S8K28",
-        "titulo": "Mochila Unisex Impermeable para Ordenador Portátil de hasta 15.6 Pulgadas, con Puerto USB, conector para Auriculares y Bolsillo Antirrobo. P",
-        "marca": "Besttravel",
-        "color": "Negro",
-        "precio": 31.99,
-        "stock": 9,
-        "disponible": true,
-        "motivos": [
-         "supera el presupuesto total"
-        ]
-       }
-      ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
-     }
-    },
-    {
-     "paso": 0,
-     "herramienta": "cambiar_cantidad",
-     "argumentos": {
-      "product_id": "B0872S65JB",
-      "cantidad": 0
-     },
-     "resultado": {
-      "ok": true,
-      "carrito": {
-       "items": [],
-       "total": 0.0
-      }
-     }
-    },
     {
      "paso": 0,
      "herramienta": "agregar_al_carrito",
@@ -503,7 +184,7 @@
      "argumentos": {},
      "resultado": {
       "ok": true,
-      "cotizacion_id": "COT-1-3",
+      "cotizacion_id": "COT-1-1",
       "carrito": {
        "items": [
         {
@@ -526,15 +207,338 @@
     }
    ],
    "tiempos": {
-    "asr": 13.667096935998416,
-    "llm": 2.286074258998269,
-    "recuperacion": 11.775080916999286,
-    "herramientas": 0.18608668399974704,
-    "total": 27.914338795995718
+    "asr": 8.102772464000736,
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.01919306100171525,
+    "tts": 118.68175914000312,
+    "total": 126.80372466500557
    },
-   "salida_llm": [
-    "El total de su pedido ahora es de 21.98 euros. ¿Está todo correcto y desea confirmar su pedido?"
-   ]
+   "salida_llm": []
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Sí, confirmo.",
+   "eventos": [
+    {
+     "evento": [
+      "stock_carrito",
+      0,
+      1
+     ],
+     "aplicado": true,
+     "product_id": "B07QTHKC4G"
+    }
+   ],
+   "transcripcion_asr": "Sí, confirmo.",
+   "entrada": "Sí, confirmo.",
+   "respuesta": "No registré el pedido porque cambiaron las condiciones de la cotización. Puedo buscar una alternativa y preparar una nueva cotización.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": false,
+      "estado": "rechazado",
+      "problemas": [
+       "B07QTHKC4G: stock insuficiente (pedido 2, disponibles 1)"
+      ],
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07QTHKC4G",
+         "titulo": "HOMIEE 15.6 Pulgadas Mochila de Viaje para Portátil con Puerto de Carga USB para",
+         "cantidad": 2,
+         "precio": 10.99,
+         "stock": 1,
+         "subtotal": 21.98
+        }
+       ],
+       "total": 21.98
+      },
+      "siguiente_paso": "explica el problema y propone una alternativa; vuelve a cotizar"
+     }
+    },
+    {
+     "paso": 0,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07QTHKC4G",
+         "titulo": "HOMIEE 15.6 Pulgadas Mochila de Viaje para Portátil con Puerto de Carga USB para",
+         "cantidad": 2,
+         "precio": 10.99,
+         "stock": 1,
+         "subtotal": 21.98
+        }
+       ],
+       "total": 21.98
+      },
+      "total": 21.98,
+      "presupuesto_max": 60.0,
+      "valida": false,
+      "problemas": [
+       "B07QTHKC4G: stock insuficiente (disponibles 1)"
+      ],
+      "siguiente_paso": "explica los problemas y propone una solucion"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 9.55067132399563,
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.008010511010070331,
+    "tts": 166.25655953000387,
+    "total": 175.81524136500957
+   },
+   "salida_llm": []
+  },
+  {
+   "turno": 4,
+   "texto_correcto": "Cámbiala por otra mochila que tenga dos unidades disponibles y dame la nueva cotización.",
+   "eventos": [],
+   "transcripcion_asr": "Cámbiala por otra mochila que tenga dos unidades disponibles y dame la nueva cotización.",
+   "entrada": "Cámbiala por otra mochila que tenga dos unidades disponibles y dame la nueva cotización.",
+   "respuesta": "Sustituí el producto por Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con Bolsillo RFID, Bolsos Casuales para la Universidad/Negocios/V. Total: 19.98 euros. ¿Confirmas el pedido?",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "buscar_productos",
+     "argumentos": {
+      "consulta": "mochila portátil",
+      "k": 10
+     },
+     "resultado": {
+      "ok": true,
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B099DT177G",
+        "titulo": "Thnkstaps Mochila Para Portátil, Antirrobo Mochila Portátil, Mochila de Negocios Impermeable para Hombres, Mochila de Viaje Transpirable Par",
+        "marca": "Thnkstaps",
+        "color": "Black",
+        "precio": 83.99,
+        "stock": 7,
+        "disponible": true
+       },
+       {
+        "posicion": 2,
+        "product_id": "B07QTHKC4G",
+        "titulo": "HOMIEE 15.6 Pulgadas Mochila de Viaje para Portátil con Puerto de Carga USB para Auriculares Bolsa antirrobo, Mochila Informal Delgada, para",
+        "marca": "HOMIEE",
+        "color": "Gris",
+        "precio": 10.99,
+        "stock": 1,
+        "disponible": true
+       },
+       {
+        "posicion": 3,
+        "product_id": "B0872S65JB",
+        "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con Bolsillo RFID, Bolsos Casuales para la Universidad/Negocios/V",
+        "marca": "RJEU",
+        "color": "Gris",
+        "precio": 9.99,
+        "stock": 2,
+        "disponible": true
+       },
+       {
+        "posicion": 4,
+        "product_id": "B0981VQVMN",
+        "titulo": "MARK RYDEN Mochila de Viaje 26-40L Hombre Mujer Maleta de Cabina Mochila Impermeable de Equipaje de Mano Aprobada para Transporte Avion IATA",
+        "marca": "MARK RYDEN",
+        "color": "Negro(1.0)",
+        "precio": 16.99,
+        "stock": 1,
+        "disponible": true
+       },
+       {
+        "posicion": 5,
+        "product_id": "B093NYPDX5",
+        "titulo": "FUXINGYAO Mochila Unisex para Ordenador Portátil de hasta 15.6 PulgadasMochila Portatil Mochila Hombre Mochila del Negocio Trabajo Diario Vi",
+        "marca": "FUXINGYAO",
+        "color": "Negro",
+        "precio": 31.99,
+        "stock": 9,
+        "disponible": true
+       },
+       {
+        "posicion": 6,
+        "product_id": "B07Q5S8K28",
+        "titulo": "Mochila Unisex Impermeable para Ordenador Portátil de hasta 15.6 Pulgadas, con Puerto USB, conector para Auriculares y Bolsillo Antirrobo. P",
+        "marca": "Besttravel",
+        "color": "Negro",
+        "precio": 31.99,
+        "stock": 9,
+        "disponible": true
+       },
+       {
+        "posicion": 7,
+        "product_id": "B074KV9TT4",
+        "titulo": "Mochila de viaje de negocios, mochila para computadora portátil con puerto USB para hombres Niñas de mujer para niños, mochila antirrobo par",
+        "marca": "MATEIN",
+        "color": "Negro",
+        "precio": 17.99,
+        "stock": 25,
+        "disponible": true
+       },
+       {
+        "posicion": 8,
+        "product_id": "B00VIM9VQ8",
+        "titulo": "Amazon Basics - Maletín para portátil con ruedas de rápido movimiento y bolsillo delantero accesible, compatible con portátiles de hasta 16 ",
+        "marca": "Amazon Basics",
+        "color": "Negro",
+        "precio": 32.99,
+        "stock": 17,
+        "disponible": true
+       },
+       {
+        "posicion": 9,
+        "product_id": "B07GSDD5GS",
+        "titulo": "Harry Potter Hogwarts - Mochila escolar unisex para niños y niñas, mochila de lona para acampar, mochila espaciosa para fiestas de pijamas, ",
+        "marca": "Blue Sky Studios",
+        "color": "Burgundy",
+        "precio": 86.99,
+        "stock": 25,
+        "disponible": true
+       },
+       {
+        "posicion": 10,
+        "product_id": "B073F8YN67",
+        "titulo": "HSEOK Bolso Bandolera/Maletín para Portátil 15\"-16\", Funda Protectora Laptop Sleeve Dura y Impermeable para 15\" 16\" MacBook Pro, 15\"-15,6\"-1",
+        "marca": "HSEOK",
+        "color": "Negro",
+        "precio": 9.99,
+        "stock": 24,
+        "disponible": true
+       }
+      ],
+      "agotados": [
+       {
+        "product_id": "B075Z16J1Z",
+        "titulo": "Mochila de Portátil, REYLEO Mochila Hombre con Puerto de USB para Ordenador hasta 15,6 Pulgadas， Mochila Escolares Impermeable para Diario N",
+        "marca": "REYLEO",
+        "color": "Rb01 Plus",
+        "precio": 10.99,
+        "stock": 0,
+        "disponible": false
+       },
+       {
+        "product_id": "B09FJM9VSP",
+        "titulo": "GFDFD Mochila Rodadura, Viajes Impermeable Colegio Ruedas Mochila, Equipaje de la Carretilla del Ordenador portátil Mochila Maleta compacta ",
+        "marca": "GFDFD",
+        "color": "Como Muestra La Imagen",
+        "precio": 5.99,
+        "stock": 0,
+        "disponible": false
+       }
+      ],
+      "nota": "precios unitarios en euros"
+     }
+    },
+    {
+     "paso": 0,
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B0872S65JB",
+      "cantidad": 2
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B07QTHKC4G",
+         "titulo": "HOMIEE 15.6 Pulgadas Mochila de Viaje para Portátil con Puerto de Carga USB para",
+         "cantidad": 2,
+         "precio": 10.99,
+         "stock": 1,
+         "subtotal": 21.98
+        },
+        {
+         "product_id": "B0872S65JB",
+         "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con B",
+         "cantidad": 2,
+         "precio": 9.99,
+         "stock": 2,
+         "subtotal": 19.98
+        }
+       ],
+       "total": 41.96
+      }
+     }
+    },
+    {
+     "paso": 0,
+     "herramienta": "cambiar_cantidad",
+     "argumentos": {
+      "product_id": "B07QTHKC4G",
+      "cantidad": 0
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B0872S65JB",
+         "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con B",
+         "cantidad": 2,
+         "precio": 9.99,
+         "stock": 2,
+         "subtotal": 19.98
+        }
+       ],
+       "total": 19.98
+      }
+     }
+    },
+    {
+     "paso": 0,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-3",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B0872S65JB",
+         "titulo": "Mochila Escola para Mujeres,Mochila para Portatil Impermeable para Jóvenes con B",
+         "cantidad": 2,
+         "precio": 9.99,
+         "stock": 2,
+         "subtotal": 19.98
+        }
+       ],
+       "total": 19.98
+      },
+      "total": 19.98,
+      "presupuesto_max": 60.0,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 13.729751714003214,
+    "llm": 0.0,
+    "recuperacion": 15.510214637004538,
+    "herramientas": 0.026939012990624178,
+    "tts": 334.50914043399825,
+    "total": 363.77604579799663
+   },
+   "salida_llm": []
   },
   {
    "turno": 5,
@@ -542,7 +546,7 @@
    "eventos": [],
    "transcripcion_asr": "Sí, confirmo.",
    "entrada": "Sí, confirmo.",
-   "respuesta": "Pedido registrado por 21.98 euros.",
+   "respuesta": "Pedido registrado por 19.98 euros.",
    "aclaracion": false,
    "pasos_llm": 0,
    "operaciones": [
@@ -554,17 +558,18 @@
       "ok": true,
       "estado": "registrado",
       "pedido_id": 1,
-      "total": 21.98,
+      "total": 19.98,
       "nota": "pedido registrado e inventario actualizado"
      }
     }
    ],
    "tiempos": {
-    "asr": 5.272801137998613,
+    "asr": 8.04826815299748,
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.00921528000253602,
-    "total": 5.282016418001149
+    "herramientas": 0.008824940996419173,
+    "tts": 71.54593537899927,
+    "total": 79.60302847299317
    },
    "salida_llm": []
   },
@@ -574,7 +579,7 @@
    "eventos": [],
    "transcripcion_asr": "Confirma otra vez, por si acaso.",
    "entrada": "Confirma otra vez, por si acaso.",
-   "respuesta": "Ese pedido ya estaba registrado por 21.98 euros; no lo dupliqué.",
+   "respuesta": "Ese pedido ya estaba registrado por 19.98 euros; no lo dupliqué.",
    "aclaracion": false,
    "pasos_llm": 0,
    "operaciones": [
@@ -586,17 +591,18 @@
       "ok": true,
       "estado": "ya_registrado",
       "pedido_id": 1,
-      "total": 21.98,
+      "total": 19.98,
       "nota": "pedido ya registrado antes; no se duplico"
      }
     }
    ],
    "tiempos": {
-    "asr": 9.866740068999206,
+    "asr": 9.16366769400338,
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.00013060300261713564,
-    "total": 9.866870672001824
+    "herramientas": 0.00021289200230967253,
+    "tts": 122.43120861300122,
+    "total": 131.5950891990069
    },
    "salida_llm": []
   }

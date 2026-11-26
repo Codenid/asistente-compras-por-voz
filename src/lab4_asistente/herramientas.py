@@ -33,6 +33,7 @@ class Estado:
     cotizo_en_turno: bool = False
     pedidos: list = field(default_factory=list)
     mostrados: list = field(default_factory=list)   # ultimos productos presentados
+    consulta_mostrados: str = ""
     texto_usuario: str = ""
     historial: list = field(default_factory=list)   # [(usuario, asistente)]
 
@@ -170,16 +171,35 @@ class Herramientas:
         t0 = time.perf_counter()
         idx = self.rec.buscar(consulta, k=30, metodo=self.metodo)
         self.t_recuperacion += time.perf_counter() - t0
-        res = []
+        res, agotados = [], []
+        color_pedido = next((c for c in ('negro', 'gris', 'blanco', 'azul', 'rojo', 'verde')
+                            if re.search(rf'\b{c}\b', ' '.join(normalizar(p) for p in self.estado.preferencias))), None)
         for i in idx:
             f = self._ficha(self.rec.ids[i])
+            if color_pedido and color_pedido not in normalizar(f['color'] + ' ' + f['titulo']):
+                continue
+            # Los códigos de compatibilidad (H7, HDMI2, etc.) son requisitos,
+            # no similitudes semánticas: no sustituir faros H7 por lámparas de jardín.
+            codigos = [w for w in tokens(consulta) if re.search(r'[a-z]', w) and re.search(r'\d', w)]
+            ficha_tokens = set(tokens(str(self.cat.loc[self.rec.ids[i], 'titulo']) + ' ' +
+                                      str(self.cat.loc[self.rec.ids[i], 'caracteristicas'])))
+            if any(w not in ficha_tokens for w in codigos):
+                continue
+            # No ofrecer artículos sin existencias: son resultados inútiles para
+            # una compra y pueden desplazar alternativas válidas.
+            if f["stock"] <= 0:
+                agotados.append(f)
+                continue
             if precio_max is None or f["precio"] <= precio_max:
                 res.append({"posicion": len(res) + 1, **f})
             if len(res) == k:
                 break
         self.estado.mostrados = res
+        self.estado.consulta_mostrados = consulta
         return {"ok": True, "resultados": res,
-                "nota": "sin resultados con esos filtros" if not res else "precios unitarios en euros"}
+                "agotados": agotados[:k],
+                "nota": ("coincidencias agotadas" if agotados else "sin resultados con esos filtros")
+                if not res else "precios unitarios en euros"}
 
     def ver_producto(self, product_id):
         self._existe(product_id)
@@ -189,7 +209,19 @@ class Herramientas:
             "caracteristicas": r["caracteristicas"][:500] or "desconocido"})}
 
     def consultar_atributo(self, product_id, atributo):
-        self._existe(product_id)
+        if product_id not in self.cat.index:
+            # Algunos modelos pasan la marca/nombre en vez del product_id. Solo
+            # resolverlo automáticamente cuando hay una coincidencia única.
+            q = normalizar(str(product_id))
+            coincidencias = self.cat.index[
+                self.cat.apply(lambda f: q in normalizar(" ".join(str(f[c]) for c in
+                                                                  ("titulo", "marca"))), axis=1)
+            ].tolist() if q else []
+            if len(coincidencias) == 1:
+                product_id = coincidencias[0]
+            else:
+                return {"ok": True, "atributo": atributo, "valor": "desconocido",
+                        "nota": "no se pudo identificar un producto único en el catálogo"}
         r = self.cat.loc[product_id]
         texto = " ".join([r["titulo"], r["marca"], r["color"], r["caracteristicas"], r["descripcion"]])
         objetivo = tokens(atributo)
@@ -227,6 +259,17 @@ class Herramientas:
         cantidad = self._entero(cantidad)
         if cantidad < 1:
             raise ErrorTienda("la cantidad total debe ser un entero positivo")
+        prod = self._ficha(product_id)
+        if prod["stock"] <= 0:
+            raise ErrorTienda("producto agotado: busca una alternativa disponible")
+        # Una preferencia de color/atributo registrada por el usuario debe
+        # cumplirse; no seleccionar silenciosamente productos de la búsqueda previa.
+        prefs = " ".join(normalizar(p) for p in self.estado.preferencias)
+        for color in ("negro", "gris", "blanco", "azul", "rojo", "verde"):
+            consulta = normalizar(self.estado.consulta_mostrados)
+            if ((re.search(rf"\b{color}\b", prefs) or re.search(rf"\b{color}\b", consulta))
+                    and color not in normalizar(prod["color"] + " " + prod["titulo"])):
+                raise ErrorTienda(f"el producto no cumple la preferencia de color {color}")
         # La cantidad es el total deseado, no un incremento. Una llamada repetida es segura.
         return self._fijar(product_id, cantidad)
 

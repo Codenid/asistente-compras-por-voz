@@ -2,7 +2,7 @@
  "escenario": {
   "id": "E04",
   "modo": "voz",
-  "tipo": "producto agotado sin alternativa disponible",
+  "tipo": "producto agotado con alternativa",
   "preparar": [
    [
     "agotar_palabras",
@@ -18,23 +18,26 @@
     "audio": "E04_t1.wav"
    },
    {
-    "texto": "Entiendo, entonces no agregues nada al carrito.",
+    "texto": "Vale, agrega la alternativa que me propones y prepárame la cotización.",
     "audio": "E04_t2.wav"
+   },
+   {
+    "texto": "Sí, confirmo.",
+    "audio": "E04_t3.wav"
    }
   ],
   "esperado": {
-   "pedidos": 0,
-   "sin_carrito": true,
-   "respuesta_en": [
-    [
-     1,
-     [
-      "agotad",
-      "no hay",
-      "sin stock",
-      "no dispon"
-     ]
-    ]
+   "pedidos": 1,
+   "items": [
+    {
+     "palabras": [
+      "termo"
+     ],
+     "cantidad": 1
+    }
+   ],
+   "excluir_palabras": [
+    "wnthbj"
    ]
   }
  },
@@ -46,7 +49,7 @@
    "eventos": [],
    "transcripcion_asr": "Quiero un termo de acero inoxidable de la marca BWNT-HBJ.",
    "entrada": "Quiero un termo de acero inoxidable de la marca BWNT-HBJ.",
-   "respuesta": "Lo siento, no encontramos un termo de acero inoxidable marca BWNT-HBJ en stock. ¿Desea buscar otro modelo similar?",
+   "respuesta": "Encontré un termo de acero inoxidable de la marca KIDYMOM que cumple con tus requisitos. El precio es de 38.99 euros y hay 22 unidades disponibles. ¿Te gustaría agregarlo al carrito?",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
@@ -54,13 +57,24 @@
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
-      "consulta": "termo acero inoxidable marca BWNT-HBJ"
+      "consulta": "termo acero inoxidable marca BWNT-HBJ",
+      "k": 1
      },
      "resultado": {
       "ok": true,
-      "resultados": [],
-      "descartados": [
+      "resultados": [
+       {
+        "posicion": 1,
+        "product_id": "B08Y339SGZ",
+        "titulo": "KIDYMOM Botella Agua Acero Inoxidable Para Niños Prueba De Agua +Bolsa de transporte gratuita, Cantimplora Infantil Termica Reutilizable Sin",
+        "marca": "KIDYMOM",
+        "color": "Dinosaurios",
+        "precio": 38.99,
+        "stock": 22,
+        "disponible": true
+       }
+      ],
+      "agotados": [
        {
         "product_id": "B0827GTGDJ",
         "titulo": "WNTHBJ Caldera Termo, Termo de 304 Acero Inoxidable niños Termo portátil Estudiante, Suministros de Cocina (2 Piezas)",
@@ -68,89 +82,132 @@
         "color": "desconocido",
         "precio": 43.99,
         "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "stock insuficiente"
-        ]
-       },
-       {
-        "product_id": "B0827GTZ3W",
-        "titulo": "WNTHBJ Caldera Termo, Termo de 304 Acero Inoxidable niños Termo portátil Estudiante, Suministros de Cocina (2 Piezas)",
-        "marca": "WNTHBJ",
-        "color": "desconocido",
-        "precio": 16.99,
-        "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "stock insuficiente"
-        ]
-       },
-       {
-        "product_id": "B0827H6XNC",
-        "titulo": "WNTHBJ Caldera Termo, Termo de 304 Acero Inoxidable niños Termo portátil Estudiante, Suministros de Cocina (2 Piezas)",
-        "marca": "WNTHBJ",
-        "color": "desconocido",
-        "precio": 12.99,
-        "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "stock insuficiente"
-        ]
+        "disponible": false
        }
       ],
-      "nota": "No hay opciones compatibles entre los candidatos recuperados. Explica los motivos; pregunta si desea cambiar restricciones."
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "asr": 16.276219532999676,
-    "llm": 4.69844945099976,
-    "recuperacion": 14.919786935002776,
-    "herramientas": 0.1216699439974036,
-    "total": 36.016125862999615
+    "asr": 13.699509969002975,
+    "llm": 4.436640322004678,
+    "recuperacion": 11.240032763998897,
+    "herramientas": 0.004580041000735946,
+    "tts": 264.2078513180022,
+    "total": 293.5886144140095
    },
    "salida_llm": [
-    "Buscando un termo de acero inoxidable marca BWNT-HBJ...\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"termo acero inoxidable marca BWNT-HBJ\"}}\n</tool_call>",
-    "Lo siento, no encontramos un termo de acero inoxidable marca BWNT-HBJ en stock. ¿Desea buscar otro modelo similar?"
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"termo acero inoxidable marca BWNT-HBJ\", \"k\": 1}}\n</tool_call>",
+    "Encontré un termo de acero inoxidable de la marca KIDYMOM que cumple con tus requisitos. El precio es de 38.99 euros y hay 22 unidades disponibles. ¿Te gustaría agregarlo al carrito?"
    ]
   },
   {
    "turno": 2,
-   "texto_correcto": "Entiendo, entonces no agregues nada al carrito.",
+   "texto_correcto": "Vale, agrega la alternativa que me propones y prepárame la cotización.",
    "eventos": [],
    "transcripcion_asr": "Vale, agrega la alternativa que me propones y prepárame la cotización.",
    "entrada": "Vale, agrega la alternativa que me propones y prepárame la cotización.",
-   "respuesta": "Disculpa, no pude completar la solicitud. ¿Puedes repetirla con mas detalle?",
-   "aclaracion": true,
-   "pasos_llm": 8,
+   "respuesta": "Cotización: 1 x KIDYMOM Botella Agua Acero Inoxidable Para Niños Prueba De Agua +Bolsa de transp. Total: 38.99 euros. ¿Confirmas el pedido?",
+   "aclaracion": false,
+   "pasos_llm": 1,
    "operaciones": [
     {
      "paso": 1,
-     "herramienta": "_llamada_invalida",
+     "herramienta": "agregar_al_carrito",
+     "argumentos": {
+      "product_id": "B08Y339SGZ",
+      "cantidad": 1
+     },
+     "resultado": {
+      "ok": true,
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B08Y339SGZ",
+         "titulo": "KIDYMOM Botella Agua Acero Inoxidable Para Niños Prueba De Agua +Bolsa de transp",
+         "cantidad": 1,
+         "precio": 38.99,
+         "stock": 22,
+         "subtotal": 38.99
+        }
+       ],
+       "total": 38.99
+      }
+     }
+    },
+    {
+     "paso": 1,
+     "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
-      "ok": false,
-      "error": "_invalida"
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B08Y339SGZ",
+         "titulo": "KIDYMOM Botella Agua Acero Inoxidable Para Niños Prueba De Agua +Bolsa de transp",
+         "cantidad": 1,
+         "precio": 38.99,
+         "stock": 22,
+         "subtotal": 38.99
+        }
+       ],
+       "total": 38.99
+      },
+      "total": 38.99,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
      }
     }
    ],
    "tiempos": {
-    "asr": 14.21487921500011,
-    "llm": 14.993831090996537,
+    "asr": 9.20371690599859,
+    "llm": 2.552238190000935,
     "recuperacion": 0.0,
-    "herramientas": 0.0,
-    "total": 29.208710305996647
+    "herramientas": 0.018961601999762934,
+    "tts": 205.54377644100168,
+    "total": 217.31869313900097
    },
    "salida_llm": [
-    "-basketball_player\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"termo acero inoxidable\", \"precio_max\": null, \"k\": 1}}",
-    "Por supuesto, buscaremos un termo de acero inoxidable de marca similar. ¿Cuántos termos desea?",
-    "Por favor, indique la cantidad de termos que desea comprar.",
-    "¿Cuántos termos de acero inoxidable de la marca BWNT-HBJ desea agregar al carrito?",
-    "¿Cuántos termos de acero inoxidable de la marca BWNT-HBJ desea agregar al carrito?",
-    "¿Cuántos termos de acero inoxidable de la marca BWNT-HBJ desea agregar al carrito?",
-    "¿Cuántos termos de acero inoxidable de la marca BWNT-HBJ desea agregar al carrito?",
-    "¿Cuántos termos de acero inoxidable de la marca BWNT-HBJ desea agregar al carrito?"
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B08Y339SGZ\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>"
    ]
+  },
+  {
+   "turno": 3,
+   "texto_correcto": "Sí, confirmo.",
+   "eventos": [],
+   "transcripcion_asr": "Sí, confirmo.",
+   "entrada": "Sí, confirmo.",
+   "respuesta": "Pedido registrado por 38.99 euros.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "registrado",
+      "pedido_id": 1,
+      "total": 38.99,
+      "nota": "pedido registrado e inventario actualizado"
+     }
+    }
+   ],
+   "tiempos": {
+    "asr": 10.875776806999056,
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 0.008897806001186837,
+    "tts": 86.84020073800639,
+    "total": 97.72487535100663
+   },
+   "salida_llm": []
   }
  ],
  "verificacion": {

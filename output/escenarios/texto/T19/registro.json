@@ -40,25 +40,18 @@
    "texto_correcto": "Agrega cuadernos al carrito.",
    "eventos": [],
    "entrada": "Agrega cuadernos al carrito.",
-   "respuesta": "Disculpa, no pude completar la solicitud. ¿Puedes repetirla con mas detalle?",
+   "respuesta": "Por favor, ¿podrías decirme el precio máximo que tienes en mente para estos cuadernos?",
    "aclaracion": true,
-   "pasos_llm": 8,
+   "pasos_llm": 1,
    "operaciones": [],
    "tiempos": {
-    "llm": 13.336594560008962,
+    "llm": 1.4697790409991285,
     "recuperacion": 0.0,
     "herramientas": 0.0,
-    "total": 13.336594560008962
+    "total": 1.4697790409991285
    },
    "salida_llm": [
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar.",
-    "Por favor, especifica la cantidad de cuadernos que deseas comprar."
+    "Por favor, ¿podrías decirme el precio máximo que tienes en mente para estos cuadernos?"
    ]
   },
   {
@@ -66,25 +59,18 @@
    "texto_correcto": "Menos dos cuadernos.",
    "eventos": [],
    "entrada": "Menos dos cuadernos.",
-   "respuesta": "Disculpa, no pude completar la solicitud. ¿Puedes repetirla con mas detalle?",
+   "respuesta": "¿Podrías especificar el precio máximo para los cuadernos o el número de cuadernos que deseas comprar?",
    "aclaracion": true,
-   "pasos_llm": 8,
+   "pasos_llm": 1,
    "operaciones": [],
    "tiempos": {
-    "llm": 15.422791298999073,
+    "llm": 1.5981030690018088,
     "recuperacion": 0.0,
     "herramientas": 0.0,
-    "total": 15.422791298999073
+    "total": 1.5981030690018088
    },
    "salida_llm": [
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?",
-    "¿Podrías decirme cuántos cuadernos quieres agregar al carrito y su precio máximo?"
+    "¿Podrías especificar el precio máximo para los cuadernos o el número de cuadernos que deseas comprar?"
    ]
   },
   {
@@ -92,7 +78,7 @@
    "texto_correcto": "Dos cuadernos de bocetos Artway.",
    "eventos": [],
    "entrada": "Dos cuadernos de bocetos Artway.",
-   "respuesta": "Se han agregado dos cuadernos de bocetos Artway al carrito. El total es de 17,98 euros. ¿Quieres cotizar el carrito o hay algo más que necesites?",
+   "respuesta": "Cotización: 2 x Artway Cuaderno de bocetos, Negro, 1 x Apaisado A4. Total: 17.98 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
    "pasos_llm": 4,
    "operaciones": [
@@ -100,8 +86,8 @@
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 2,
-      "consulta": "cuadernos de bocetos Artway"
+      "consulta": "cuadernos de bocetos Artway",
+      "k": 2
      },
      "resultado": {
       "ok": true,
@@ -114,55 +100,25 @@
         "color": "Negro",
         "precio": 8.99,
         "stock": 3,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 17.98,
-        "total_carrito_propuesto": 17.98
-       }
-      ],
-      "descartados": [
+        "disponible": true
+       },
        {
+        "posicion": 2,
         "product_id": "B07G4BTQFD",
         "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 hojas), dibujo profesional, tapa dura negra, encuadernado anillas en espiral con pa",
         "marca": "perfect ideaz",
         "color": "blanco",
         "precio": 21.99,
         "stock": 4,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: artway"
-        ]
-       },
-       {
-        "product_id": "B07PJF4DW7",
-        "titulo": "perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas (48 Hojas), Dibujo Profesional, Tapa Dura Negra, Encuadernado Anillas en Espiral con Pa",
-        "marca": "perfect ideaz",
-        "color": "Blanco",
-        "precio": 39.99,
-        "stock": 14,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: artway"
-        ]
-       },
-       {
-        "product_id": "B07WD59MF6",
-        "titulo": "perfect ideaz Cuaderno de bocetos DIN-A5, 96 páginas (48 Hojas), Dibujo Profesional, Tapa Dura Negra, Encuadernado Anillas en Espiral con Pa",
-        "marca": "perfect ideaz",
-        "color": "Blanco",
-        "precio": 12.99,
-        "stock": 5,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: artway"
-        ]
+        "disponible": true
        }
       ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     },
     {
-     "paso": 3,
+     "paso": 4,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
       "product_id": "B06Y6898PJ",
@@ -184,19 +140,46 @@
        "total": 17.98
       }
      }
+    },
+    {
+     "paso": 4,
+     "herramienta": "cotizar",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "cotizacion_id": "COT-1-1",
+      "carrito": {
+       "items": [
+        {
+         "product_id": "B06Y6898PJ",
+         "titulo": "Artway Cuaderno de bocetos, Negro, 1 x Apaisado A4",
+         "cantidad": 2,
+         "precio": 8.99,
+         "stock": 3,
+         "subtotal": 17.98
+        }
+       ],
+       "total": 17.98
+      },
+      "total": 17.98,
+      "presupuesto_max": null,
+      "valida": true,
+      "problemas": [],
+      "siguiente_paso": "presenta el total y pide confirmacion"
+     }
     }
    ],
    "tiempos": {
-    "llm": 11.497603636002168,
-    "recuperacion": 9.728027376000682,
-    "herramientas": 0.03810023900223314,
-    "total": 21.263731251005083
+    "llm": 10.625655565010675,
+    "recuperacion": 12.917720858000393,
+    "herramientas": 0.02433262500562705,
+    "total": 23.567709048016695
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 2, \"consulta\": \"cuadernos de bocetos Artway\"}}\n</tool_call>",
-    "He encontrado los cuadernos de bocetos Artway que necesitas. El primero que te muestro cuesta 8,99 euros cada uno. El total sería 17,98 euros. ¿Estás seguro de querer agregar estos cuadernos al carrito?\n\nSi quieres cambiar algo, avísame.",
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B06Y6898PJ\", \"cantidad\": 2}}\n</tool_call>",
-    "Se han agregado dos cuadernos de bocetos Artway al carrito. El total es de 17,98 euros. ¿Quieres cotizar el carrito o hay algo más que necesites?"
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"cuadernos de bocetos Artway\", \"k\": 2}}\n</tool_call>",
+    "Encontramos dos opciones. La primera es el \"Artway Cuaderno de bocetos, Negro, 1 x Apaisado A4\" por 8.99 euros con stock disponible. La segunda opción es el \"perfect ideaz Cuaderno de bocetos DIN A4, 96 páginas\" por 21.99 euros también con stock disponible. ¿Cuál prefieres?",
+    "Voy a agregar dos cuadernos de bocetos Artway al carrito. ¿Está bien así?",
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B06Y6898PJ\", \"cantidad\": 2}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>"
    ]
   }
  ],

@@ -50,25 +50,18 @@
    "texto_correcto": "Quiero una taza para café.",
    "eventos": [],
    "entrada": "Quiero una taza para café.",
-   "respuesta": "Disculpa, no pude completar la solicitud. ¿Puedes repetirla con mas detalle?",
+   "respuesta": "Podrías decirme el tamaño que prefieres?",
    "aclaracion": true,
-   "pasos_llm": 8,
+   "pasos_llm": 1,
    "operaciones": [],
    "tiempos": {
-    "llm": 13.094534560994362,
+    "llm": 1.0930063260020688,
     "recuperacion": 0.0,
     "herramientas": 0.0,
-    "total": 13.094534560994362
+    "total": 1.0930063260020688
    },
    "salida_llm": [
-    "¿Desea una taza específica o prefiere que busque una general?",
-    "¿Desea una taza específica o prefiere que busque una general?",
-    "¿Desea una taza específica o prefiere que busque una general?",
-    "¿Desea una taza específica o prefiere que busque una general?",
-    "¿Desea una taza específica o prefiere que busque una general?",
-    "¿Desea una taza específica o prefiere que busque una general?",
-    "¿Desea una taza específica o prefiere que busque una general?",
-    "¿Desea una taza específica o prefiere que busque una general?"
+    "Podrías decirme el tamaño que prefieres?"
    ]
   },
   {
@@ -76,7 +69,7 @@
    "texto_correcto": "Agrega la primera y cotiza.",
    "eventos": [],
    "entrada": "Agrega la primera y cotiza.",
-   "respuesta": "El producto que has elegido es la \"Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz\" por 34.99 euros. El total de tu pedido es 34.99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "respuesta": "Cotización: 1 x Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz. Total: 34.99 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
    "pasos_llm": 3,
    "operaciones": [
@@ -84,8 +77,8 @@
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
-      "consulta": "taza para café"
+      "consulta": "taza cafe",
+      "k": 1
      },
      "resultado": {
       "ok": true,
@@ -98,83 +91,15 @@
         "color": "desconocido",
         "precio": 34.99,
         "stock": 13,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 34.99,
-        "total_carrito_propuesto": 34.99
-       },
-       {
-        "posicion": 2,
-        "product_id": "B0823MN34W",
-        "titulo": "eeQiu Taza de café para Llevar 13oz 100% a Prueba de Fugas - Taza de Viaje de Acero Inoxidable - Taza de automóvil de Doble Pared Tapa de Ai",
-        "marca": "eeQiu",
-        "color": "Negro",
-        "precio": 11.99,
-        "stock": 20,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 11.99,
-        "total_carrito_propuesto": 11.99
-       },
-       {
-        "posicion": 3,
-        "product_id": "B09BNLJ5MZ",
-        "titulo": "N\\A Me Encanta Cuando mi mamá me Deja Jugar Videojuegos Taza de café, Divertida Taza de café de Jugador Regalo para Hombres mamá papá Regalo",
-        "marca": "N\\A",
-        "color": "desconocido",
-        "precio": 17.99,
-        "stock": 18,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 17.99,
-        "total_carrito_propuesto": 17.99
-       },
-       {
-        "posicion": 4,
-        "product_id": "B096VL9ZLS",
-        "titulo": "Taza que Cambia de Color - 7 PCS a Prueba de Fugas Plástico Vaso Taza de café reutilizable con Tapas y pajita Tazas de viaje sin BPA - 24oz ",
-        "marca": "HAPPON",
-        "color": "desconocido",
-        "precio": 70.99,
-        "stock": 4,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 70.99,
-        "total_carrito_propuesto": 70.99
-       },
-       {
-        "posicion": 5,
-        "product_id": "B09G2CSRPR",
-        "titulo": "Me encanta cuando mi esposa me deja ir al golf, taza divertida del día del padre, regalo para marido o papá, taza de té de café de cerámica,",
-        "marca": "N\\A",
-        "color": "desconocido",
-        "precio": 13.99,
-        "stock": 16,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 13.99,
-        "total_carrito_propuesto": 13.99
+        "disponible": true
        }
       ],
-      "descartados": [
-       {
-        "product_id": "B08ZLX5MXL",
-        "titulo": "Taza Desayuno con Mensaje Respira_ Regalos Originales para Mujer_ Taza café Infusiones o Decoración Hogar en Cerámica de Gran Calidad.",
-        "marca": "AN",
-        "color": "desconocido",
-        "precio": 31.99,
-        "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "stock insuficiente"
-        ]
-       }
-      ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     },
     {
-     "paso": 2,
+     "paso": 3,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
       "product_id": "B09HCVRVTV",
@@ -198,7 +123,7 @@
      }
     },
     {
-     "paso": 2,
+     "paso": 3,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -226,15 +151,15 @@
     }
    ],
    "tiempos": {
-    "llm": 8.307310151998536,
-    "recuperacion": 14.544883720998769,
-    "herramientas": 0.12489108499721624,
-    "total": 22.97708495799452
+    "llm": 5.665611393007566,
+    "recuperacion": 11.25964961900172,
+    "herramientas": 0.019966275998740457,
+    "total": 16.945227288008027
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"taza para café\"}}\n</tool_call>",
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B09HCVRVTV\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "El producto que has elegido es la \"Feliz día del padre me encanta que eres mi papá negro taza de café 11 oz\" por 34.99 euros. El total de tu pedido es 34.99 euros. ¿Estás seguro de querer confirmar este pedido?"
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"taza cafe\", \"k\": 1}}\n</tool_call>",
+    "He encontrado una taza para café por 34.99 euros. ¿Te parece bien agregarla al carrito?",
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B09HCVRVTV\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>"
    ]
   },
   {
@@ -252,7 +177,7 @@
     }
    ],
    "entrada": "Sí, confirmo.",
-   "respuesta": "No registré el pedido porque cambió el precio. La nueva cotización es de 37.99 euros. Confirma si aceptas el nuevo total.",
+   "respuesta": "El precio cambió; no registré el pedido. La nueva cotización es de 37.99 euros. ¿Confirmas?",
    "aclaracion": false,
    "pasos_llm": 0,
    "operaciones": [
@@ -313,8 +238,8 @@
    "tiempos": {
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.00024614900030428544,
-    "total": 0.00024614900030428544
+    "herramientas": 0.005863836006028578,
+    "total": 0.005863836006028578
    },
    "salida_llm": []
   },
@@ -343,8 +268,8 @@
    "tiempos": {
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.0072627679983270355,
-    "total": 0.0072627679983270355
+    "herramientas": 0.005525450003915466,
+    "total": 0.005525450003915466
    },
    "salida_llm": []
   }

@@ -39,7 +39,7 @@
    "eventos": [],
    "transcripcion_asr": "Quiero comprar dos paquetes de pilas AA. Mi presupuesto es 30 euros.",
    "entrada": "Quiero comprar dos paquetes de pilas AA. Mi presupuesto es 30 euros.",
-   "respuesta": "Por favor, elija entre estas opciones: 1. AmazonBasics Pilas AA Recargables, precargadas, Paquete de 8: $15.98 2. REACELL 8pcs 1,2V Ni-MH Pilas Recargables AA y AAA: $23.98 3. Portapilas LR6 AA con Interruptor: $29.98 4. Energizer Alkaline Power - Pack de 16 pilas Alcalinas AA/LR06: $19.98 5. EBL 2800mAh AA de Alta Capacidad Ni-MH Pilas Recargables: $15.98 ¿Cuál desea agregar al carrito?",
+   "respuesta": "Encontré varios paquetes de pilas AA. ¿Te interesa el paquete de AmazonBasics de 8 pilas por 7.99 euros, el de 16 por 18.99 euros, el de 4 por 23.99 euros, el de 12 por 17.99 euros o prefieres otro modelo?",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
@@ -49,7 +49,6 @@
      "argumentos": {
       "presupuesto_max": 30,
       "preferencias": [
-       "paquetes",
        "pilas AA"
       ]
      },
@@ -57,7 +56,6 @@
       "ok": true,
       "presupuesto_max": 30.0,
       "preferencias": [
-       "paquetes",
        "pilas AA"
       ]
      }
@@ -66,8 +64,9 @@
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 2,
-      "consulta": "pilas AA"
+      "consulta": "paquetes pilas AA",
+      "precio_max": 30,
+      "k": 5
      },
      "resultado": {
       "ok": true,
@@ -80,116 +79,65 @@
         "color": "desconocido",
         "precio": 7.99,
         "stock": 13,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 15.98,
-        "total_carrito_propuesto": 15.98
+        "disponible": true
        },
        {
         "posicion": 2,
-        "product_id": "B08LV9ZXQZ",
-        "titulo": "REACELL 8pcs 1,2V Ni-MH Pilas Recargables AA y AAA Combinado - 4 Pilas AA 2800mAh y 4 AAA 1100 mAh NiMH Baterías Recargables 1200 Ciclos par",
-        "marca": "REACELL",
-        "color": "Blue",
-        "precio": 11.99,
-        "stock": 15,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 23.98,
-        "total_carrito_propuesto": 23.98
+        "product_id": "B007B9NV8Q",
+        "titulo": "Amazon Basics - Pilas AA recargables, precargadas, paquete de 16 (el aspecto puede variar)",
+        "marca": "Amazon Basics",
+        "color": "Negro",
+        "precio": 18.99,
+        "stock": 20,
+        "disponible": true
        },
        {
         "posicion": 3,
-        "product_id": "B078VR6G4V",
-        "titulo": "Portapilas LR6 AA con Interruptor (3 Pilas)",
-        "marca": "CABLEPELADO",
-        "color": "desconocido",
-        "precio": 14.99,
-        "stock": 11,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 29.98,
-        "total_carrito_propuesto": 29.98
+        "product_id": "B00CWNMR5Y",
+        "titulo": "Amazon Basics - Pilas AA recargables, precargadas, paquete de 4 (el aspecto puede variar)",
+        "marca": "Amazon Basics",
+        "color": "Blanco",
+        "precio": 23.99,
+        "stock": 13,
+        "disponible": true
        },
        {
         "posicion": 4,
-        "product_id": "B000IX14RM",
-        "titulo": "Energizer Alkaline Power - Pack de 16 pilas Alcalinas AA/LR06",
-        "marca": "Energizer",
-        "color": "Multicolor",
-        "precio": 9.99,
+        "product_id": "B007B9NXAC",
+        "titulo": "Amazon Basics - Pilas AAA recargables, precargadas, paquete de 12 (el aspecto puede variar)",
+        "marca": "Amazon Basics",
+        "color": "Negro",
+        "precio": 17.99,
         "stock": 25,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 19.98,
-        "total_carrito_propuesto": 19.98
+        "disponible": true
        },
        {
         "posicion": 5,
-        "product_id": "B01N4IPUNJ",
-        "titulo": "EBL 2800mAh AA de Alta Capacidad Ni-MH Pilas Recargables de 1,2V para los Equipos Domésticos - 4 Piezas",
-        "marca": "EBL",
-        "color": "desconocido",
-        "precio": 7.99,
-        "stock": 8,
-        "disponible": true,
-        "cantidad_solicitada": 2,
-        "subtotal": 15.98,
-        "total_carrito_propuesto": 15.98
-       }
-      ],
-      "descartados": [
-       {
-        "product_id": "B07TYDFTS4",
-        "titulo": "Pilas AA - Paquete de 20 Unidades | GP Extra | Pilas alcalinas AA, LR6, 1.5V | Duración Larga, Tecnología Anti-Fugas, Rendimiento Elevado",
-        "marca": "GP",
-        "color": "desconocido",
-        "precio": 101.99,
-        "stock": 8,
-        "disponible": true,
-        "motivos": [
-         "supera el presupuesto total"
-        ]
-       },
-       {
-        "product_id": "B087Q5TSBJ",
-        "titulo": "POWEROWL Combo de Pilas Alcalinas AA AAA de 1,5 Voltios, 10 años de Vida útil, 1,5V LR6 y LR03 Alcalinas Pilas para Juguetes, Reloj Desperta",
-        "marca": "POWEROWL",
-        "color": "desconocido",
-        "precio": 21.99,
-        "stock": 19,
-        "disponible": true,
-        "motivos": [
-         "supera el presupuesto total"
-        ]
-       },
-       {
-        "product_id": "B00HZV9TGS",
-        "titulo": "Amazon Basics - Pilas AA recargables de alta capacidad, precargadas, paquete de 4 (el aspecto puede variar)",
+        "product_id": "B07MLFBJG3",
+        "titulo": "Amazon Basics - Pilas alcalinas AA de uso industrial (40 unidades)",
         "marca": "Amazon Basics",
-        "color": "Negro",
-        "precio": 52.99,
-        "stock": 9,
-        "disponible": true,
-        "motivos": [
-         "supera el presupuesto total"
-        ]
+        "color": "desconocido",
+        "precio": 20.99,
+        "stock": 23,
+        "disponible": true
        }
       ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "asr": 13.337001971998689,
-    "llm": 11.167638235001505,
-    "recuperacion": 13.576355458000762,
-    "herramientas": 0.11346247999972547,
-    "total": 38.19445814500068
+    "asr": 11.293204150999372,
+    "llm": 6.910594706998381,
+    "recuperacion": 10.373869748000288,
+    "herramientas": 0.0051192110040574335,
+    "tts": 350.3863721669986,
+    "total": 378.9691599840007
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 30, \"preferencias\": [\"paquetes\", \"pilas AA\"]}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 2, \"consulta\": \"pilas AA\"}}\n</tool_call>",
-    "Por favor, elija entre estas opciones: \n1. AmazonBasics Pilas AA Recargables, precargadas, Paquete de 8: $15.98\n2. REACELL 8pcs 1,2V Ni-MH Pilas Recargables AA y AAA: $23.98\n3. Portapilas LR6 AA con Interruptor: $29.98\n4. Energizer Alkaline Power - Pack de 16 pilas Alcalinas AA/LR06: $19.98\n5. EBL 2800mAh AA de Alta Capacidad Ni-MH Pilas Recargables: $15.98\n\n¿Cuál desea agregar al carrito?"
+    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 30, \"preferencias\": [\"pilas AA\"]}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"paquetes pilas AA\", \"precio_max\": 30, \"k\": 5}}\n</tool_call>",
+    "Encontré varios paquetes de pilas AA. ¿Te interesa el paquete de AmazonBasics de 8 pilas por 7.99 euros, el de 16 por 18.99 euros, el de 4 por 23.99 euros, el de 12 por 17.99 euros o prefieres otro modelo?"
    ]
   },
   {
@@ -198,9 +146,9 @@
    "eventos": [],
    "transcripcion_asr": "Agrega la primera opción y prepárame la cotización.",
    "entrada": "Agrega la primera opción y prepárame la cotización.",
-   "respuesta": "El total de su pedido es de 15.98 euros. ¿Está todo correcto y desea confirmar su pedido?",
+   "respuesta": "Total cotizado: 15.98 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
-   "pasos_llm": 1,
+   "pasos_llm": 0,
    "operaciones": [
     {
      "paso": 0,
@@ -255,15 +203,14 @@
     }
    ],
    "tiempos": {
-    "asr": 10.54402482599835,
-    "llm": 2.084405264999077,
+    "asr": 11.610212289000629,
+    "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.020877287999610417,
-    "total": 12.649307378997037
+    "herramientas": 0.016507988999364898,
+    "tts": 107.86090460300329,
+    "total": 119.48762488100328
    },
-   "salida_llm": [
-    "El total de su pedido es de 15.98 euros. ¿Está todo correcto y desea confirmar su pedido?"
-   ]
+   "salida_llm": []
   },
   {
    "turno": 3,
@@ -289,11 +236,12 @@
     }
    ],
    "tiempos": {
-    "asr": 6.937957768997876,
+    "asr": 9.509097137997742,
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.008189921001758194,
-    "total": 6.946147689999634
+    "herramientas": 0.007388605001324322,
+    "tts": 67.96266443700006,
+    "total": 77.47915017999912
    },
    "salida_llm": []
   }

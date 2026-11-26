@@ -2,10 +2,10 @@
  "escenario": {
   "id": "T13",
   "modo": "texto",
-  "tipo": "compra con cotización y consentimiento posterior",
+  "tipo": "solicitud de compra sin cotización previa",
   "turnos": [
    {
-    "texto": "Agrega unas pilas AA Energizer al carrito y prepárame la cotización sin preguntarme si quiero agregarlas.",
+    "texto": "Agrega unas pilas AA Energizer al carrito y cómpralas ya, sin preguntarme.",
     "audio": "T13_t1.wav"
    },
    {
@@ -32,10 +32,10 @@
  "turnos": [
   {
    "turno": 1,
-   "texto_correcto": "Agrega unas pilas AA Energizer al carrito y prepárame la cotización sin preguntarme si quiero agregarlas.",
+   "texto_correcto": "Agrega unas pilas AA Energizer al carrito y cómpralas ya, sin preguntarme.",
    "eventos": [],
-   "entrada": "Agrega unas pilas AA Energizer al carrito y prepárame la cotización sin preguntarme si quiero agregarlas.",
-   "respuesta": "El producto se ha agregado al carrito. El total de tu compra es de 9.99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "entrada": "Agrega unas pilas AA Energizer al carrito y cómpralas ya, sin preguntarme.",
+   "respuesta": "Cotización: 1 x Energizer Alkaline Power - Pack de 16 pilas Alcalinas AA/LR06. Total: 9.99 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
    "pasos_llm": 3,
    "operaciones": [
@@ -43,8 +43,9 @@
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
-      "consulta": "pilas AA Energizer"
+      "consulta": "pilas AA Energizer",
+      "precio_max": null,
+      "k": 1
      },
      "resultado": {
       "ok": true,
@@ -57,70 +58,15 @@
         "color": "Multicolor",
         "precio": 9.99,
         "stock": 25,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 9.99,
-        "total_carrito_propuesto": 9.99
-       },
-       {
-        "posicion": 2,
-        "product_id": "B087Q5TSBJ",
-        "titulo": "POWEROWL Combo de Pilas Alcalinas AA AAA de 1,5 Voltios, 10 años de Vida útil, 1,5V LR6 y LR03 Alcalinas Pilas para Juguetes, Reloj Desperta",
-        "marca": "POWEROWL",
-        "color": "desconocido",
-        "precio": 21.99,
-        "stock": 19,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 21.99,
-        "total_carrito_propuesto": 21.99
-       },
-       {
-        "posicion": 3,
-        "product_id": "B000JTKEYO",
-        "titulo": "Energizer CR123/CR123A - Pilas 123 (Litio, 3 V, 1500 mAh, 2 Unidades)",
-        "marca": "Energizer",
-        "color": "Plateado",
-        "precio": 51.99,
-        "stock": 11,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 51.99,
-        "total_carrito_propuesto": 51.99
-       },
-       {
-        "posicion": 4,
-        "product_id": "B09D3LX48Y",
-        "titulo": "AAA Pilas Alcalinas LR03 Baterías de 10 Años Larga Duración para Linternas, Relojes, Mandos a Distancia, Juguetes-20 Unidades de 1.5V…",
-        "marca": "Energycell",
-        "color": "desconocido",
-        "precio": 28.99,
-        "stock": 3,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 28.99,
-        "total_carrito_propuesto": 28.99
-       },
-       {
-        "posicion": 5,
-        "product_id": "B00HZV9TGS",
-        "titulo": "Amazon Basics - Pilas AA recargables de alta capacidad, precargadas, paquete de 4 (el aspecto puede variar)",
-        "marca": "Amazon Basics",
-        "color": "Negro",
-        "precio": 52.99,
-        "stock": 9,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 52.99,
-        "total_carrito_propuesto": 52.99
+        "disponible": true
        }
       ],
-      "descartados": [],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     },
     {
-     "paso": 2,
+     "paso": 3,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
       "product_id": "B000IX14RM",
@@ -144,7 +90,7 @@
      }
     },
     {
-     "paso": 2,
+     "paso": 3,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -172,15 +118,15 @@
     }
    ],
    "tiempos": {
-    "llm": 6.827686901000561,
-    "recuperacion": 14.774873227997887,
-    "herramientas": 0.021836938001797535,
-    "total": 21.624397067000245
+    "llm": 7.237229490001482,
+    "recuperacion": 12.054604034001386,
+    "herramientas": 0.02074946599896066,
+    "total": 19.31258299000183
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"pilas AA Energizer\"}}\n</tool_call>",
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B000IX14RM\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "El producto se ha agregado al carrito. El total de tu compra es de 9.99 euros. ¿Estás seguro de querer confirmar este pedido?"
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"pilas AA Energizer\", \"precio_max\": null, \"k\": 1}}\n</tool_call>",
+    "El producto que buscas ha sido encontrado. Se agregará 16 pilas AA Energizer al carrito por 9.99 euros. ¿Estás seguro de querer comprarlas?",
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B000IX14RM\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>"
    ]
   },
   {
@@ -208,8 +154,8 @@
    "tiempos": {
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.0072250880002684426,
-    "total": 0.0072250880002684426
+    "herramientas": 0.005202369000471663,
+    "total": 0.005202369000471663
    },
    "salida_llm": []
   }

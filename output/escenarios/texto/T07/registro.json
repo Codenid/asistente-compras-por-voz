@@ -38,18 +38,36 @@
    "texto_correcto": "Quiero comprar un altavoz bluetooth Sony, máximo 30 euros.",
    "eventos": [],
    "entrada": "Quiero comprar un altavoz bluetooth Sony, máximo 30 euros.",
-   "respuesta": "He encontrado opciones para ti. La primera es un altavoz Bluetooth portátil de la marca Genérico por 29,99 euros, la segunda es un altavoz Bluetooth de Sony por 28,99 euros y la tercera es otro altavoz de Sony por 22,99 euros. ¿Te interesa cualquiera de estas opciones?",
+   "respuesta": "Encontramos varios altavoces Sony dentro de tu presupuesto. ¿Te interesa el Sony SRSXB21B por 22,99 euros o prefieres el Sony SRS-XP500 por 28,99 euros?",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
     {
      "paso": 1,
+     "herramienta": "registrar_restricciones",
+     "argumentos": {
+      "presupuesto_max": 30,
+      "preferencias": [
+       "Sony",
+       "bluetooth"
+      ]
+     },
+     "resultado": {
+      "ok": true,
+      "presupuesto_max": 30.0,
+      "preferencias": [
+       "Sony",
+       "bluetooth"
+      ]
+     }
+    },
+    {
+     "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
-      "consulta": "altavoz bluetooth sony",
+      "consulta": "altavoz sony bluetooth",
       "precio_max": 30,
-      "k": 5
+      "k": 3
      },
      "resultado": {
       "ok": true,
@@ -62,115 +80,43 @@
         "color": "negro 1",
         "precio": 29.99,
         "stock": 4,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 29.99,
-        "total_carrito_propuesto": 29.99
+        "disponible": true
        },
        {
         "posicion": 2,
-        "product_id": "B092JHPFQX",
-        "titulo": "Sony SRS-XP500 - Altavoz Bluetooth con sonido potente, iluminación y batería de 20 h (IPX4, Mega Bass, función de Carga rápida, Party Connec",
-        "marca": "Sony",
-        "color": "Negro",
-        "precio": 28.99,
-        "stock": 22,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 28.99,
-        "total_carrito_propuesto": 28.99
-       },
-       {
-        "posicion": 3,
         "product_id": "B078WTP3XH",
         "titulo": "Sony SRSXB21B - Altavoz portátil Bluetooth (Extra bass, modo sonido live, party booster y luces de fiesta llamativas), color negro",
         "marca": "Sony",
         "color": "Negro",
         "precio": 22.99,
         "stock": 16,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 22.99,
-        "total_carrito_propuesto": 22.99
+        "disponible": true
        },
        {
-        "posicion": 4,
-        "product_id": "B08YDXKTTQ",
-        "titulo": "Sony SRS-XB13 - Altavoz Bluetooth Compacto, Duradero y Potente con EXTRA BASS (Resistente al agua, Inalámbrico, 16h Autonomía), Amarillo Lim",
-        "marca": "Sony",
-        "color": "Amarillo Lima",
-        "precio": 10.99,
-        "stock": 2,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 10.99,
-        "total_carrito_propuesto": 10.99
-       },
-       {
-        "posicion": 5,
-        "product_id": "B08B44L17V",
-        "titulo": "Sony SRS-XB43 Altavoz Bluetooth Potente, con Luces, Extra Bass, Resistente al Agua, Polvo, óxido y Larga duración de batería de hasta 24h, N",
-        "marca": "Sony",
-        "color": "negro",
-        "precio": 22.99,
-        "stock": 24,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 22.99,
-        "total_carrito_propuesto": 22.99
-       }
-      ],
-      "descartados": [
-       {
-        "product_id": "B097TBPYFG",
-        "titulo": "Sony LSPX-S3 Altavoz Bluetooth inalámbrico de Cristal con luz (Sonido de 360 Grados, 8 Horas de autonomía, Manos Libres, diseño Elegante), P",
-        "marca": "Sony",
-        "color": "plata",
-        "precio": 32.99,
-        "stock": 17,
-        "disponible": true,
-        "motivos": [
-         "supera el precio unitario maximo"
-        ]
-       },
-       {
-        "product_id": "B06VWXPC19",
-        "titulo": "Sony SRS-XB10, Altavoz Inalámbrico Portátil, Bluetooth, Negro",
+        "posicion": 3,
+        "product_id": "B092JHPFQX",
+        "titulo": "Sony SRS-XP500 - Altavoz Bluetooth con sonido potente, iluminación y batería de 20 h (IPX4, Mega Bass, función de Carga rápida, Party Connec",
         "marca": "Sony",
         "color": "Negro",
-        "precio": 35.99,
-        "stock": 8,
-        "disponible": true,
-        "motivos": [
-         "supera el precio unitario maximo"
-        ]
-       },
-       {
-        "product_id": "B08B449V5L",
-        "titulo": "Sony Extra Bass SRSXB33C.CE7 - Altavoz Bluetooth, Gris",
-        "marca": "Sony",
-        "color": "Gris",
-        "precio": 30.99,
-        "stock": 9,
-        "disponible": true,
-        "motivos": [
-         "supera el precio unitario maximo"
-        ]
+        "precio": 28.99,
+        "stock": 22,
+        "disponible": true
        }
       ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "llm": 6.651797017999343,
-    "recuperacion": 15.53356237800108,
-    "herramientas": 0.0035319189992151223,
-    "total": 22.188891314999637
+    "llm": 6.602440507002029,
+    "recuperacion": 8.133228685997892,
+    "herramientas": 0.003430501001275843,
+    "total": 14.739099694001197
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"altavoz bluetooth sony\", \"precio_max\": 30, \"k\": 5}}\n</tool_call>",
-    "He encontrado opciones para ti. La primera es un altavoz Bluetooth portátil de la marca Genérico por 29,99 euros, la segunda es un altavoz Bluetooth de Sony por 28,99 euros y la tercera es otro altavoz de Sony por 22,99 euros. ¿Te interesa cualquiera de estas opciones?"
+    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 30, \"preferencias\": [\"Sony\", \"bluetooth\"]}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"altavoz sony bluetooth\", \"precio_max\": 30, \"k\": 3}}\n</tool_call>",
+    "Encontramos varios altavoces Sony dentro de tu presupuesto. ¿Te interesa el Sony SRSXB21B por 22,99 euros o prefieres el Sony SRS-XP500 por 28,99 euros?"
    ]
   },
   {
@@ -178,12 +124,12 @@
    "texto_correcto": "Agrega el primero y cotiza.",
    "eventos": [],
    "entrada": "Agrega el primero y cotiza.",
-   "respuesta": "El altavoz Bluetooth portátil que has elegido cuesta 29,99 euros. El total de tu compra es 29,99 euros. ¿Estás seguro de querer confirmar este pedido?",
+   "respuesta": "Total cotizado: 29.99 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
-   "pasos_llm": 2,
+   "pasos_llm": 0,
    "operaciones": [
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
       "product_id": "B099MQKFGG",
@@ -207,7 +153,7 @@
      }
     },
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -227,7 +173,7 @@
        "total": 29.99
       },
       "total": 29.99,
-      "presupuesto_max": null,
+      "presupuesto_max": 30.0,
       "valida": true,
       "problemas": [],
       "siguiente_paso": "presenta el total y pide confirmacion"
@@ -235,15 +181,12 @@
     }
    ],
    "tiempos": {
-    "llm": 5.18309533700085,
+    "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.01977088800049387,
-    "total": 5.202866225001344
+    "herramientas": 0.02146055599951069,
+    "total": 0.02146055599951069
    },
-   "salida_llm": [
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B099MQKFGG\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "El altavoz Bluetooth portátil que has elegido cuesta 29,99 euros. El total de tu compra es 29,99 euros. ¿Estás seguro de querer confirmar este pedido?"
-   ]
+   "salida_llm": []
   },
   {
    "turno": 3,
@@ -270,8 +213,8 @@
    "tiempos": {
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.007755732000077842,
-    "total": 0.007755732000077842
+    "herramientas": 0.0055167989994515665,
+    "total": 0.0055167989994515665
    },
    "salida_llm": []
   }

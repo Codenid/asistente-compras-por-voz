@@ -1,15 +1,15 @@
 {
- "huella": "e0588c4c4378febf",
+ "huella": "9df02f92445ad815",
  "pedidos": [
   {
    "pedido_id": 1,
    "cotizacion_id": "COT-1-1",
-   "total_cent": 3798,
+   "total_cent": 998,
    "items": [
     {
-     "product_id": "B08J9WLFNY",
+     "product_id": "B010XOBQJ6",
      "cantidad": 2,
-     "precio_cent": 1899
+     "precio_cent": 499
     }
    ]
   }
@@ -21,30 +21,23 @@
    "version": 1,
    "items": [
     {
-     "product_id": "B08J9WLFNY",
+     "product_id": "B010XOBQJ6",
      "cantidad": 2,
-     "precio_cent": 1899,
-     "stock": 14,
-     "subtotal_cent": 3798
+     "precio_cent": 499,
+     "stock": 0,
+     "subtotal_cent": 998
     }
    ],
-   "total_cent": 3798
+   "total_cent": 998
   }
  ],
  "productos_modificados": [
   {
    "product_id": "B010XOBQJ6",
    "stock_base": 11,
-   "stock": 2,
+   "stock": 0,
    "precio_base_cent": 499,
    "precio_cent": 499
-  },
-  {
-   "product_id": "B08J9WLFNY",
-   "stock_base": 16,
-   "stock": 14,
-   "precio_base_cent": 1899,
-   "precio_cent": 1899
   }
  ],
  "stock_negativo": 0

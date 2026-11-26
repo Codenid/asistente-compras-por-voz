@@ -40,18 +40,18 @@
    "texto_correcto": "Quiero un cable HDMI.",
    "eventos": [],
    "entrada": "Quiero un cable HDMI.",
-   "respuesta": "¿Cuántos cables HDMI desea comprar?",
+   "respuesta": "Podrías decirme el tipo de cable HDMI que necesitas y tu presupuesto máximo?",
    "aclaracion": true,
    "pasos_llm": 1,
    "operaciones": [],
    "tiempos": {
-    "llm": 1.008279637000669,
+    "llm": 1.392614215001231,
     "recuperacion": 0.0,
     "herramientas": 0.0,
-    "total": 1.008279637000669
+    "total": 1.392614215001231
    },
    "salida_llm": [
-    "¿Cuántos cables HDMI desea comprar?"
+    "Podrías decirme el tipo de cable HDMI que necesitas y tu presupuesto máximo?"
    ]
   },
   {
@@ -59,16 +59,17 @@
    "texto_correcto": "Agrega el más barato y cotiza.",
    "eventos": [],
    "entrada": "Agrega el más barato y cotiza.",
-   "respuesta": "La opción más barata es el \"Cable HDMI Premium 1.4V 3D Alta Velocidad Ultra HD Resolución FULL HD 1080P Plomo 150CM Calidad Alta definición\" por $27.99. ¿Desea agregarlo al carrito?",
-   "aclaracion": true,
-   "pasos_llm": 2,
+   "respuesta": "Cotización: 1 x Cable HDMI Premium 1.4V 3D Alta Velocidad Ultra HD Resolución FULL HD 1080P Plom. Total: 27.99 euros. ¿Confirmas el pedido?",
+   "aclaracion": false,
+   "pasos_llm": 3,
    "operaciones": [
     {
      "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
-      "consulta": "cable hdmi"
+      "consulta": "cable hdmi",
+      "precio_max": null,
+      "k": 1
      },
      "resultado": {
       "ok": true,
@@ -81,91 +82,15 @@
         "color": "Negro",
         "precio": 27.99,
         "stock": 10,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 27.99,
-        "total_carrito_propuesto": 27.99
-       },
-       {
-        "posicion": 2,
-        "product_id": "B074DJM2ZF",
-        "titulo": "CABLEPELADO Cable Hdmi contactos Dorados 1.5 M Negro",
-        "marca": "CABLEPELADO",
-        "color": "desconocido",
-        "precio": 57.99,
-        "stock": 9,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 57.99,
-        "total_carrito_propuesto": 57.99
-       },
-       {
-        "posicion": 3,
-        "product_id": "B01C8TN0N4",
-        "titulo": "Cable HDMI Alta Velocidad High Speed con Ethernet / 4K Ultra-HD compatible / 2160p / 1080p Full HD - 3D/ARC/CEC para TV, DVD, Blu-Ray, Video",
-        "marca": "rocabo",
-        "color": "negro",
-        "precio": 20.99,
-        "stock": 16,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 20.99,
-        "total_carrito_propuesto": 20.99
-       },
-       {
-        "posicion": 4,
-        "product_id": "B01C8TN1FQ",
-        "titulo": "Cable HDMI Alta Velocidad High Speed con Ethernet / 4K Ultra-HD compatible / 2160p / 1080p Full HD - 3D/ARC/CEC para TV, DVD, Blu-Ray, Video",
-        "marca": "rocabo",
-        "color": "negro",
-        "precio": 4.99,
-        "stock": 4,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 4.99,
-        "total_carrito_propuesto": 4.99
-       },
-       {
-        "posicion": 5,
-        "product_id": "B01C8TMZY4",
-        "titulo": "Cable HDMI Alta Velocidad High Speed con Ethernet / 4K Ultra-HD compatible / 2160p / 1080p Full HD - 3D/ARC/CEC para TV, DVD, Blu-Ray, Video",
-        "marca": "rocabo",
-        "color": "negro",
-        "precio": 14.99,
-        "stock": 20,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 14.99,
-        "total_carrito_propuesto": 14.99
+        "disponible": true
        }
       ],
-      "descartados": [],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
-    }
-   ],
-   "tiempos": {
-    "llm": 5.163111066998681,
-    "recuperacion": 11.166232477000449,
-    "herramientas": 0.003314628000225639,
-    "total": 16.332658171999356
-   },
-   "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"cable hdmi\"}}\n</tool_call>",
-    "La opción más barata es el \"Cable HDMI Premium 1.4V 3D Alta Velocidad Ultra HD Resolución FULL HD 1080P Plomo 150CM Calidad Alta definición\" por $27.99. ¿Desea agregarlo al carrito?"
-   ]
-  },
-  {
-   "turno": 3,
-   "texto_correcto": "Confirmo.",
-   "eventos": [],
-   "entrada": "Confirmo.",
-   "respuesta": "Se ha agregado el cable HDMI al carrito. El total es de $27.99. ¿Está todo correcto y desea confirmar el pedido?",
-   "aclaracion": false,
-   "pasos_llm": 2,
-   "operaciones": [
+    },
     {
-     "paso": 1,
+     "paso": 3,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
       "product_id": "B01N10KEPP",
@@ -189,7 +114,7 @@
      }
     },
     {
-     "paso": 1,
+     "paso": 3,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -217,21 +142,22 @@
     }
    ],
    "tiempos": {
-    "llm": 4.950296544000594,
-    "recuperacion": 0.0,
-    "herramientas": 0.019752196003537392,
-    "total": 4.970048740004131
+    "llm": 5.899489253992215,
+    "recuperacion": 12.887108891001844,
+    "herramientas": 0.0211460989958141,
+    "total": 18.807744243989873
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B01N10KEPP\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "Se ha agregado el cable HDMI al carrito. El total es de $27.99. ¿Está todo correcto y desea confirmar el pedido?"
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"cable hdmi\", \"precio_max\": null, \"k\": 1}}\n</tool_call>",
+    "He encontrado un cable HDMI negro de la marca iView HD por 27.99 euros. ¿Te parece bien este?",
+    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B01N10KEPP\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>"
    ]
   },
   {
-   "turno": 4,
-   "texto_correcto": "Confirmo otra vez, por favor.",
+   "turno": 3,
+   "texto_correcto": "Confirmo.",
    "eventos": [],
-   "entrada": "Confirmo otra vez, por favor.",
+   "entrada": "Confirmo.",
    "respuesta": "Pedido registrado por 27.99 euros.",
    "aclaracion": false,
    "pasos_llm": 0,
@@ -252,8 +178,38 @@
    "tiempos": {
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.007892107998486608,
-    "total": 0.007892107998486608
+    "herramientas": 0.00510677500278689,
+    "total": 0.00510677500278689
+   },
+   "salida_llm": []
+  },
+  {
+   "turno": 4,
+   "texto_correcto": "Confirmo otra vez, por favor.",
+   "eventos": [],
+   "entrada": "Confirmo otra vez, por favor.",
+   "respuesta": "Ese pedido ya estaba registrado por 27.99 euros; no lo dupliqué.",
+   "aclaracion": false,
+   "pasos_llm": 0,
+   "operaciones": [
+    {
+     "paso": 0,
+     "herramienta": "confirmar_pedido",
+     "argumentos": {},
+     "resultado": {
+      "ok": true,
+      "estado": "ya_registrado",
+      "pedido_id": 1,
+      "total": 27.99,
+      "nota": "pedido ya registrado antes; no se duplico"
+     }
+    }
+   ],
+   "tiempos": {
+    "llm": 0.0,
+    "recuperacion": 0.0,
+    "herramientas": 4.189999890513718e-05,
+    "total": 4.189999890513718e-05
    },
    "salida_llm": []
   }

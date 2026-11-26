@@ -43,17 +43,34 @@
    "texto_correcto": "Quiero una mochila para portátil de color gris, máximo 30 euros.",
    "eventos": [],
    "entrada": "Quiero una mochila para portátil de color gris, máximo 30 euros.",
-   "respuesta": "Encontré dos opciones para usted. La primera es una mochila de la marca RJEU por 9.99 euros y la segunda es de HOMIEE por 10.99 euros. ¿Prefiere la mochila de la marca RJEU o la de HOMIEE?",
+   "respuesta": "Encontré varias opciones para usted. ¿Le gustaría agregar la mochila RJEU por 9.99 euros, la HOMIEE por 10.99 euros, la Gabol Reims por 15.99 euros, la Daabliz por 16.99 euros o la Gabol Paquetero Roma por 15.99 euros?",
    "aclaracion": true,
    "pasos_llm": 2,
    "operaciones": [
     {
      "paso": 1,
+     "herramienta": "registrar_restricciones",
+     "argumentos": {
+      "presupuesto_max": 30,
+      "preferencias": [
+       "color gris"
+      ]
+     },
+     "resultado": {
+      "ok": true,
+      "presupuesto_max": 30.0,
+      "preferencias": [
+       "color gris"
+      ]
+     }
+    },
+    {
+     "paso": 1,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "cantidad": 1,
-      "consulta": "mochila portatil gris",
-      "precio_max": 30
+      "consulta": "mochila portatil color gris",
+      "precio_max": 30,
+      "k": 5
      },
      "resultado": {
       "ok": true,
@@ -66,10 +83,7 @@
         "color": "Gris",
         "precio": 9.99,
         "stock": 2,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 9.99,
-        "total_carrito_propuesto": 9.99
+        "disponible": true
        },
        {
         "posicion": 2,
@@ -79,64 +93,53 @@
         "color": "Gris",
         "precio": 10.99,
         "stock": 16,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 10.99,
-        "total_carrito_propuesto": 10.99
-       }
-      ],
-      "descartados": [
-       {
-        "product_id": "B07PQ9HVYL",
-        "titulo": "Daabliz - Bolsos 40x20x25 Ryanair y Vueling - Bolsa Viaje/Maleta De Cabina Hombre Mujer Juvenil - Viajes Negocios Diaria Casual - Gran Capac",
-        "marca": "Daabliz",
-        "color": "Gris",
-        "precio": 16.99,
-        "stock": 7,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: mochila"
-        ]
+        "disponible": true
        },
        {
-        "product_id": "B07BY1R9S2",
-        "titulo": "SKPA-T Belgrado Travel - Maleta de ABS, Gris Oscuro, 70 cm",
-        "marca": "SKPAT",
-        "color": "Gris Oscuro (Belgrado Travel)",
-        "precio": 68.99,
-        "stock": 4,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: mochila",
-         "supera el precio unitario maximo"
-        ]
-       },
-       {
+        "posicion": 3,
         "product_id": "B0126DN42Y",
         "titulo": "Gabol - Reims | Bolso de Viaje Grande de Tela de 40 x 30 x 20 cm con Capacidad para 21 L de Color Gris",
         "marca": "Gabol",
         "color": "Gris",
         "precio": 15.99,
         "stock": 1,
-        "disponible": true,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: mochila"
-        ]
+        "disponible": true
+       },
+       {
+        "posicion": 4,
+        "product_id": "B07PQ9HVYL",
+        "titulo": "Daabliz - Bolsos 40x20x25 Ryanair y Vueling - Bolsa Viaje/Maleta De Cabina Hombre Mujer Juvenil - Viajes Negocios Diaria Casual - Gran Capac",
+        "marca": "Daabliz",
+        "color": "Gris",
+        "precio": 16.99,
+        "stock": 7,
+        "disponible": true
+       },
+       {
+        "posicion": 5,
+        "product_id": "B07CSXVNPC",
+        "titulo": "GABOL Paquetero Roma. Bolsa de Viaje, 50 cm, 15 litros, Gris",
+        "marca": "Gabol",
+        "color": "Gris",
+        "precio": 15.99,
+        "stock": 9,
+        "disponible": true
        }
       ],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "llm": 5.493911530000332,
-    "recuperacion": 5.304218985998887,
-    "herramientas": 0.10632453900325345,
-    "total": 10.904455055002472
+    "llm": 6.86168653400091,
+    "recuperacion": 12.125172603002284,
+    "herramientas": 0.0047232330034603365,
+    "total": 18.991582370006654
    },
    "salida_llm": [
-    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"cantidad\": 1, \"consulta\": \"mochila portatil gris\", \"precio_max\": 30}}\n</tool_call>",
-    "Encontré dos opciones para usted. La primera es una mochila de la marca RJEU por 9.99 euros y la segunda es de HOMIEE por 10.99 euros. ¿Prefiere la mochila de la marca RJEU o la de HOMIEE?"
+    "<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 30, \"preferencias\": [\"color gris\"]}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"mochila portatil color gris\", \"precio_max\": 30, \"k\": 5}}\n</tool_call>",
+    "Encontré varias opciones para usted. ¿Le gustaría agregar la mochila RJEU por 9.99 euros, la HOMIEE por 10.99 euros, la Gabol Reims por 15.99 euros, la Daabliz por 16.99 euros o la Gabol Paquetero Roma por 15.99 euros?"
    ]
   },
   {
@@ -144,99 +147,115 @@
    "texto_correcto": "Mejor que sea de color negro, con el mismo presupuesto.",
    "eventos": [],
    "entrada": "Mejor que sea de color negro, con el mismo presupuesto.",
-   "respuesta": "Encontré varias opciones en color negro dentro de su presupuesto. ¿Le gustaría agregar la mochila Kono por 20.99 euros, la Besttravel por 31.99 euros, la FUXINGYAO por 31.99 euros, la Cabin Max por 7.99 euros o la MARK RYDEN por 16.99 euros?",
+   "respuesta": "Encontré varias opciones para usted. ¿Le gustaría agregar la mochila MARK RYDEN por 16.99 euros, la mochila MATEIN por 17.99 euros, la mochila Aerolite por 12.99 euros, la mochila Kono por 20.99 euros, la funda DOMISO por 4.99 euros o la mochila LDYQ por 13.99 euros?",
    "aclaracion": true,
-   "pasos_llm": 1,
+   "pasos_llm": 4,
    "operaciones": [
     {
-     "paso": 0,
+     "paso": 3,
+     "herramienta": "registrar_restricciones",
+     "argumentos": {
+      "presupuesto_max": 30.0,
+      "preferencias": [
+       "color negro"
+      ]
+     },
+     "resultado": {
+      "ok": true,
+      "presupuesto_max": 30.0,
+      "preferencias": [
+       "color negro"
+      ]
+     }
+    },
+    {
+     "paso": 3,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "consulta": "quiero mochila de maximo 30 euros. Mejor que sea de color negro, con el mismo presupuesto.",
-      "cantidad": 1
+      "consulta": "mochila portatil",
+      "precio_max": 30.0,
+      "k": 10
      },
      "resultado": {
       "ok": true,
       "resultados": [
        {
         "posicion": 1,
-        "product_id": "B07HHNRJJJ",
-        "titulo": "Kono Anime Cartoon Luminous música Boy Backpack Escuela Estudiante Mochila de Moda, Mochila Escolar Unisex Bookbag Maleta De Viaje Trolley O",
-        "marca": "Kono",
-        "color": "Negro",
-        "precio": 20.99,
-        "stock": 20,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 20.99,
-        "total_carrito_propuesto": 20.99
-       },
-       {
-        "posicion": 2,
-        "product_id": "B07Q5S8K28",
-        "titulo": "Mochila Unisex Impermeable para Ordenador Portátil de hasta 15.6 Pulgadas, con Puerto USB, conector para Auriculares y Bolsillo Antirrobo. P",
-        "marca": "Besttravel",
-        "color": "Negro",
-        "precio": 31.99,
-        "stock": 9,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 31.99,
-        "total_carrito_propuesto": 31.99
-       },
-       {
-        "posicion": 3,
-        "product_id": "B093NYPDX5",
-        "titulo": "FUXINGYAO Mochila Unisex para Ordenador Portátil de hasta 15.6 PulgadasMochila Portatil Mochila Hombre Mochila del Negocio Trabajo Diario Vi",
-        "marca": "FUXINGYAO",
-        "color": "Negro",
-        "precio": 31.99,
-        "stock": 9,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 31.99,
-        "total_carrito_propuesto": 31.99
-       },
-       {
-        "posicion": 4,
-        "product_id": "B07SM7B7VR",
-        "titulo": "Cabin Max Metz 20L 40x20x25 cm Maleta de Cabina Pequeña Mochila de Viaje Stowaway Ideal para Llevar Debajo del Asiento en Ryanair (Negro)",
-        "marca": "Cabin Max",
-        "color": "Negro",
-        "precio": 7.99,
-        "stock": 9,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 7.99,
-        "total_carrito_propuesto": 7.99
-       },
-       {
-        "posicion": 5,
         "product_id": "B0981VQVMN",
         "titulo": "MARK RYDEN Mochila de Viaje 26-40L Hombre Mujer Maleta de Cabina Mochila Impermeable de Equipaje de Mano Aprobada para Transporte Avion IATA",
         "marca": "MARK RYDEN",
         "color": "Negro(1.0)",
         "precio": 16.99,
         "stock": 1,
-        "disponible": true,
-        "cantidad_solicitada": 1,
-        "subtotal": 16.99,
-        "total_carrito_propuesto": 16.99
+        "disponible": true
+       },
+       {
+        "posicion": 2,
+        "product_id": "B074KV9TT4",
+        "titulo": "Mochila de viaje de negocios, mochila para computadora portátil con puerto USB para hombres Niñas de mujer para niños, mochila antirrobo par",
+        "marca": "MATEIN",
+        "color": "Negro",
+        "precio": 17.99,
+        "stock": 25,
+        "disponible": true
+       },
+       {
+        "posicion": 3,
+        "product_id": "B07XBLF412",
+        "titulo": "Aerolite 40x20x25cm Tamaño Máximo Permitido por Ryanair Equipaje de Mano Bolsa de Cabina Bolsa de Hombro Mochila Bolsa de Vuelo 40x20x25, Ne",
+        "marca": "Aerolite",
+        "color": "Negro",
+        "precio": 12.99,
+        "stock": 12,
+        "disponible": true
+       },
+       {
+        "posicion": 4,
+        "product_id": "B07HHNRJJJ",
+        "titulo": "Kono Anime Cartoon Luminous música Boy Backpack Escuela Estudiante Mochila de Moda, Mochila Escolar Unisex Bookbag Maleta De Viaje Trolley O",
+        "marca": "Kono",
+        "color": "Negro",
+        "precio": 20.99,
+        "stock": 20,
+        "disponible": true
+       },
+       {
+        "posicion": 5,
+        "product_id": "B07FMS7TMN",
+        "titulo": "DOMISO 10,1-10,5 Pulgadas Funda Protectora con Puerto de Carga USB 3ways Bolso Bandolera para Ordenador Portátil/Tablet / 9.7\" iPad Pro / 10",
+        "marca": "DOMISO",
+        "color": "Negro",
+        "precio": 4.99,
+        "stock": 9,
+        "disponible": true
+       },
+       {
+        "posicion": 6,
+        "product_id": "B08X9V52VK",
+        "titulo": "Mochilas Mochila escolar para niños Entre nosotros Mochila escolar Juego Mochila escolar de dibujos animados en 3D para niños Estudiantes de",
+        "marca": "LDYQ",
+        "color": "Negro",
+        "precio": 13.99,
+        "stock": 24,
+        "disponible": true
        }
       ],
-      "descartados": [],
-      "nota": "Opciones compatibles con cantidad, stock y presupuesto."
+      "agotados": [],
+      "nota": "precios unitarios en euros"
      }
     }
    ],
    "tiempos": {
-    "llm": 4.133555278000131,
-    "recuperacion": 11.022835824001959,
-    "herramientas": 0.12891643899638439,
-    "total": 15.285307540998474
+    "llm": 12.172199619999446,
+    "recuperacion": 11.754582335001032,
+    "herramientas": 0.005256871001620311,
+    "total": 23.9320388260021
    },
    "salida_llm": [
-    "Encontré varias opciones en color negro dentro de su presupuesto. ¿Le gustaría agregar la mochila Kono por 20.99 euros, la Besttravel por 31.99 euros, la FUXINGYAO por 31.99 euros, la Cabin Max por 7.99 euros o la MARK RYDEN por 16.99 euros?"
+    "No encontramos opciones en color negro dentro de su presupuesto. ¿Prefiere otra opción o desea aumentar el presupuesto?",
+    "Registramos su preferencia por el color negro. ¿Le gustaría buscar de nuevo?",
+    "registrando preferencias\n<tool_call>\n{\"name\": \"registrar_restricciones\", \"arguments\": {\"presupuesto_max\": 30.0, \"preferencias\": [\"color negro\"]}}\n</tool_call>\n<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"mochila portatil\", \"precio_max\": 30.0, \"k\": 10}}\n</tool_call>",
+    "Encontré varias opciones para usted. ¿Le gustaría agregar la mochila MARK RYDEN por 16.99 euros, la mochila MATEIN por 17.99 euros, la mochila Aerolite por 12.99 euros, la mochila Kono por 20.99 euros, la funda DOMISO por 4.99 euros o la mochila LDYQ por 13.99 euros?"
    ]
   },
   {
@@ -244,15 +263,15 @@
    "texto_correcto": "Agrega la primera y cotiza.",
    "eventos": [],
    "entrada": "Agrega la primera y cotiza.",
-   "respuesta": "El total de su compra es de 20.99 euros. ¿Está todo correcto y desea confirmar su pedido?",
+   "respuesta": "Total cotizado: 16.99 euros. ¿Confirmas el pedido?",
    "aclaracion": false,
-   "pasos_llm": 2,
+   "pasos_llm": 0,
    "operaciones": [
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "agregar_al_carrito",
      "argumentos": {
-      "product_id": "B07HHNRJJJ",
+      "product_id": "B0981VQVMN",
       "cantidad": 1
      },
      "resultado": {
@@ -260,20 +279,20 @@
       "carrito": {
        "items": [
         {
-         "product_id": "B07HHNRJJJ",
-         "titulo": "Kono Anime Cartoon Luminous música Boy Backpack Escuela Estudiante Mochila de Mo",
+         "product_id": "B0981VQVMN",
+         "titulo": "MARK RYDEN Mochila de Viaje 26-40L Hombre Mujer Maleta de Cabina Mochila Imperme",
          "cantidad": 1,
-         "precio": 20.99,
-         "stock": 20,
-         "subtotal": 20.99
+         "precio": 16.99,
+         "stock": 1,
+         "subtotal": 16.99
         }
        ],
-       "total": 20.99
+       "total": 16.99
       }
      }
     },
     {
-     "paso": 1,
+     "paso": 0,
      "herramienta": "cotizar",
      "argumentos": {},
      "resultado": {
@@ -282,18 +301,18 @@
       "carrito": {
        "items": [
         {
-         "product_id": "B07HHNRJJJ",
-         "titulo": "Kono Anime Cartoon Luminous música Boy Backpack Escuela Estudiante Mochila de Mo",
+         "product_id": "B0981VQVMN",
+         "titulo": "MARK RYDEN Mochila de Viaje 26-40L Hombre Mujer Maleta de Cabina Mochila Imperme",
          "cantidad": 1,
-         "precio": 20.99,
-         "stock": 20,
-         "subtotal": 20.99
+         "precio": 16.99,
+         "stock": 1,
+         "subtotal": 16.99
         }
        ],
-       "total": 20.99
+       "total": 16.99
       },
-      "total": 20.99,
-      "presupuesto_max": null,
+      "total": 16.99,
+      "presupuesto_max": 30.0,
       "valida": true,
       "problemas": [],
       "siguiente_paso": "presenta el total y pide confirmacion"
@@ -301,22 +320,19 @@
     }
    ],
    "tiempos": {
-    "llm": 4.836931687001197,
+    "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.017920119000336854,
-    "total": 4.854851806001534
+    "herramientas": 0.02114929600065807,
+    "total": 0.02114929600065807
    },
-   "salida_llm": [
-    "<tool_call>\n{\"name\": \"agregar_al_carrito\", \"arguments\": {\"product_id\": \"B07HHNRJJJ\", \"cantidad\": 1}}\n</tool_call>\n<tool_call>\n{\"name\": \"cotizar\", \"arguments\": {}}\n</tool_call>",
-    "El total de su compra es de 20.99 euros. ¿Está todo correcto y desea confirmar su pedido?"
-   ]
+   "salida_llm": []
   },
   {
    "turno": 4,
    "texto_correcto": "Sí, confirmo.",
    "eventos": [],
    "entrada": "Sí, confirmo.",
-   "respuesta": "Pedido registrado por 20.99 euros.",
+   "respuesta": "Pedido registrado por 16.99 euros.",
    "aclaracion": false,
    "pasos_llm": 0,
    "operaciones": [
@@ -328,7 +344,7 @@
       "ok": true,
       "estado": "registrado",
       "pedido_id": 1,
-      "total": 20.99,
+      "total": 16.99,
       "nota": "pedido registrado e inventario actualizado"
      }
     }
@@ -336,8 +352,8 @@
    "tiempos": {
     "llm": 0.0,
     "recuperacion": 0.0,
-    "herramientas": 0.012471091999032069,
-    "total": 0.012471091999032069
+    "herramientas": 0.005415819003246725,
+    "total": 0.005415819003246725
    },
    "salida_llm": []
   }

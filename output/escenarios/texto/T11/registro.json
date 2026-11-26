@@ -44,21 +44,21 @@
    "texto_correcto": "Quiero dos bombillas LED H7 para los faros del coche.",
    "eventos": [],
    "entrada": "Quiero dos bombillas LED H7 para los faros del coche.",
-   "respuesta": "No hay stock suficiente del producto solicitado.",
+   "respuesta": "El producto solicitado (H7 LED 12000LM Bombillas Faros Delanteros para Coches, Kits de Conversión LED 12V, 6000K, AUXIRACER Bombillas LED D1S / D2S / D3S / D4S para Coche, 360 °CSP 60W 6000K 16000LM IP65 - Kit de Lámpara de Repuesto para Lámparas Halógen) está agotado y no hay alternativas disponibles.",
    "aclaracion": false,
-   "pasos_llm": 8,
+   "pasos_llm": 2,
    "operaciones": [
     {
-     "paso": 9,
+     "paso": 2,
      "herramienta": "buscar_productos",
      "argumentos": {
-      "consulta": "Quiero dos bombillas LED H7 para los faros del coche.",
-      "cantidad": 2
+      "consulta": "bombillas LED H7 para faros",
+      "k": 2
      },
      "resultado": {
       "ok": true,
       "resultados": [],
-      "descartados": [
+      "agotados": [
        {
         "product_id": "B07XP3MVDD",
         "titulo": "H7 LED 12000LM Bombillas Faros Delanteros para Coches, Kits de Conversión LED 12V, 6000K",
@@ -66,11 +66,7 @@
         "color": "desconocido",
         "precio": 6.99,
         "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: dos",
-         "stock insuficiente"
-        ]
+        "disponible": false
        },
        {
         "product_id": "B08VR8VYFZ",
@@ -79,45 +75,22 @@
         "color": "desconocido",
         "precio": 23.99,
         "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: dos, h7",
-         "stock insuficiente"
-        ]
-       },
-       {
-        "product_id": "B074575XMR",
-        "titulo": "NIGHTEYE 2X H7 72W 9000LM LED Faros Delanteros Bombillas Cohces Lámpara luz 6500K - 3 años de garantía",
-        "marca": "NIGHTEYE",
-        "color": "desconocido",
-        "precio": 16.99,
-        "stock": 0,
-        "disponible": false,
-        "motivos": [
-         "no coincide con marca, color o modelo solicitado: dos",
-         "stock insuficiente"
-        ]
+        "disponible": false
        }
       ],
-      "nota": "No hay opciones compatibles entre los candidatos recuperados. Explica los motivos; pregunta si desea cambiar restricciones."
+      "nota": "coincidencias agotadas"
      }
     }
    ],
    "tiempos": {
-    "llm": 16.55346841499704,
-    "recuperacion": 6.726553476997651,
-    "herramientas": 0.12045103700074833,
-    "total": 23.40047292899544
+    "llm": 3.4380498099999386,
+    "recuperacion": 11.69723166499898,
+    "herramientas": 0.012134279004385462,
+    "total": 15.147415754003305
    },
    "salida_llm": [
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo?",
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo en euros?",
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo en euros?",
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo en euros?",
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo en euros?",
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo en euros?",
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo en euros?",
-    "Buscando dos bombillas LED H7 para faros de coche. ¿Cuál es tu presupuesto máximo en euros?"
+    "Buscando bombillas LED H7 para faros de coche...",
+    "<tool_call>\n{\"name\": \"buscar_productos\", \"arguments\": {\"consulta\": \"bombillas LED H7 para faros\", \"k\": 2}}\n</tool_call>"
    ]
   }
  ],
