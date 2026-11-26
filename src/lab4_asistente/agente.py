@@ -33,6 +33,26 @@ cotizar. Si el pedido ya existe, no lo repitas.
 8. Si el usuario cambia una cantidad o preferencia, conserva las demas restricciones.
 9. Nombra los productos por su nombre corto y precio; no leas identificadores. Importes en euros con dos decimales."""
 
+SISTEMA += """
+10. En buscar_productos incluye siempre la cantidad solicitada.
+Recuperala del mensaje y del historial; no confundas cantidad de productos con
+capacidades, tamaños o modelos. Registra el presupuesto antes de buscar.
+Para una consulta informativa sin intencion de compra puedes buscar una unidad;
+esto no autoriza agregarla al carrito.
+11. Para "la primera" usa la posicion de los resultados que presentaste.
+Para "la mas barata", compara los precios de esos resultados.
+12. Agregar requiere agregar_al_carrito; modificar o quitar requiere
+cambiar_cantidad; preparar un total de compra requiere cotizar.
+Nunca describas estas acciones como realizadas sin resultados exitosos.
+13. Conserva la cantidad solicitada: "agrega la primera" no significa
+agregar una sola unidad si antes se pidieron tres.
+14. Si el usuario sustituye un producto, elimina el anterior con
+cambiar_cantidad(..., cantidad=0), busca el reemplazo y cotiza nuevamente.
+No hagas una sustitucion que el usuario no autorizo.
+15. Si una herramienta devuelve ok=False, explica el error o corrigelo
+usando las herramientas. No afirmes que la operacion se completo.
+"""
+
 ID_RE = re.compile(r"\bB0[0-9A-Z]{8}\b")
 
 
@@ -46,6 +66,33 @@ def limpiar_respuesta(t):
 
 def es_aclaracion(t):
     return "?" in t
+
+
+def accion_sin_respaldo(texto, operaciones):
+    """Detector heuristico: no garantiza cubrir todas las formulaciones."""
+    texto = normalizar(texto)
+    exitosas = {
+        op["herramienta"] for op in operaciones if op["resultado"].get("ok")
+    }
+    reglas = [
+        (r"\b(?:agregue|anadi|se agrego|se agregaron|he agregado|he anadido)\b",
+         {"agregar_al_carrito"}),
+        (r"\b(?:actualice|modifique|cambie|quite|elimine|se actualizaron|"
+         r"se actualizo|se modifico|se elimino)\b", {"cambiar_cantidad"}),
+    ]
+    for patron, herramientas in reglas:
+        if re.search(patron, texto) and not exitosas.intersection(herramientas):
+            return ", ".join(sorted(herramientas))
+    afirma_cotizacion = re.search(
+        r"\b(?:esta cotizacion|cotizacion lista|he preparado la cotizacion)\b", texto
+    )
+    cotizacion_valida = any(
+        op["herramienta"] == "cotizar" and op["resultado"].get("ok")
+        and op["resultado"].get("valida") for op in operaciones
+    )
+    if afirma_cotizacion and not cotizacion_valida:
+        return "cotizar"
+    return None
 
 
 class Agente:
@@ -91,15 +138,63 @@ class Agente:
             t0 = time.perf_counter()
             out = self.llm.generar(msgs, ESQUEMAS)
             t_llm += time.perf_counter() - t0
-            crudo.append(out["crudo"])
-            if not out["llamadas"]:
-                respuesta = limpiar_respuesta(out["texto"])
+            crudo.append(out.get("crudo", ""))
+            llamadas = out.get("llamadas", [])
+            if not isinstance(llamadas, list):
+                respuesta = "No pude interpretar la respuesta del asistente. Inténtalo de nuevo."
                 break
-            msgs.append({"role": "assistant", "content": out["texto"],
+
+            nombres_validos = {s["function"]["name"] for s in ESQUEMAS}
+            invalidas = [
+                llamada for llamada in llamadas
+                if not isinstance(llamada, dict)
+                or llamada.get("nombre") not in nombres_validos
+                or not isinstance(llamada.get("argumentos"), dict)
+            ]
+            if invalidas:
+                # No ejecutar llamadas malformadas ni tratarlas como respuesta natural.
+                resumen_error = ", ".join(
+                    str(llamada.get("nombre", "llamada inválida"))
+                    if isinstance(llamada, dict) else "llamada inválida"
+                    for llamada in invalidas
+                )
+                ops.append({
+                    "paso": paso,
+                    "herramienta": "_llamada_invalida",
+                    "argumentos": {},
+                    "resultado": {"ok": False, "error": resumen_error},
+                })
+                respuesta = (
+                    "No pude interpretar una acción solicitada. "
+                    "No se modificó el carrito ni se registró ningún pedido."
+                )
+                break
+
+            if not llamadas:
+                candidata = limpiar_respuesta(out.get("texto", ""))
+                pendiente = accion_sin_respaldo(candidata, ops)
+                if pendiente:
+                    msgs.append({"role": "assistant", "content": candidata})
+                    msgs.append({
+                        "role": "system",
+                        "content": (
+                            "La respuesta anterior afirma una accion sin respaldo "
+                            "en las operaciones de este turno. "
+                            f"Herramienta pendiente: {pendiente}. "
+                            "Ejecuta la herramienta con argumentos validos si el "
+                            "usuario autorizo la accion. Si falta informacion, "
+                            "pide aclaracion. No repitas una afirmacion de exito "
+                            "sin evidencia.\n" + self.h.resumen_estado()
+                        ),
+                    })
+                    continue
+                respuesta = candidata
+                break
+            msgs.append({"role": "assistant", "content": out.get("texto", ""),
                          "tool_calls": [{"type": "function", "function": {"name": c["nombre"],
                                                                           "arguments": c["argumentos"]}}
-                                        for c in out["llamadas"]]})
-            for c in out["llamadas"]:
+                                        for c in llamadas]})
+            for c in llamadas:
                 t1 = time.perf_counter()
                 res = self.h.ejecutar(c["nombre"], c["argumentos"])
                 t_tools += time.perf_counter() - t1

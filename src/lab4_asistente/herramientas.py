@@ -46,10 +46,11 @@ ESQUEMAS = [
         "name": "buscar_productos",
         "description": "Busca productos en el catalogo (RAG). Devuelve titulo, marca, color, precio y existencias.",
         "parameters": {"type": "object", "properties": {
+            "cantidad": {"type": "integer", "description": "Unidades deseadas. Recupera la cantidad del mensaje o historial; si no esta clara, pregunta."},
             "consulta": {"type": "string", "description": "Descripcion del producto en palabras clave"},
             "precio_max": {"type": "number", "description": "Precio unitario maximo en euros (opcional)"},
             "k": {"type": "integer", "description": "Cantidad de resultados (1 a 10)"}},
-            "required": ["consulta"]}}},
+            "required": ["consulta", "cantidad"]}}},
     {"type": "function", "function": {
         "name": "ver_producto",
         "description": "Detalle de un producto: descripcion, caracteristicas, marca, color, precio y existencias.",
@@ -161,25 +162,62 @@ class Herramientas:
         self.estado.cotizacion_mostrada = self.estado.cotizo_en_turno = False
 
     # --- herramientas ---
-    def buscar_productos(self, consulta, precio_max=None, k=None):
+    def buscar_productos(self, consulta, cantidad=None, precio_max=None, k=None):
         if not isinstance(consulta, str) or not consulta.strip():
             raise ErrorTienda("consulta vacia")
+        cantidad = self._entero(cantidad)
+        if cantidad < 1:
+            raise ErrorTienda("cantidad debe ser un entero positivo")
         k = min(max(self._entero(k if k is not None else self.k, "k"), 1), 10)
+        limite_unitario = None
         if precio_max is not None:
-            precio_max = self._numero(precio_max, "precio_max")
+            limite_unitario = int(round(self._numero(precio_max, "precio_max") * 100))
+
+        carrito = self._carrito()
+        total_actual = int(round(carrito["total"] * 100))
+        subtotales = {
+            item["product_id"]: int(round(item["subtotal"] * 100))
+            for item in carrito["items"]
+        }
         t0 = time.perf_counter()
-        idx = self.rec.buscar(consulta, k=30, metodo=self.metodo)
+        indices = self.rec.buscar(consulta, k=30, metodo=self.metodo)
         self.t_recuperacion += time.perf_counter() - t0
-        res = []
-        for i in idx:
-            f = self._ficha(self.rec.ids[i])
-            if precio_max is None or f["precio"] <= precio_max:
-                res.append({"posicion": len(res) + 1, **f})
-            if len(res) == k:
+        resultados, descartados = [], []
+        for indice in indices:
+            pid = self.rec.ids[indice]
+            ficha = self._ficha(pid)
+            producto = self.tienda.producto(pid)
+            precio_cent = producto["precio_cent"]
+            total_propuesto = total_actual - subtotales.get(pid, 0) + precio_cent * cantidad
+            motivos = []
+            if producto["stock"] < cantidad:
+                motivos.append("stock insuficiente")
+            if limite_unitario is not None and precio_cent > limite_unitario:
+                motivos.append("supera el precio unitario maximo")
+            presupuesto = self.estado.presupuesto_cent
+            if presupuesto is not None and total_propuesto > presupuesto:
+                motivos.append("supera el presupuesto total")
+            if motivos:
+                descartados.append({**ficha, "motivos": motivos})
+                continue
+            resultados.append({
+                "posicion": len(resultados) + 1, **ficha,
+                "cantidad_solicitada": cantidad,
+                "subtotal": euros(precio_cent * cantidad),
+                "total_carrito_propuesto": euros(total_propuesto),
+            })
+            if len(resultados) >= k:
                 break
-        self.estado.mostrados = res
-        return {"ok": True, "resultados": res,
-                "nota": "sin resultados con esos filtros" if not res else "precios unitarios en euros"}
+        self.estado.mostrados = resultados
+        return {
+            "ok": True, "resultados": resultados, "descartados": descartados[:3],
+            "nota": (
+                "Opciones compatibles con cantidad, stock y presupuesto."
+                if resultados else
+                "No hay opciones compatibles entre los candidatos recuperados. "
+                "Explica los motivos; pregunta si desea cambiar restricciones."
+            ),
+        }
 
     def ver_producto(self, product_id):
         self._existe(product_id)

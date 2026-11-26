@@ -8,34 +8,79 @@ TOOL_RE = re.compile(r"<tool_call>\s*(.*?)\s*</tool_call>", re.S)
 
 
 def _llamada(obj):
-    if not isinstance(obj, dict) or "name" not in obj:
+    """Convierte un objeto JSON valido al formato interno de herramientas."""
+    if not isinstance(obj, dict) or not isinstance(obj.get("name"), str):
         return None
+
     args = obj.get("arguments", obj.get("parameters", {}))
     if isinstance(args, str):
         try:
             args = json.loads(args) if args.strip() else {}
         except json.JSONDecodeError:
-            args = {"_crudo": args}
-    return {"nombre": obj["name"], "argumentos": args if isinstance(args, dict) else {}}
+            return None
+
+    if not isinstance(args, dict):
+        return None
+
+    return {"nombre": obj["name"], "argumentos": args}
 
 
 def analizar_salida(texto):
-    """Extrae llamadas <tool_call>{json}</tool_call>; si no hay, intenta un JSON suelto con 'name'."""
+    """Extrae llamadas formales; el JSON escrito como prosa se marca invalido."""
+    texto = texto or ""
     llamadas = []
-    for bloque in TOOL_RE.findall(texto):
+    bloques = TOOL_RE.findall(texto)
+
+    for bloque in bloques:
         try:
-            c = _llamada(json.loads(bloque))
+            llamada = _llamada(json.loads(bloque))
         except json.JSONDecodeError:
-            c = None
-        llamadas.append(c or {"nombre": "_invalida", "argumentos": {"_crudo": bloque[:200]}})
-    limpio = TOOL_RE.sub("", texto).replace("<tool_call>", "").strip()
-    if not llamadas and limpio.startswith("{"):
+            llamada = None
+
+        if llamada is None:
+            llamadas.append({
+                "nombre": "_invalida",
+                "argumentos": {"_crudo": bloque[:200]},
+            })
+        else:
+            llamadas.append(llamada)
+
+    limpio = TOOL_RE.sub("", texto).strip()
+
+    # Si quedó una etiqueta de llamada sin cierre, nunca tratarla como prosa.
+    if "<tool_call>" in limpio or "</tool_call>" in limpio:
+        llamadas.append({
+            "nombre": "_invalida",
+            "argumentos": {"_crudo": limpio[:200]},
+        })
+        limpio = ""
+
+    # Aceptar un objeto JSON solo cuando ocupa toda la salida.
+    # No se ejecuta JSON embebido en texto conversacional.
+    if not llamadas and limpio.startswith("{") and limpio.endswith("}"):
         try:
-            c = _llamada(json.loads(limpio))
-            if c:
-                llamadas, limpio = [c], ""
+            llamada = _llamada(json.loads(limpio))
         except json.JSONDecodeError:
-            pass
+            llamada = None
+        if llamada is not None:
+            llamadas = [llamada]
+            limpio = ""
+        elif '"name"' in limpio or '"arguments"' in limpio:
+            llamadas = [{
+                "nombre": "_invalida",
+                "argumentos": {"_crudo": limpio[:200]},
+            }]
+            limpio = ""
+
+    # Si el modelo imprimió una estructura de llamada dentro de una frase,
+    # marcarla como malformada y no dejarla pasar como respuesta al usuario.
+    if not llamadas and re.search(r'\{[^{}]{0,500}"name"\s*:', limpio):
+        llamadas.append({
+            "nombre": "_invalida",
+            "argumentos": {"_crudo": limpio[:200]},
+        })
+        limpio = ""
+
     return {"texto": limpio, "llamadas": llamadas, "crudo": texto}
 
 

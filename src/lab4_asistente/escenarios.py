@@ -210,6 +210,14 @@ def factibilidad(sis, escenarios=ESCENARIOS):
 
 def verificar(e, turnos, estado, sis):
     esp, fallos, inc = e["esperado"], [], []
+    for turno in turnos:
+        for evento in turno.get("eventos", []):
+            if not evento.get("aplicado"):
+                fallos.append(
+                    f"turno {turno['turno']}: evento no aplicado: "
+                    f"{evento.get('evento')}; "
+                    f"motivo: {evento.get('motivo', 'desconocido')}"
+                )
     pedidos = estado["pedidos"]
     items = pedidos[-1]["items"] if pedidos else []
     if "pedidos" in esp and len(pedidos) != esp["pedidos"]:
@@ -242,7 +250,7 @@ def verificar(e, turnos, estado, sis):
             fallos.append(f"turno {n}: no uso {nombres}")
     for n, frases in esp.get("respuesta_en", []):
         r = normalizar(turnos[n - 1]["respuesta"])
-        if not any(f in r for f in frases):
+        if not any(normalizar(f) in r for f in frases):
             fallos.append(f"turno {n}: la respuesta no menciona {frases[:3]}...")
     if esp.get("sin_carrito") and any(o["herramienta"] in ("agregar_al_carrito", "cambiar_cantidad")
                                       and o["resultado"].get("ok") for t in turnos for o in t["operaciones"]):
@@ -289,7 +297,7 @@ def ejecutar(e, sis, modo, carpeta, ruta_audios=None, asr=None, tts=None, sintet
             reg["transcripcion_asr"] = asr.transcribir(wav)
             tiempos["asr"] = time.perf_counter() - t0
             entrada = reg["transcripcion_asr"]
-            if t.get("revisar_transcripcion"):        # el usuario revisa y corrige antes de ejecutar
+            if t.get("revisar_transcripcion"):        # Simula una correccion usando el texto de referencia.
                 reg["correccion_usuario"] = t["texto"]
                 reg["correccion_necesaria"] = normalizar(entrada) != normalizar(t["texto"])
                 entrada = t["texto"]
