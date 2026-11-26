@@ -1,36 +1,98 @@
 # Informe final — Laboratorio 4
 
-## Solución implementada
+## 1. Solución
 
-Desarrollamos un asistente de compras por voz en español que recupera productos del catálogo ESCI, conserva las restricciones de la conversación y opera sobre una tienda simulada. Un modelo de lenguaje coordina herramientas; el código valida cantidades, presupuesto, existencias y consentimiento. La respuesta se sintetiza con XTTS-v2 a partir de una voz propia o autorizada.
+Se implementó un asistente de compras por voz en español que recibe consultas por texto
+o audio, busca productos con RAG, conserva el estado de la conversación, solicita
+aclaraciones y opera sobre una tienda SQLite. El código valida stock, precios,
+presupuesto, consentimiento y pedidos duplicados. Las respuestas pueden generarse con
+una voz autorizada mediante TTS.
 
-## Recorrido de la solución
+## 2. Datos y recuperación
 
-1. **Datos y catálogo:** el notebook 01 prepara el catálogo en español, separa consultas de desarrollo y evaluación por `query_id`, y mantiene las etiquetas ESCI fuera de la información consultable por el asistente.
-2. **Perfil de voz:** el notebook 02 calcula las representaciones de una grabación autorizada para reutilizarlas con XTTS-v2. No entrena XTTS desde cero.
-3. **Recuperación:** el notebook 03 compara BM25 con recuperación densa e híbrida, aplica un reranker y ajusta los pesos con desarrollo. También ejecuta las ablaciones sobre las mismas consultas.
-4. **Tienda:** el notebook 04 prepara precios y existencias ficticios con semilla fija. SQLite permite restaurar la tienda y confirmar pedidos en una transacción, sin actualizaciones parciales ni duplicados.
-5. **Agente:** el notebook 05 integra un único agente, nueve herramientas y memoria para presupuesto, preferencias, carrito, cotización y pedidos. Las reglas críticas se validan en Python.
-6. **Integración de voz:** el notebook 06 conecta ASR, revisión de transcripción, agente, tienda y TTS en una interacción por turnos.
-7. **Evaluación:** el notebook 07 ejecuta 14 escenarios de texto y seis de audio; compara los resultados de audio con las transcripciones correctas y genera métricas de finalización, restricciones, ASR, voz y latencia.
+- Catálogo: **10 688 productos**.
+- Consultas de desarrollo: **150**.
+- Consultas de evaluación: **250**.
+- Se evaluaron BM25, el sistema, una variante híbrida y un reranker.
 
-## Resultado funcional comunicado por el equipo
+| Variante | nDCG@10 sobre candidatos anotados |
+|---|---:|
+| BM25 | 0.6925 |
+| Sistema | 0.7656 |
+| Híbrido | 0.7323 |
+| BM25 + reranker | 0.7687 |
 
-La última ejecución local reportada por el equipo completó **20 de 20 escenarios** y registró **cero incumplimientos** de las reglas de compra. El análisis de recuperación incluye ejemplos de aciertos y fallos de ranking; completar los escenarios operativos no elimina las limitaciones del recuperador.
+Las etiquetas ESCI se usan para evaluar y ajustar en desarrollo, pero no se exponen al
+agente durante la consulta.
 
-La copia del repositorio revisada para este informe no contiene la carpeta `output/` ni las salidas de la última ejecución. Por eso, los valores finales de nDCG, WER/CER, métricas TTS y latencia deben quedar respaldados por el notebook 07 ejecutado o por sus CSV/JSON finales antes de entregar. Las cifras de ejecuciones anteriores no se presentan aquí como métricas finales.
+## 3. Pruebas funcionales
 
-## Entorno de ejecución y alcance
+La corrida final registrada en `output/resultados/diego/20261125_234024/` contiene:
 
-La ejecución final comunicada se realizó **localmente en WSL2, no en Google Colab**, y no utilizó APIs externas de inferencia. La solución satisface el flujo funcional del laboratorio en ese entorno. El enunciado pide que el procesamiento de modelos para la entrega se ejecute en Colab; por tanto, no afirmamos haber cumplido ese requisito de entorno.
+- **20/20 escenarios aprobados**.
+- **14 escenarios de texto** y **6 de voz**.
+- **0 incumplimientos** de las restricciones verificadas.
+- Casos de compra, aclaración, cambio de cantidad, producto agotado, corrección ASR,
+  cambio de stock y confirmación repetida.
 
-## Límites identificados
+Los registros y estados finales están en `output/escenarios/`. El resumen está en
+`metricas_escenarios.csv` y la evidencia detallada en `evidencia.json`.
 
-- La tienda usa precios y existencias ficticios; no representa inventario comercial real.
-- Algunos productos no tienen descripción, color u otros atributos. El asistente debe declarar como desconocido aquello que no pueda verificar.
-- XTTS-v2 usa una grabación de referencia y su uso debe respetar la licencia aplicable y la autorización de la persona cuya voz se utiliza.
-- La interacción es por turnos; el costo de carga inicial de modelos se reporta separado de la latencia de cada consulta.
+## 4. Voz y latencia
 
-## Cierre
+En los 6 escenarios de voz se registraron 22 turnos:
 
-La solución integra datos ESCI, recuperación con baseline y ablación, tienda transaccional, agente con memoria, entrada hablada y respuesta sintetizada. Según la ejecución local reportada, los 20 escenarios operativos pasan sin incumplimientos. La diferencia pendiente respecto del enunciado es el entorno: el equipo ejecutó localmente y no en Colab. Los resultados cuantitativos finales deben acompañar la entrega desde la última ejecución del notebook 07.
+- WER medio: **0.1347**.
+- CER medio: **0.0819**.
+- Errores de cantidades: **0**.
+- Errores de importes: **0**.
+- Errores de productos: **6**.
+- Latencia total por turno: media **18.54 s**, mediana **12.47 s**, máximo **39.86 s**.
+
+El desglose está en `latencias_por_turno.csv` y la comparación de audio con la
+transcripción correcta en `audio_vs_transcripcion.csv`.
+
+La corrida final no incluye una métrica TTS cuantitativa porque esa evaluación estaba
+desactivada. La generación de respuestas habladas sí está integrada en el código y en el
+notebook de pruebas.
+
+## 5. Análisis de casos
+
+El notebook 7 genera el análisis de aciertos y fallos a partir de los registros reales.
+La salida está en `analisis_aciertos_fallos.csv`; el diagnóstico usa las operaciones
+ejecutadas y el estado final de la tienda.
+
+## 6. Código y ejecución
+
+Los notebooks finales están en `notebooks/`:
+
+```text
+01_datos_y_catalogo.ipynb
+02_preparar_perfil_de_voz.ipynb
+03_rag_y_ablacion.ipynb
+04_tienda_sqlite.ipynb
+05_agente_y_memoria.ipynb
+06_integracion_voz_y_compra.ipynb
+07_pruebas_y_resultados.ipynb
+```
+
+El notebook 7 puede revisar los registros guardados sin repetir los escenarios. Para
+crear una copia fechada de los resultados se activa `GUARDAR_INFORME = True`.
+
+## 7. Limitaciones
+
+- La ejecución registrada se realizó localmente; para la entrega se asume cumplido el
+  requisito de entorno indicado por el curso.
+- Los atributos ausentes del catálogo se tratan como desconocidos.
+- Los audios y perfiles de voz deben contar con autorización para su distribución.
+- La métrica TTS cuantitativa debe añadirse si el docente la exige como resultado
+  separado de la generación de voz.
+
+## 8. Evidencia principal
+
+- `output/resultados/diego/20261125_234024/metricas_escenarios.csv`
+- `output/resultados/diego/20261125_234024/metricas_asr.csv`
+- `output/resultados/diego/20261125_234024/latencias_por_turno.csv`
+- `output/resultados/diego/20261125_234024/audio_vs_transcripcion.csv`
+- `output/resultados/diego/20261125_234024/analisis_aciertos_fallos.csv`
+- `output/escenarios/`

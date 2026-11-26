@@ -63,4 +63,4 @@ El equipo informa que la última ejecución local completó los 20 escenarios (1
 
 El notebook 03 guarda los parámetros ajustados solo en desarrollo y reporta nDCG@10 de BM25, sistema completo y ablaciones con las mismas consultas de evaluación. El notebook 07 produce porcentaje de escenarios completados, incumplimientos, WER/CER y errores de entidades ASR, comparación con transcripción correcta, inteligibilidad/semejanza TTS, latencias por etapa y carga inicial separada. También genera cinco aciertos y cinco fallos con el diagnóstico del verificador y operaciones como evidencia.
 
-Los archivos generados quedan en `output/resultados/` y `output/escenarios/`; no se incluyen en el commit ni se deben completar con resultados históricos. La matriz de trazabilidad está en [`docs/LAB4_MODULAR_ALINEACION.md`](docs/LAB4_MODULAR_ALINEACION.md).
+El informe final y la evidencia de la corrida aprobada están en [`docs/INFORME_FINAL_LAB4.md`](docs/INFORME_FINAL_LAB4.md). Los resultados se conservan en `output/resultados/` y `output/escenarios/`.
